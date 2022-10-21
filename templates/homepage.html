@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <div class="video-wrapper">
+        <video id="background-video" autoplay muted loop poster="">
+            <source src="/static/guitar.mp4" type="video/mp4">
+        </video>
+        <!-- Overlayed on video. -->
+        <div id="homepage-options">
+            <button id="homepage-button">Sign Up</button>
+            <br>
+            <button id="homepage-button">Login</button>
+        </div>
+    </div>
+</body>
+{% endblock %}

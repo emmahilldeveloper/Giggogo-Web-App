@@ -3,7 +3,7 @@
 
 /* Navigation Bar Styling */
 
-.topnav {
+/* .topnav {
     background-color: #FFBE00;
     overflow: hidden;
 }
@@ -36,7 +36,7 @@
 .topnav a.active {
     background-color: orange;
     color: rgb(97, 91, 91);
-}
+} */
 
 /* Homepage Styling */
 
@@ -52,13 +52,13 @@
     z-index: -1;
   }
 
-#homepage-button {
+.homepage-button {
     padding: 10px;
     background-color: white;
     opacity: 0.6;
 }
 
-#homepage-button:hover {
+.homepage-button:hover {
     opacity: 1;
 }
 

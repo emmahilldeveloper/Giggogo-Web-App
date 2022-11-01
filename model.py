@@ -139,7 +139,7 @@ class Venue_Genre(db.Model):
     def __repr__(self):
         return f'<Venue_Genre venue_genre_id = { self.venue_genre_id } venue_id = { self.venue_id } genre_id = { self.genre_id }>'
 
-def connect_to_db(flask_app, db_uri="postgresql:///giggogo", echo=True):
+def connect_to_db(flask_app, db_uri="postgresql:///giggogo", echo=False):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
     flask_app.config["SQLALCHEMY_ECHO"] = echo
     flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -151,3 +151,11 @@ if __name__ == "__main__":
     from server import app
 
     connect_to_db(app)
+
+# >>> first_band = Band.query.first();
+# >>> first_band.band_genres;
+# [<Band_Genre band_genre_id = 1 band_id = 1 genre_id = 3>]
+# >>> first_band.band_genres[0]
+# <Band_Genre band_genre_id = 1 band_id = 1 genre_id = 3>
+# >>> first_band.band_genres[0].genre
+# <Genre genre_id = 3 genre_name = Hard Rock>

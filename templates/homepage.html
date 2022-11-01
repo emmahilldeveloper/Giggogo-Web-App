@@ -1,16 +1,23 @@
 {% extends 'base.html' %}
-{% block content %}
+{% block title %} Home {% endblock %}
+{% block body %}
+
+
+
+<!-- Body starts here. -->
 <body>
     <div class="video-wrapper">
-        <video id="background-video" autoplay muted loop poster="">
-            <source src="/static/guitar.mp4" type="video/mp4">
+        <!-- <video id="background-video" autoplay muted loop poster="">
+            <source src="/static/guitar.mp4" type="video/mp4"> -->
         </video>
         <!-- Overlayed on video. -->
         <div id="homepage-options">
-            <button id="homepage-button">Sign Up</button>
+            <button class=homepage-button id="homepage-signup-button">Sign Up</button>
             <br>
-            <button id="homepage-button">Login</button>
+            <button class=homepage-button id="homepage-login-button">Log In</button>
         </div>
     </div>
+    <!-- Javascript files imported here. -->
+    <script src="/static/js/homepage.js"></script>
 </body>
 {% endblock %}

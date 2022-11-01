@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-</head>
-<section>
-    <link rel="stylesheet" href="/static/styles.css">
-    <div class="topnav">
-        <img src="/static/SquareLogo500px.png" alt="Giggogo Logo">
-        <a href="login">Login</a>
-        <a href="newuser">Create a User</a>
-    </div>
-</section>
-<body>
-    {% block content %}
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+        {% block head %}{% endblock %}
+    </head>
+    <!-- <section>
+        <link rel="stylesheet" href="/static/styles.css">
+        <div class="topnav">
+            <img src="/static/SquareLogo500px.png" alt="Giggogo Logo">
+            <a href="login">Login</a>
+            <a href="newuser">Create a User</a>
+        </div>
+    </section> -->
+    <body>
+    {% block body %}
     {% endblock %}
-</body>
+    </body>
 </html>

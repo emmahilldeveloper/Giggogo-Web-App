@@ -2,11 +2,11 @@
 
 from model import User, Genre, Band, Venue, Gig, Band_Genre, Venue_Genre, connect_to_db
 
-def create_user(first_name, last_name, email, password, band_id, venue_id):
+def create_user(first_name, last_name, email, password, band_id, venue_id, profile_photo):
     """Create and return a new user."""
 
     user = User(first_name = first_name, last_name = last_name, 
-                email = email, password = password, band_id = band_id, venue_id = venue_id)
+                email = email, password = password, band_id = band_id, venue_id = venue_id, profile_photo = profile_photo)
 
     return user
 
@@ -26,9 +26,9 @@ def create_venue(venue_name, venue_phone, venue_address, venue_payrate, venue_lo
 
     return venue
 
-def create_gig(venue_id, band_id, gig_date, gig_time, final_payrate, gig_complete, gig_paid):
+def create_gig(venue_id, band_id, gig_date, final_payrate, gig_complete, gig_paid):
 
-    gig = Gig(venue_id = venue_id, band_id = band_id, gig_date = gig_date, gig_time = gig_time, final_payrate = final_payrate, gig_complete = gig_complete, gig_paid = gig_paid)
+    gig = Gig(venue_id = venue_id, band_id = band_id, gig_date = gig_date, final_payrate = final_payrate, gig_complete = gig_complete, gig_paid = gig_paid)
 
     return gig
 

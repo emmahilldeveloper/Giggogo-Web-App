@@ -1,0 +1,47 @@
+[
+    {
+        "first_name": "Mick",
+        "last_name": "Jagger",
+        "email": "mickjagger@gmail.com",
+        "password": "123abc",
+        "band_id": 1,
+        "venue_id": null,
+        "profile_photo": "https://www.biography.com/.image/t_share/MTQxODY2MzM4OTA0NzEyNDk4/mick-jagger_gettyimages-56429349jpg.jpg"
+    },
+    {
+        "first_name": "Keith",
+        "last_name": "Richards",
+        "email": "keithrichards@gmail.com",
+        "password": "123abc",
+        "band_id": 1,
+        "venue_id": null,
+        "profile_photo": "https://i.scdn.co/image/a13eee07307adc70fe177f0fa73e935cb909afe6"
+    },
+    {
+        "first_name": "Ronnie",
+        "last_name": "Wood",
+        "email": "ronniewood@gmail.com",
+        "password": "123abc",
+        "band_id": 1,
+        "venue_id": null,
+        "profile_photo": "https://pbs.twimg.com/profile_images/1402545395021058050/wICS3-bw_400x400.jpg"
+    },
+    {
+        "first_name": "Charlie",
+        "last_name": "Watts",
+        "email": "charliewatts@gmail.com",
+        "password": "123abc",
+        "band_id": 1,
+        "venue_id": null,
+        "profile_photo": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Charle-Watts-1965_%28cropped%29.jpg"
+    },
+    {
+        "first_name": "James",
+        "last_name": "Dolan",
+        "email": "jamesdolan@gmail.com",
+        "password": "123abc",
+        "band_id": null,
+        "venue_id": 1,
+        "profile_photo": "https://www.msgsports.com/wp-content/uploads/2021/09/JamesDolan-web-1.jpg"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "venue_id": "1",
+        "band_id": "1",
+        "gig_date": "2022-04-18T18:00:00.000Z",
+        "final_payrate": 1000000,
+        "gig_complete": true,
+        "gig_paid": true
+    }
+]

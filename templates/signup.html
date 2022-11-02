@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block body %}
+<body>
+    <form action="/signup" method="POST" class="signup-form" name="signup-form">
+        <!-- Profile Photo -->
+        <!-- <div class="profile-photo">
+            <img name="profile-photo" id="profile-photo" src="http://www.clker.com/cliparts/2/2/q/u/g/n/guitar-silhouette-black-c-hi.png">
+            <input id="profile-photo-file" type="file" name="signup-profile-photo">
+            <label for="profile-photo-file" id="profile-photo-upload-button">Upload Photo</label>
+        </div> -->
+
+        <!-- User Details -->
+        <p>
+            <p><input type="text" name="signup-first-name" placeholder="First Name"/></p>
+            <p><input type="text" name="signup-last-name" placeholder="Last Name"/></p>
+            <p><input type="text" name="signup-email" placeholder="Email"/></p>
+            <p><input type="password" name="signup-password" placeholder="Password"/></p>
+        </p>
+
+        <!-- Band vs. Venue User Type -->
+        <div>Who are you?</div>
+            <p>
+                <input type="radio" value="Band" id="signup-user-type-band" name="signup-user-type">Band</option>
+                <input type="radio" value="Venue" id="signup-user-type-venue" name="signup-user-type">Venue</option>
+            </p>
+
+        <!-- Band Dropdown -->
+        <div id="search-div-band" style="display:none">Search for your band:</div>
+            <select id="band-dropdown" name="band-dropdown" style="display:none">
+                {% for band in bands %}
+                <option value="{{ band.band_id }}"> {{ band.band_name }} </option>
+                {% endfor %}
+            </select>
+        <br>
+        <div id="or-band" style="display:none">OR</div>
+        <div id="create-band-div" style="display:none">Create a band:</div>
+            <p><input style="display:none" type="text" id="create-band-name" name="create-band-name" placeholder="Band Name"/></p>
+            <p><input style="display:none" type="text" id="create-band-phone" name="create-band-phone" placeholder="Main Phone Number"/></p>
+            <p><input style="display:none" type="text" id="create-band-payrate" name="create-band-payrate" placeholder="$ Rate per Hour"/></p>
+            <p><input style="display:none" type="file" id="create-band-logo" name="create-band-logo" /></p>
+
+        <!-- Venue Dropdown -->
+        <div id="search-div-venue" style="display:none">Search for your venue:</div>
+            <select id="venue-dropdown" name="venue-dropdown" style="display:none">
+            {% for venue in venues %}
+            <option value="{{ venue.venue_id }}"> {{ venue.venue_name }} </option>
+            {% endfor %}
+            </select>
+        <br>
+        <div id="or-venue" style="display:none">OR</div>
+        <div id="create-venue-div" style="display:none">Create a venue:</div>
+            <p><input style="display:none" type="text" id="create-venue-name" name="create-venue-name" placeholder="Venue Name"/></p>
+            <p><input style="display:none" type="text" id="create-venue-phone" name="create-venue-phone" placeholder="Main Phone Number"/></p>
+            <p><input style="display:none" type="text" id="create-venue-payrate" name="create-venue-payrate" placeholder="$ Pay per Hour"/></p>
+            <p><input style="display:none" type="text" id="create-venue-address" name="create-venue-address" placeholder="Venue Address"/></p>
+            <p><input style="display:none" type="file" id="create-venue-logo" name="create-venue-logo" /></p>
+
+        <p>
+            <button type="submit">Create Account</button>
+        </p>
+    </form>
+    <script src="/static/js/signup.js"></script>
+</body>
+{% endblock %}

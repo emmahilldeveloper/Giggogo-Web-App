@@ -1,42 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 
+/* Giggogo app theme. */
 
-/* Navigation Bar Styling */
-
-/* .topnav {
-    background-color: #FFBE00;
-    overflow: hidden;
-}
-
-.topnav img {
-    float: left;
+.theme-style {
+    background-color:#FFBE00;
     text-align: center;
-    height: 100px;
-    width: 100px;
 }
-
-.topnav a {
-    float: left;
-    font-family: 'Inter', 'sans-serif';
-    color: black;
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-right: 20px;
-    padding-left: 20px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.topnav a:hover {
-    background-color: orange;
-    color: rgb(97, 91, 91);
-}
-
-.topnav a.active {
-    background-color: orange;
-    color: rgb(97, 91, 91);
-} */
 
 /* Homepage Styling */
 
@@ -52,22 +21,40 @@
     z-index: -1;
   }
 
-.homepage-button {
-    padding: 10px;
-    background-color: white;
-    opacity: 0.6;
+/* Sign Up Page Styling */
+
+#profile-photo {
+    height: 100%;
+    width: 120%;
 }
 
-.homepage-button:hover {
-    opacity: 1;
-}
-
-#homepage-options {
-    text-align: center;
+.profile-photo {
+    height: 200px;
+    width: 200px;
     position: absolute;
-    margin: 0;
     top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px dashed black;
 }
 
+#profile-photo-file {
+    display: none;
+}
+
+#profile-photo-upload-button {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    line-height: 30px;
+    background: white;
+    opacity: 50%;
+    cursor: pointer;
+    /* display: none; */
+}

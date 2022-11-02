@@ -151,11 +151,3 @@ if __name__ == "__main__":
     from server import app
 
     connect_to_db(app)
-
-# >>> first_band = Band.query.first();
-# >>> first_band.band_genres;
-# [<Band_Genre band_genre_id = 1 band_id = 1 genre_id = 3>]
-# >>> first_band.band_genres[0]
-# <Band_Genre band_genre_id = 1 band_id = 1 genre_id = 3>
-# >>> first_band.band_genres[0].genre
-# <Genre genre_id = 3 genre_name = Hard Rock>

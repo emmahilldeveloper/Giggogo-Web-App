@@ -7,5 +7,32 @@
         "venue_logo": "https://img.msg.com/wp-content/uploads/2017/07/msg-1.jpg?w=250",
         "venue_photo": "https://img.msg.com/wp-content/uploads/2017/07/MSG21_MSG_Getting-There_v2.jpg?w=500",
         "venue_video": "https://www.youtube.com/watch?v=JH0mRtxo07w"
+    },
+    {
+        "venue_name": "Target Center",
+        "venue_phone": "123-4567",
+        "venue_address": "600 N 1st Ave, Minneapolis, MN 55403",
+        "venue_payrate": 900000,
+        "venue_logo": "https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w",
+        "venue_photo": "",
+        "venue_video": ""
+    },
+    {
+        "venue_name": "First Avenue",
+        "venue_phone": "123-4567",
+        "venue_address": "701 N 1st Ave, Minneapolis, MN 55403",
+        "venue_payrate": 100000,
+        "venue_logo": "",
+        "venue_photo": "",
+        "venue_video": ""
+    },
+    {
+        "venue_name": "Orpheum Theatre",
+        "venue_phone": "123-4567",
+        "venue_address": "910 Hennepin Ave, Minneapolis, MN 55403",
+        "venue_payrate": 300000,
+        "venue_logo": "",
+        "venue_photo": "",
+        "venue_video": ""
     }
 ]

@@ -6,5 +6,29 @@
         "band_logo": "https://st3.depositphotos.com/5572200/12714/i/450/depositphotos_127142614-stock-photo-the-rolling-stones-logo.jpg",
         "band_photo": "https://media.pitchfork.com/photos/5cb9f730c0d4212dc70e28da/16:9/w_1280,c_limit/The-Rolling-Stones.jpg",
         "band_video": "https://youtu.be/Jwtyn-L-2gQ"
+    },
+    {
+        "band_name": "Fleetwood Mac",
+        "band_phone": "123-4567",
+        "band_payrate": 800000,
+        "band_logo": "",
+        "band_photo": "",
+        "band_video": ""
+    },
+    {
+        "band_name": "John Mayer",
+        "band_phone": "123-4567",
+        "band_payrate": 500000,
+        "band_logo": "",
+        "band_photo": "",
+        "band_video": ""
+    },
+    {
+        "band_name": "Ted Nugent",
+        "band_phone": "123-4567",
+        "band_payrate": 100000,
+        "band_logo": "",
+        "band_photo": "",
+        "band_video": ""
     }
 ]

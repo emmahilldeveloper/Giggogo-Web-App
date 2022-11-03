@@ -1,8 +1,10 @@
 """CRUD operations for Giggogo app."""
 
+from re import A
 from model import User, Genre, Band, Venue, Gig, Band_Genre, Venue_Genre, connect_to_db, db
 
 ####### Functions to seed Giggogo database. #######
+
 def create_user(first_name, last_name, email, password, band_id, venue_id, profile_photo):
     """Create and return a new user."""
     user = User(first_name = first_name, last_name = last_name, 
@@ -65,6 +67,20 @@ def search_users_by_password(password):
     else:
         return False
 
+def search_for_user_type(email):
+    """Will return a Boolean answer to if the user-entered
+        password is equivalent to a password already in the db."""
+
+    user_info = User.query.all()
+
+    for user in user_info:
+        if user.email == email:
+            band_id = user.band_id
+            if band_id == None:
+                venue_id = user.venue_id
+                return "Venue" #venue_id
+            return "Band" #band_id
+
 def all_bands():
     """Will return all bands."""
 
@@ -74,6 +90,13 @@ def all_venues():
     """Will return all venues."""
 
     return Venue.query.all()
+
+####### Functions for profile page #######
+
+def all_users():
+    """Will return all users."""
+
+    return User.query.all()
 
 if __name__ == '__main__':
     from server import app

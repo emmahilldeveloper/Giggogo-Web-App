@@ -17,14 +17,14 @@ class User(db.Model):
     password = db.Column(db.String, nullable = False)
     band_id = db.Column(db.Integer, db.ForeignKey("bands.band_id"))
     venue_id = db.Column(db.Integer, db.ForeignKey("venues.venue_id"))
-    profile_photo = db.Column(db.String, unique = True, nullable = True)
+    profile_photo = db.Column(db.String, unique = False, nullable = True)
 
     #foreign keys used by "users" table
     bands = db.relationship("Band", back_populates = "users")
     venue = db.relationship("Venue", back_populates = "users")
 
     def __repr__(self):
-        return f'<User user_id = { self.user_id } email = { self.email }>'
+        return f'<User user_id = { self.user_id } band_id = { self.band_id } venue_id = { self.venue_id } email = { self.email }>'
 
 class Genre(db.Model):
     """Table for possible genres."""
@@ -70,7 +70,7 @@ class Band(db.Model):
 
     band_id = db.Column(db.Integer, autoincrement = True, primary_key = True)
     band_name = db.Column(db.String, unique = True, nullable = False)
-    band_phone = db.Column(db.String, unique = True, nullable = False)
+    band_phone = db.Column(db.String, unique = False, nullable = False)
     band_payrate = db.Column(db.Integer, nullable = True)
     band_logo = db.Column(db.Text, nullable = True)
     band_photo = db.Column(db.Text, nullable = True)
@@ -109,7 +109,7 @@ class Venue(db.Model):
 
     venue_id = db.Column(db.Integer, autoincrement = True, primary_key = True)
     venue_name = db.Column(db.String, unique = True, nullable = False)
-    venue_phone = db.Column(db.String, unique = True, nullable = False)
+    venue_phone = db.Column(db.String, unique = False, nullable = False)
     venue_address = db.Column(db.Text, unique = True, nullable = False)
     venue_payrate = db.Column(db.Integer, nullable = True)
     venue_logo = db.Column(db.Text, nullable = True)

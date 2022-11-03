@@ -10,23 +10,57 @@
         </div> -->
 
         <!-- User Details -->
-        <p>
-            <p><input type="text" name="signup-first-name" placeholder="First Name"/></p>
-            <p><input type="text" name="signup-last-name" placeholder="Last Name"/></p>
-            <p><input type="text" name="signup-email" placeholder="Email"/></p>
-            <p><input type="password" name="signup-password" placeholder="Password"/></p>
-        </p>
+        <div class="container">
+            <div class="row">
+                <div class="col-5 col-md-3 order-md-1">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="floatingInput" type="text" name="signup-first-name" placeholder="First Name"/>
+                        <label for="floatingInput">First Name</label>
+                    </div>
+                </div>
+                <div class="col-5 col-md-3 order-md-1">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="floatingInput" type="text" name="signup-last-name" placeholder="Last Name"/>
+                        <label for="floatingInput">Last Name</label>
+                    </div>
+                </div>
+                <div class="ccol-5 col-md-3 order-md-1">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="floatingInput" type="email" name="signup-email" placeholder="Email"/>
+                        <label for="floatingInput">Email</label>
+                    </div>
+                </div>
+                <div class="col-5 col-md-3 order-md-1">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="floatingInput" type="password" name="signup-password" placeholder="Password"/>
+                        <label for="floatingInput">Password</label>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Band vs. Venue User Type -->
         <div>Who are you?</div>
-            <p>
-                <input type="radio" value="Band" id="signup-user-type-band" name="signup-user-type">Band</option>
-                <input type="radio" value="Venue" id="signup-user-type-venue" name="signup-user-type">Venue</option>
-            </p>
+        <div class="container">
+            <div class="row">
+                <div class="col-5 col-md-3 order-md-1">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="Band" id="signup-user-type-band" name="signup-user-type"/>
+                        <label class="form-check-label" for="signup-user-type">Band</label>
+                    </div>
+                <div class="col-5 col-md-3 order-md-1">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="Venue" id="signup-user-type-venue" name="signup-user-type" />
+                        <label class="form-check-label" for="signup-user-type">Venue</label>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Band Dropdown -->
         <div id="search-div-band" style="display:none">Search for your band:</div>
             <select id="band-dropdown" name="band-dropdown" style="display:none">
+                <option disabled selected>Search for bands</option>
                 {% for band in bands %}
                 <option value="{{ band.band_id }}"> {{ band.band_name }} </option>
                 {% endfor %}
@@ -42,9 +76,10 @@
         <!-- Venue Dropdown -->
         <div id="search-div-venue" style="display:none">Search for your venue:</div>
             <select id="venue-dropdown" name="venue-dropdown" style="display:none">
-            {% for venue in venues %}
-            <option value="{{ venue.venue_id }}"> {{ venue.venue_name }} </option>
-            {% endfor %}
+                <option disabled selected>Search for venues</option>
+                {% for venue in venues %}
+                <option value="{{ venue.venue_id }}"> {{ venue.venue_name }} </option>
+                {% endfor %}
             </select>
         <br>
         <div id="or-venue" style="display:none">OR</div>

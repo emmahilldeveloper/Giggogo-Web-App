@@ -26,29 +26,30 @@ def sign_up():
         user_type = request.form.get("signup-user-type")
 
         user_check = crud.search_users_by_email(email)
+        print(user_check)
 
         if user_check == True:
-            flash("ERROR: An account already exists with that email. Please login.")
-            return redirect("/")
+            flash("ERROR: An account already exists with that email. Please login.", category='danger')
+            return redirect("/login")
         else:
             if user_type == "Band":
-                band_id = user_type
+                band_id = request.form.get("band-dropdown")
                 venue_id = None
 
                 user = crud.create_user(first_name, last_name, email, password, band_id, venue_id, profile_photo)
                 db.session.add(user)
                 db.session.commit()
-                flash("Let's Rock!")
+                flash("SUCCESS: Let's Rock!", category='success')
                 return redirect("/profile")
 
             else:
                 band_id = None
-                venue_id = user_type
+                venue_id = request.form.get("venue-dropdown")
 
                 user = crud.create_user(first_name, last_name, email, password, band_id, venue_id, profile_photo)
                 db.session.add(user)
                 db.session.commit()
-                flash("Let's Rock!")
+                flash("SUCCESS: Let's Rock!", category='success')
                 return redirect("/profile")
 
     else:
@@ -68,9 +69,10 @@ def login():
         user_password = crud.search_users_by_password(password)
 
         if user_email and user_password == True:
+            flash("SUCCESS: Let's Rock!", category='success')
             return redirect("profile")
         else:
-            flash("ERROR: Incorrect credentials. Try again.") #not working. ask about it
+            flash("ERROR: Incorrect credentials. Try again.", category='danger')
             return render_template("login.html")
     else:
         return render_template("login.html")

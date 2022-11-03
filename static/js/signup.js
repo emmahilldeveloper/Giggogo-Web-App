@@ -57,7 +57,6 @@ radioBand.addEventListener("click", () => {
 })
 
 
-
 /////// Venue Radio Button Functionality ///////
 
 let radioVenue = document.getElementById("signup-user-type-venue");
@@ -85,5 +84,3 @@ radioVenue.addEventListener("click", () => {
     document.getElementById("venue-dropdown").style.display = "";
     document.getElementById("band-dropdown").style.display = "none";
 })
-
-

@@ -51,27 +51,19 @@ def search_users_by_email(email):
     """Will return a Boolean answer to if the user-entered
         email is equivalent to an email already in the db."""
 
-    entered_email = email
-    email_in_db = db.session.query(User.email == entered_email).first()
-    email_in_db_str = str(email_in_db)
-
-    if email_in_db_str == "(False,)":
-        return False
-    else:
+    if User.query.filter(User.email == email).first():
         return True
+    else:
+        return False
 
 def search_users_by_password(password):
     """Will return a Boolean answer to if the user-entered
         password is equivalent to a password already in the db."""
 
-    entered_password = password
-    password_in_db = db.session.query(User.password == entered_password).first()
-    password_in_db_str = str(password_in_db)
-
-    if password_in_db_str == "(False,)":
-        return False
-    else:
+    if User.query.filter(User.password == password).first():
         return True
+    else:
+        return False
 
 def all_bands():
     """Will return all bands."""

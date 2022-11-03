@@ -28,6 +28,13 @@ def login():
         user_email = crud.search_users_by_email(email)
         user_password = crud.search_users_by_password(password)
 
+        if 'user' in session: 
+            email = request.form.get("email") 
+            user_id = crud.search_user_by_id(email) 
+            session['user'] = user_id # 
+        else: 
+            user_id = session['user'] = {}
+
         if user_email and user_password == True:
             if crud.search_for_user_type(email) == 'Band':
                 return redirect("/bandprofile")
@@ -90,6 +97,9 @@ def band_profile():
 
     bands = crud.all_bands()
     users = crud.all_users()
+
+    user_id = session.get("user")
+    print(user_id) #this is empty
 
     return render_template("bandprofile.html", bands = bands, users = users)
 

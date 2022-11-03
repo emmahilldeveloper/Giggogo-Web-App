@@ -77,9 +77,8 @@ def search_for_user_type(email):
         if user.email == email:
             band_id = user.band_id
             if band_id == None:
-                venue_id = user.venue_id
-                return "Venue" #venue_id
-            return "Band" #band_id
+                return "Venue"
+            return "Band"
 
 def all_bands():
     """Will return all bands."""
@@ -97,6 +96,13 @@ def all_users():
     """Will return all users."""
 
     return User.query.all()
+
+def search_user_by_id(email):
+    """Will get a user's ID by their email."""
+
+    user = User.query.filter(User.email == email).first()
+
+    return user.user_id
 
 if __name__ == '__main__':
     from server import app

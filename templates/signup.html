@@ -1,97 +1,97 @@
 {% extends 'base.html' %}
 {% block body %}
 <body>
-    <form action="/signup" method="POST" class="signup-form" name="signup-form">
-        <!-- Profile Photo -->
-        <div class="profile-photo">
-            <input id="profile-photo-file" type="file" name="signup-profile-photo">
-        </div>
+  <form action="/signup" method="POST" class="signup-form" name="signup-form">
+      <!-- Profile Photo -->
+      <div class="profile-photo">
+          <input id="profile-photo-file" type="file" name="signup-profile-photo">
+      </div>
 
-        <!-- User Details -->
-        <div class="container">
-            <div class="row">
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="floatingInput" type="text" name="signup-first-name" placeholder="First Name"/>
-                        <label for="floatingInput">First Name</label>
-                    </div>
-                </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="floatingInput" type="text" name="signup-last-name" placeholder="Last Name"/>
-                        <label for="floatingInput">Last Name</label>
-                    </div>
-                </div>
-                <div class="ccol-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="floatingInput" type="email" name="signup-email" placeholder="Email"/>
-                        <label for="floatingInput">Email</label>
-                    </div>
-                </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="floatingInput" type="password" name="signup-password" placeholder="Password"/>
-                        <label for="floatingInput">Password</label>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <!-- User Details -->
+      <div class="container">
+          <div class="row">
+              <div class="col-5 col-md-3 order-md-1">
+                  <div class="form-floating mb-3">
+                      <input class="form-control" id="floatingInput" type="text" name="signup-first-name" placeholder="First Name"/>
+                      <label for="floatingInput">First Name</label>
+                  </div>
+              </div>
+              <div class="col-5 col-md-3 order-md-1">
+                  <div class="form-floating mb-3">
+                      <input class="form-control" id="floatingInput" type="text" name="signup-last-name" placeholder="Last Name"/>
+                      <label for="floatingInput">Last Name</label>
+                  </div>
+              </div>
+              <div class="ccol-5 col-md-3 order-md-1">
+                  <div class="form-floating mb-3">
+                      <input class="form-control" id="floatingInput" type="email" name="signup-email" placeholder="Email"/>
+                      <label for="floatingInput">Email</label>
+                  </div>
+              </div>
+              <div class="col-5 col-md-3 order-md-1">
+                  <div class="form-floating mb-3">
+                      <input class="form-control" id="floatingInput" type="password" name="signup-password" placeholder="Password"/>
+                      <label for="floatingInput">Password</label>
+                  </div>
+              </div>
+          </div>
+      </div>
 
-        <!-- Band vs. Venue User Type -->
-        <div>Who are you?</div>
-        <div class="container">
-            <div class="row">
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="Band" id="signup-user-type-band" name="signup-user-type"/>
-                        <label class="form-check-label" for="signup-user-type">Band</label>
-                    </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="Venue" id="signup-user-type-venue" name="signup-user-type" />
-                        <label class="form-check-label" for="signup-user-type">Venue</label>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <!-- Band vs. Venue User Type -->
+      <div>Who are you?</div>
+      <div class="container">
+          <div class="row">
+              <div class="col-5 col-md-3 order-md-1">
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" value="Band" id="signup-user-type-band" name="signup-user-type"/>
+                      <label class="form-check-label" for="signup-user-type">Band</label>
+                  </div>
+              <div class="col-5 col-md-3 order-md-1">
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" value="Venue" id="signup-user-type-venue" name="signup-user-type" />
+                      <label class="form-check-label" for="signup-user-type">Venue</label>
+                  </div>
+              </div>
+          </div>
+      </div>
 
-        <!-- Band Dropdown -->
-        <div id="search-div-band" style="display:none">Search for your band:</div>
-            <select id="band-dropdown" name="band-dropdown" style="display:none">
-                <option disabled selected>Search for bands</option>
-                {% for band in bands %}
-                <option value="{{ band.band_id }}"> {{ band.band_name }} </option>
-                {% endfor %}
-            </select>
-        <br>
-        <div id="or-band" style="display:none">OR</div>
-        <div id="create-band-div" style="display:none">Create a band:</div>
-            <p><input style="display:none" type="text" id="create-band-name" name="create-band-name" placeholder="Band Name"/></p>
-            <p><input style="display:none" type="text" id="create-band-phone" name="create-band-phone" placeholder="Main Phone Number"/></p>
-            <p><input style="display:none" type="text" id="create-band-payrate" name="create-band-payrate" placeholder="$ Rate per Hour"/></p>
-            <p><input style="display:none" type="file" id="create-band-logo" name="create-band-logo" /></p>
+      <!-- Band Dropdown -->
+      <div id="search-div-band" style="display:none">Search for your band:</div>
+          <select id="band-dropdown" name="band-dropdown" style="display:none">
+              <option disabled selected>Search for bands</option>
+              {% for band in bands %}
+              <option value="{{ band.band_id }}"> {{ band.band_name }} </option>
+              {% endfor %}
+          </select>
+      <br>
+      <div id="or-band" style="display:none">OR</div>
+      <div id="create-band-div" style="display:none">Create a band:</div>
+          <p><input style="display:none" type="text" id="create-band-name" name="create-band-name" placeholder="Band Name"/></p>
+          <p><input style="display:none" type="text" id="create-band-phone" name="create-band-phone" placeholder="Main Phone Number"/></p>
+          <p><input style="display:none" type="text" id="create-band-payrate" name="create-band-payrate" placeholder="$ Rate per Hour"/></p>
+          <p><input style="display:none" type="file" id="create-band-logo" name="create-band-logo" /></p>
 
-        <!-- Venue Dropdown -->
-        <div id="search-div-venue" style="display:none">Search for your venue:</div>
-            <select id="venue-dropdown" name="venue-dropdown" style="display:none">
-                <option disabled selected>Search for venues</option>
-                {% for venue in venues %}
-                <option value="{{ venue.venue_id }}"> {{ venue.venue_name }} </option>
-                {% endfor %}
-            </select>
-        <br>
-        <div id="or-venue" style="display:none">OR</div>
-        <div id="create-venue-div" style="display:none">Create a venue:</div>
-            <p><input style="display:none" type="text" id="create-venue-name" name="create-venue-name" placeholder="Venue Name"/></p>
-            <p><input style="display:none" type="text" id="create-venue-phone" name="create-venue-phone" placeholder="Main Phone Number"/></p>
-            <p><input style="display:none" type="text" id="create-venue-payrate" name="create-venue-payrate" placeholder="$ Pay per Hour"/></p>
-            <p><input style="display:none" type="text" id="create-venue-address" name="create-venue-address" placeholder="Venue Address"/></p>
-            <p><input style="display:none" type="file" id="create-venue-logo" name="create-venue-logo" /></p>
+      <!-- Venue Dropdown -->
+      <div id="search-div-venue" style="display:none">Search for your venue:</div>
+          <select id="venue-dropdown" name="venue-dropdown" style="display:none">
+              <option disabled selected>Search for venues</option>
+              {% for venue in venues %}
+              <option value="{{ venue.venue_id }}"> {{ venue.venue_name }} </option>
+              {% endfor %}
+          </select>
+      <br>
+      <div id="or-venue" style="display:none">OR</div>
+      <div id="create-venue-div" style="display:none">Create a venue:</div>
+          <p><input style="display:none" type="text" id="create-venue-name" name="create-venue-name" placeholder="Venue Name"/></p>
+          <p><input style="display:none" type="text" id="create-venue-phone" name="create-venue-phone" placeholder="Main Phone Number"/></p>
+          <p><input style="display:none" type="text" id="create-venue-payrate" name="create-venue-payrate" placeholder="$ Pay per Hour"/></p>
+          <p><input style="display:none" type="text" id="create-venue-address" name="create-venue-address" placeholder="Venue Address"/></p>
+          <p><input style="display:none" type="file" id="create-venue-logo" name="create-venue-logo" /></p>
 
-        <p>
-            <button type="submit">Create Account</button>
-        </p>
-    </form>
-    <script src="/static/js/signup.js"></script>
+      <p>
+          <button type="submit">Create Account</button>
+      </p>
+  </form>
+  <script src="/static/js/signup.js"></script>
 </body>
 {% endblock %}

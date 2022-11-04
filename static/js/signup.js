@@ -1,33 +1,5 @@
 'use strict';
 
-/////// Upload Profile Photo Functionality ///////
-
-// let profilePhotoDiv = document.getElementsByClassName("profile-photo");
-// let profilePhoto = document.getElementById("profile-photo");
-// let fileUpload = document.getElementById("profile-photo-file");
-// let photoUploadButton = document.getElementById("profile-photo-upload-button");
-
-// profilePhotoDiv.addEventListener("mouseenter", () => {
-//     photoUploadButton.style.display = "block"
-// });
-
-// profilePhotoDiv.addEventListener("mouseleave", () => {
-//     photoUploadButton.style.display = "none"
-// });
-
-// fileUpload.addEventListener("change", () => {
-//     let selectedFile = this.filesUpload[0];
-//     if (selectedFile) {
-//         let reader = new FileReader();
-
-//         reader.addEventListener("load", () => {
-//             profilePhoto.setAttribute("src", reader.result);
-//         });
-
-//         reader.readAsDataURL(selectedFile);
-//     }
-// });
-
 /////// Band Radio Button Functionality ///////
 
 let radioBand = document.getElementById("signup-user-type-band");

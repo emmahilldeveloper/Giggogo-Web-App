@@ -3,40 +3,42 @@
 <body>
   <form action="/signup" method="POST" class="signup-form" name="signup-form">
       <!-- Profile Photo -->
-      <div class="profile-photo">
-          <input id="profile-photo-file" type="file" name="signup-profile-photo">
+    <div class="mx-auto" style="width: 200px;">
+      <div class="mb-3" name="profile-photo" style="width: 250px;">
+        <label for="profile-photo-file" class="form-label">Upload a Profile Photo!</label>
+        <input class="form-control" type="file" id="profile-photo-file">
       </div>
+    </div>
 
       <!-- User Details -->
-      <div class="container">
-          <div class="row">
-              <div class="col-5 col-md-3 order-md-1">
-                  <div class="form-floating mb-3">
-                      <input class="form-control" id="floatingInput" type="text" name="signup-first-name" placeholder="First Name"/>
-                      <label for="floatingInput">First Name</label>
-                  </div>
-              </div>
-              <div class="col-5 col-md-3 order-md-1">
-                  <div class="form-floating mb-3">
-                      <input class="form-control" id="floatingInput" type="text" name="signup-last-name" placeholder="Last Name"/>
-                      <label for="floatingInput">Last Name</label>
-                  </div>
-              </div>
-              <div class="ccol-5 col-md-3 order-md-1">
-                  <div class="form-floating mb-3">
-                      <input class="form-control" id="floatingInput" type="email" name="signup-email" placeholder="Email"/>
-                      <label for="floatingInput">Email</label>
-                  </div>
-              </div>
-              <div class="col-5 col-md-3 order-md-1">
-                  <div class="form-floating mb-3">
-                      <input class="form-control" id="floatingInput" type="password" name="signup-password" placeholder="Password"/>
-                      <label for="floatingInput">Password</label>
-                  </div>
+        <div class="mx-auto" style="width: 200px;">
+          <div class="col-5 col-md-3 order-md-1">
+              <div class="form-floating mb-3" style="width: 250px;">
+                  <input class="form-control" id="floatingInput" type="text" name="signup-first-name" placeholder="First Name"/>
+                  <label for="floatingInput">First Name</label>
               </div>
           </div>
-      </div>
+          <div class="col-5 col-md-3 order-md-1">
+              <div class="form-floating mb-3" style="width: 250px;">
+                  <input class="form-control" id="floatingInput" type="text" name="signup-last-name" placeholder="Last Name"/>
+                  <label for="floatingInput">Last Name</label>
+              </div>
+          </div>
+              <div class="ccol-5 col-md-3 order-md-1">
+              <div class="form-floating mb-3" style="width: 250px;">
+                  <input class="form-control" id="floatingInput" type="email" name="signup-email" placeholder="Email"/>
+                  <label for="floatingInput">Email</label>
+              </div>
+          </div>
+          <div class="col-5 col-md-3 order-md-1">
+              <div class="form-floating mb-3" style="width: 250px;">
+                  <input class="form-control" id="floatingInput" type="password" name="signup-password" placeholder="Password"/>
+                  <label for="floatingInput">Password</label>
+              </div>
+          </div>
+        </div>
 
+      <!-- Band vs. Venue User Type -->
       <!-- Band vs. Venue User Type -->
       <div>Who are you?</div>
       <div class="container">
@@ -88,9 +90,9 @@
           <p><input style="display:none" type="text" id="create-venue-address" name="create-venue-address" placeholder="Venue Address"/></p>
           <p><input style="display:none" type="file" id="create-venue-logo" name="create-venue-logo" /></p>
 
-      <p>
-          <button type="submit">Create Account</button>
-      </p>
+        <div class="mx-auto" style="width: 200px;">
+          <button type="submit" class="btn btn-dark" style="width: 250px;">Create Account</button>
+        </div>
   </form>
   <script src="/static/js/signup.js"></script>
 </body>

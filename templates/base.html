@@ -16,16 +16,18 @@
     
     <body class="theme-style">
         {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-          {% for category, message in messages %}
-            <div class="alert alert-{{ category }}" role="alert" id="flashMessage">
-                <p>{{ message }}</p>
-            </div>
-          {% endfor %}
-        {% endif %}
-      {% endwith %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}" role="alert" id="flashMessage">
+                  <p>{{ message }}</p>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
 
     {% block body %}
+      {% include 'navbar.html' %}
+      {% block content %}{% endblock %}
     {% endblock %}
 
     <!-- Bootstrap JavaScript Bundle with Popper -->

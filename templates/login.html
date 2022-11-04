@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 {% block body %}
-<body>
-    <form action="/login" method="POST" class="login-form" name="login-form">
-        <p>
-            <input id="email" name="email" placeholder="Email"/>
-        </p>
-        <p>
-            <input id="password" name="password" placeholder="Password"/>
-        </p>
-        <p>
-            <button type="submit">Log In</button>
-        </p>
-    </form>
-</body>
+<form action="/login" method="POST" class="login-form" name="login-form">
+    <p>
+        <input id="email" name="email" placeholder="Email"/>
+    </p>
+    <p>
+        <input id="password" name="password" placeholder="Password"/>
+    </p>
+    <p>
+        <button type="submit">Log In</button>
+    </p>
+</form>
 {% endblock %}

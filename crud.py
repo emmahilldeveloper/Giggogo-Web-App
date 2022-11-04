@@ -49,36 +49,12 @@ def create_venue_genre(venue_id, genre_id):
 
 ####### Functions for signup and login functionality. #######
 
-def search_users_by_email(email):
-    """Will return a Boolean answer to if the user-entered
-        email is equivalent to an email already in the db."""
+def all_user_info_by_email(email):
+    """Will return all of a user's information, searching by their email."""
 
-    if User.query.filter(User.email == email).first():
-        return True
-    else:
-        return False
+    user = User.query.filter(User.email == email).first()
 
-def search_users_by_password(password):
-    """Will return a Boolean answer to if the user-entered
-        password is equivalent to a password already in the db."""
-
-    if User.query.filter(User.password == password).first():
-        return True
-    else:
-        return False
-
-def search_for_user_type(email):
-    """Will return a Boolean answer to if the user-entered
-        password is equivalent to a password already in the db."""
-
-    user_info = User.query.all()
-
-    for user in user_info:
-        if user.email == email:
-            band_id = user.band_id
-            if band_id == None:
-                return "Venue"
-            return "Band"
+    return user
 
 def all_bands():
     """Will return all bands."""
@@ -97,12 +73,12 @@ def all_users():
 
     return User.query.all()
 
-def search_user_by_id(email):
-    """Will get a user's ID by their email."""
+def all_user_info_specific(user_id):
+    """Returns all user info for specific user."""
 
-    user = User.query.filter(User.email == email).first()
+    all_info = User.query.filter(User.user_id == user_id).first()
 
-    return user.user_id
+    return all_info
 
 if __name__ == '__main__':
     from server import app

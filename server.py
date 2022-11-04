@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, session, request, flash
+from flask import Flask, redirect, render_template, session, request, flash, url_for
 from jinja2 import StrictUndefined
 from model import connect_to_db, db
 import crud
@@ -21,28 +21,32 @@ def index():
 def login():
     """Allows established users to log into their accounts."""
 
+    #Get data from login form
+    #Get all of user's data (from searching by entered email)
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
+        user = crud.all_user_info_by_email(email)
 
-        user_email = crud.search_users_by_email(email)
-        user_password = crud.search_users_by_password(password)
-
-        if 'user' in session: 
-            email = request.form.get("email") 
-            user_id = crud.search_user_by_id(email) 
-            session['user'] = user_id # 
-        else: 
-            user_id = session['user'] = {}
-
-        if user_email and user_password == True:
-            if crud.search_for_user_type(email) == 'Band':
-                return redirect("/bandprofile")
-            else:
-                return redirect("/venueprofile")
-        else:
+    #If the user doesn't exist, ERROR
+    #If the user's password is not equal to the saved password, ERROR
+        if user is None:
             flash("ERROR: Incorrect credentials. Try again.", category='danger')
-            return render_template("login.html")
+            return redirect("/login")
+        if user.password != password:
+            flash("ERROR: Incorrect credentials. Try again.", category='danger')
+            return redirect("/login")
+
+    #Create session cookie for that user's information
+        session["user_id"] = user.user_id
+    
+    #Redirect the user based on user's profile type
+        if user.band_id is None:
+            return redirect("venueprofile")
+        if user.venue_id is None:
+            return redirect("/bandprofile")
+
+    #Load the page
     else:
         return render_template("login.html")
 
@@ -52,6 +56,7 @@ def login():
 def sign_up():
     """Shows sign up form to create a new user."""
 
+    #Get data from siginup form
     if request.method == "POST":
         first_name = request.form.get("signup-first-name")
         last_name = request.form.get("signup-last-name")
@@ -60,30 +65,28 @@ def sign_up():
         profile_photo = request.form.get("profile-photo")
         user_type = request.form.get("signup-user-type")
 
-        user_check = crud.search_users_by_email(email)
+        #If the new user is a band, create a band profile
+        if user_type == "Band":
+            band_id = request.form.get("band-dropdown")
+            venue_id = None
 
-        if user_check == True:
-            flash("ERROR: An account already exists with that email. Please login.", category='danger')
+            user = crud.create_user(first_name, last_name, email, password, band_id, venue_id, profile_photo)
+            db.session.add(user)
+            db.session.commit()
+            flash("SUCCESS: Please log in.", category='success')
             return redirect("/login")
+        #If the new user is a venue, create a venue profile
         else:
-            if user_type == "Band":
-                band_id = request.form.get("band-dropdown")
-                venue_id = None
+            band_id = None
+            venue_id = request.form.get("venue-dropdown")
 
-                user = crud.create_user(first_name, last_name, email, password, band_id, venue_id, profile_photo)
-                db.session.add(user)
-                db.session.commit()
-                flash("SUCCESS: Please log in.", category='success')
-                return redirect("/login")
-            else:
-                band_id = None
-                venue_id = request.form.get("venue-dropdown")
+            user = crud.create_user(first_name, last_name, email, password, band_id, venue_id, profile_photo)
+            db.session.add(user)
+            db.session.commit()
+            flash("SUCCESS: Please log in.", category='success')
+            return redirect("/login")
 
-                user = crud.create_user(first_name, last_name, email, password, band_id, venue_id, profile_photo)
-                db.session.add(user)
-                db.session.commit()
-                flash("SUCCESS: Please log in.", category='success')
-                return redirect("/login")
+    #Load the page
     else:
         bands = crud.all_bands()
         venues = crud.all_venues()
@@ -95,13 +98,16 @@ def sign_up():
 def band_profile():
     """Shows profile of user."""
 
-    bands = crud.all_bands()
-    users = crud.all_users()
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+        
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
 
-    user_id = session.get("user")
-    print(user_id) #this is empty
-
-    return render_template("bandprofile.html", bands = bands, users = users)
+    return render_template("bandprofile.html", user_info = user_info)
 
 @app.route("/bandhomepage")
 def band_homepage():

@@ -37,41 +37,6 @@
         </div>
         </div>
 
-    <!-- Band vs. Venue User Type -->
-    <!-- Band vs. Venue User Type -->
-    <div>Who are you?</div>
-    <div class="container">
-        <div class="row">
-            <div class="col-5 col-md-3 order-md-1">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" value="Band" id="signup-user-type-band" name="signup-user-type"/>
-                    <label class="form-check-label" for="signup-user-type">Band</label>
-                </div>
-            <div class="col-5 col-md-3 order-md-1">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" value="Venue" id="signup-user-type-venue" name="signup-user-type" />
-                    <label class="form-check-label" for="signup-user-type">Venue</label>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Band Dropdown -->
-    <div id="search-div-band" style="display:none">Search for your band:</div>
-        <select id="band-dropdown" name="band-dropdown" style="display:none">
-            <option disabled selected>Search for bands</option>
-            {% for band in bands %}
-            <option value="{{ band.band_id }}"> {{ band.band_name }} </option>
-            {% endfor %}
-        </select>
-    <br>
-    <div id="or-band" style="display:none">OR</div>
-    <div id="create-band-div" style="display:none">Create a band:</div>
-        <p><input style="display:none" type="text" id="create-band-name" name="create-band-name" placeholder="Band Name"/></p>
-        <p><input style="display:none" type="text" id="create-band-phone" name="create-band-phone" placeholder="Main Phone Number"/></p>
-        <p><input style="display:none" type="text" id="create-band-payrate" name="create-band-payrate" placeholder="$ Rate per Hour"/></p>
-        <p><input style="display:none" type="file" id="create-band-logo" name="create-band-logo" /></p>
-
     <!-- Venue Dropdown -->
     <div id="search-div-venue" style="display:none">Search for your venue:</div>
         <select id="venue-dropdown" name="venue-dropdown" style="display:none">

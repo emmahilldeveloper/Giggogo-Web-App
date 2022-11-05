@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+<!-- Band Dropdown -->
+<div id="search-div-band">Search for your band:</div>
+<form method="POST">
+    <select id="band-dropdown" name="band-dropdown">
+        <option disabled selected>Search for bands</option>
+        {% for band in bands %}
+        <option value="{{ band.band_id }}"> {{ band.band_name }} </option>
+        {% endfor %}
+    </select>
+    <div class="mx-auto" style="width: 200px;">
+        <button type="submit" class="btn btn-dark" style="width: 250px;">Next</button>
+    </div>
+</form>
+{% endblock %}

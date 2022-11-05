@@ -66,6 +66,13 @@ def all_venues():
 
     return Venue.query.all()
 
+def all_band_info_by_name(band_name):
+    """Will return all of a band's information, searching by their name."""
+
+    band = Band.query.filter(Band.band_name == band_name).first()
+
+    return band
+
 ####### Functions for profile page #######
 
 def all_users():

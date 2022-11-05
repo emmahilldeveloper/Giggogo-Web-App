@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="center">
+    <div id="create-band-div">
+        <form method="POST">
+            <div class="mx-auto" style="width: 200px;">
+                <div class="form-floating mb-3" style="width: 250px;">
+                    <input class="form-control" id="floatingInput" type="text" name="create-band-logo" placeholder="Photo URL"/>
+                    <label for="floatingInput">Band Logo URL</label>
+                </div>
+            </div>
+            <div class="mx-auto" style="width: 200px;">
+                <div class="col-5 col-md-3 order-md-1">
+                    <div class="form-floating mb-3" style="width: 250px;">
+                        <input class="form-control" type="text" id="create-band-name" name="create-band-name" placeholder="Band Name"/>
+                        <label for="floatingInput">Band Name</label>
+                    </div>
+                </div>
+                <div class="col-5 col-md-3 order-md-1">
+                    <div class="form-floating mb-3" style="width: 250px;">
+                        <input class="form-control" type="text" id="create-band-phone" name="create-band-phone" placeholder="Band Phone"/>
+                        <label for="floatingInput">Band Phone</label>
+                    </div>
+                </div>
+                <div class="col-5 col-md-3 order-md-1">
+                    <div class="form-floating mb-3" style="width: 250px;">
+                        <input class="form-control" type="text" id="create-band-payrate" name="create-band-payrate" placeholder="Band Payrate"/>
+                        <label for="floatingInput">$ Rate per Hour</label>
+                    </div>
+                </div>
+            
+            <div class="mx-auto" style="width: 200px;">
+                <button type="submit" class="btn btn-dark" style="width: 250px;">Create Band</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

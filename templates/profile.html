@@ -1,9 +1,24 @@
 {% extends 'base.html' %}
 {% block body %}
+{% include 'navbar.html' %}
+    {% block content %}
+        <div class="container-fluid">
+            <div class="row" id="profile-photo-row">
+                <div class="col-6" id="profile-photo-div">
+                    <img class="profile-photo" src="{{ user_info.profile_photo }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
+                </div>
+                <div class="col-6" id="upcoming-gigs">
+                    <h1>Upcoming Gigs:</h1>
+                </div>
+            </div>
+            <div class="row" id="profile-info-row">
+                <div class="col-6" id="profile-info-div">
+                    <h1>{{ user_info.first_name }} {{ user_info.last_name }}</h1>
+                </div>
+            </div>
+        </div>
 
-<h1>Welcome, {{ user_info.first_name }}!</h1>
-
-
+    {% endblock %}
     <!-- Javascript files imported here. -->
     <script src="/static/js/profile.js"></script>
 {% endblock %}

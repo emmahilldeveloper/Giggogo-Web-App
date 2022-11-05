@@ -1,14 +1,13 @@
 'use strict';
 
-/////// Sign Up Button Functionality ///////
-let bandButton = document.getElementById("band");
-let venueButton = document.getElementById("venue");
+/////// Add Band or Find Band Buttons ///////
+let addVenueButton = document.getElementById("addvenue");
+let findVenueButton = document.getElementById("findvenue");
 
-bandButton.addEventListener("click", () => {
-    window.location.href = "/band";
+addVenueButton.addEventListener("click", () => {
+    window.location.href = "/newvenue";
 })
 
-venueButton.addEventListener("click", () => {
-    window.location.href = "/venue";
+findVenueButton.addEventListener("click", () => {
+    window.location.href = "/findvenue";
 })
-

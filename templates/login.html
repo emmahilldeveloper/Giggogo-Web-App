@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
 {% block body %}
-<form action="/login" method="POST" class="login-form" name="login-form">
-    <p>
-        <input id="email" name="email" placeholder="Email"/>
-    </p>
-    <p>
-        <input id="password" name="password" placeholder="Password"/>
-    </p>
-    <p>
-        <button type="submit">Log In</button>
-    </p>
-</form>
+<div class="center">
+    <form action="/login" method="POST" class="login-form" name="login-form">
+        <div class="mx-auto" style="width: 200px;">
+            <div class="col-5 col-md-3 order-md-1">
+                <div class="form-floating mb-3" style="width: 250px;">
+                    <input class="form-control" id="floatingInput" type="text" name="email" placeholder="Email"/>
+                    <label for="floatingInput">Email</label>
+                </div>
+            </div>
+        <div class="col-5 col-md-3 order-md-1">
+            <div class="form-floating mb-3" style="width: 250px;">
+                <input class="form-control" id="floatingInput" type="password" name="password" placeholder="Password"/>
+                <label for="floatingInput">Password</label>
+            </div>
+        </div>
+        <div class="mx-auto" style="width: 200px;">
+            <button type="submit" class="btn btn-dark" style="width: 250px;">Log In</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

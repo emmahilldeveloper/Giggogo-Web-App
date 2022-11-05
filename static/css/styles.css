@@ -4,7 +4,6 @@
 
 .theme-style {
     background-color:#FFBE00;
-    text-align: center;
 }
 
 /* Homepage Styling */
@@ -21,12 +20,76 @@
     z-index: -1;
   }
 
-/* Nav Bar Styling */
-
-.navbar-toggler-icon {
-    color: black;
+#homepage-options {
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
 }
 
-input[type=radio]{
-    transform:scale(1.5);
-  }
+.btn.btn-primary {
+  margin: 30px;
+  border-color: black;
+}
+
+/* Login Styling */
+
+.center {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+/* Band Styling */
+
+.btn.btn-dark {
+  margin: 15px;
+}
+
+/* Profile Styling */
+
+.profile-photo {
+  max-width: 100%;
+  border: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 10px;
+}
+
+#profile-photo-div {
+  display: flex;
+  padding-left: 30px;
+}
+
+#profile-photo-row {
+  padding-top: 30px;
+}
+
+#profile-info-row {
+  display: flex;
+  padding-left: 30px;
+}
+
+#upcoming-gigs {
+  display: flex;
+  padding-left: 30px;
+  border: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 10px;
+  background-color: white;
+}

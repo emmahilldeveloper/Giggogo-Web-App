@@ -1,6 +1,6 @@
 'use strict';
 
-/////// Sign Up Button Functionality ///////
+/////// Add Band or Find Band Buttons ///////
 let addBandButton = document.getElementById("addband");
 let findBandButton = document.getElementById("findband");
 

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+{% include 'navbar.html' %}
+    {% block content %}
+    <div class="container">
+        <h1>Welcome, {{ user_info.first_name }}!</h1>
+    </div>
+    {% endblock %}
+    <!-- Javascript files imported here. -->
+    <script src="/static/js/profile.js"></script>
+{% endblock %}

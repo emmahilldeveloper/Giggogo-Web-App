@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% block body %}
-<!-- Band vs. Venue User Type -->
+<div class="center">
 
-<button type="button" class="btn btn-dark" id="band" name="band">Band</button>
-<button type="button" class="btn btn-dark" id="venue" name="venue">Venue</button>
-
-    <!-- Javascript files imported here. -->
-    <script src="/static/js/whoareyou.js"></script>
+    <div class="mx-auto" style="width: 200px;">
+        <button type="button" class="btn btn-dark" id="band" name="band" style="width: 250px;">Band</button>
+    </div>
+    <div class="mx-auto" style="width: 200px;">
+        <button type="button" class="btn btn-dark" id="venue" name="venue" style="width: 250px;">Venue</button>
+    </div>
+    
+        <!-- Javascript files imported here. -->
+        <script src="/static/js/whoareyou.js"></script>
+</div>
 {% endblock %}

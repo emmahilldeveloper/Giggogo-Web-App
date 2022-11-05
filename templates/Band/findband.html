@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="center">
+    <div id="search-div-band">Search for Band:</div>
+    <form method="POST">
+        <select id="band-dropdown" name="band-dropdown">
+            <option disabled selected>Search for Bands</option>
+            {% for band in bands %}
+            <option value="{{ band.band_id }}"> {{ band.band_name }} </option>
+            {% endfor %}
+        </select>
+        <div class="mx-auto" style="width: 200px;">
+            <button type="submit" class="btn btn-dark" style="width: 250px;">Next</button>
+        </div>
+        <!-- DOESNT WORK??? -->
+        <!-- <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Search for Bands
+            </button>
+            {% for band in bands %}
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" value="{{ band.band_id }}">{{ band.band_name }}</a>
+            </div>
+            {% endfor %}
+        </div> -->
+    </form>
+</div>
+{% endblock %}
+

@@ -76,8 +76,8 @@
         "last_name": "Fleetwood",
         "email": "mickfleetwood@gmail.com",
         "password": "123abc",
-        "band_id": null,
-        "venue_id": 2,
+        "band_id": 2,
+        "venue_id": null,
         "profile_photo": "https://m.media-amazon.com/images/M/MV5BMTcwODExNTQ2MF5BMl5BanBnXkFtZTcwNzU1NjEwMw@@._V1_UY1200_CR87,0,630,1200_AL_.jpg"
     },
     {
@@ -85,8 +85,8 @@
         "last_name": "McVie",
         "email": "christinemcvie@gmail.com",
         "password": "123abc",
-        "band_id": null,
-        "venue_id": 2,
+        "band_id": 2,
+        "venue_id": null,
         "profile_photo": "https://i.iheart.com/v3/catalog/artist/264164?ops=fit(720%2C720)"
     },
     {
@@ -94,8 +94,8 @@
         "last_name": "McVie",
         "email": "JohnMcVie@gmail.com",
         "password": "123abc",
-        "band_id": null,
-        "venue_id": 2,
+        "band_id": 2,
+        "venue_id": null,
         "profile_photo": "https://64.media.tumblr.com/d7269d15344716810dbfaad64ea41c8e/3b0143d33111094c-51/s1280x1920/6289e997f19d72782fecdd5492472aa86a618c81.jpg"
     },
     {
@@ -103,8 +103,8 @@
         "last_name": "Nicks",
         "email": "stevienicks@gmail.com",
         "password": "123abc",
-        "band_id": null,
-        "venue_id": 2,
+        "band_id": 2,
+        "venue_id": null,
         "profile_photo": "https://www.rollingstone.com/wp-content/uploads/2018/06/rs-28182-stevie-1800-1400863047.jpg"
     },
     {
@@ -112,8 +112,8 @@
         "last_name": "Buckingham",
         "email": "lindseybuckingham@gmail.com",
         "password": "123abc",
-        "band_id": null,
-        "venue_id": 2,
+        "band_id": 2,
+        "venue_id": null,
         "profile_photo": "https://stevienicks.info/wp-content/uploads/2013/04/1979-lindsey-buckingham.jpg"
     },
     {
@@ -121,8 +121,8 @@
         "last_name": "Mayer",
         "email": "johnmayer@gmail.com",
         "password": "123abc",
-        "band_id": null,
-        "venue_id": 3,
+        "band_id": 3,
+        "venue_id": null,
         "profile_photo": "https://hips.hearstapps.com/hmg-prod/images/unknown-1626438936.jpeg"
     },
     {
@@ -130,8 +130,8 @@
         "last_name": "Nugent",
         "email": "tednugent@gmail.com",
         "password": "123abc",
-        "band_id": null,
-        "venue_id": 4,
+        "band_id": 4,
+        "venue_id": null,
         "profile_photo": "https://rockcelebrities.net/wp-content/uploads/2021/07/ted-nugent-young.jpg"
     }
 ]

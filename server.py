@@ -205,16 +205,68 @@ def profile():
     return render_template("profile.html", user_info = user_info)
 
 @app.route("/home")
-def band_homepage():
-    """Shows profile of band."""
+def band_or_venue_homepage():
+    """Shows profile of band/venue."""
 
-    return None
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+        
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
 
-@app.route("/search")
-def band_search():
-    """Allows band to search for venues."""
+    #Show band homepage
+    if user_info.venue_id is None:
+        band_info = crud.all_band_info(user_info.band_id)
+        return render_template("bandhome.html", band_info = band_info)
+    #Show venue homepage
+    else:
+        venue_info = crud.all_venue_info(user_info.venue_id)
+        return render_template("venuehome.html", venue_info = venue_info)
 
-    return None
+@app.route("/search", methods=['GET', 'POST'])
+def band_or_venue_search():
+    """Allows band/venue to search for the opposite."""
+
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+        
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
+
+    if request.method == "POST":
+
+        #Show band homepage
+        if user_info.venue_id is None:
+            return render_template("bandsearch.html")
+
+        #Show venue homepage
+        else:
+        #Get values from checked payrate boxes
+            payrate = request.args.getlist("payrate")
+            print(payrate)
+    
+    #Load the page
+    else:
+        # all_low_bands = crud.low_band_payrate()
+        # all_med_bands = crud.med_band_payrate()
+        # all_medhigh_bands = crud.medhigh_band_payrate()
+        # all_high_bands = crud.high_band_payrate()
+        all_band_payrates = crud.all_band_payrates()
+
+        return render_template("venuesearch.html", all_band_payrates = all_band_payrates)
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
 

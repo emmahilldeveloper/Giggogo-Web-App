@@ -3,7 +3,7 @@
 /* Giggogo app theme. */
 
 .theme-style {
-    background-color:#FFBE00;
+    background-color:white;
 }
 
 /* Homepage Styling */
@@ -60,14 +60,14 @@
   margin: 15px;
 }
 
-/* Profile Styling */
+/* User Profile Styling */
 
 .profile-photo {
   max-width: 100%;
   border: solid;
   border-width: 3px;
   border-color: black;
-  border-radius: 10px;
+  border-radius: 400px;
 }
 
 #profile-photo-div {
@@ -92,4 +92,82 @@
   border-color: black;
   border-radius: 10px;
   background-color: white;
+}
+
+/* Band Home Styling */
+
+.band-logo {
+  max-width: 100%;
+  border: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 400px;
+}
+
+#band-logo-div {
+  display: flex;
+  padding-left: 30px;
+}
+
+#band-logo-row {
+  padding-top: 30px;
+}
+
+#profile-info-row {
+  display: flex;
+  padding-left: 30px;
+}
+
+#upcoming-gigs {
+  display: flex;
+  padding-left: 30px;
+  border: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* Venue Home Styling */
+
+.venue-logo {
+  max-width: 100%;
+  border: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 10px;
+}
+
+#venue-logo-div {
+  display: flex;
+  padding-left: 30px;
+}
+
+#venue-logo-row {
+  padding-top: 30px;
+}
+
+#profile-info-row {
+  display: flex;
+  padding-left: 30px;
+}
+
+#upcoming-gigs {
+  display: flex;
+  padding-left: 30px;
+  border: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* Search Page Styling */
+
+#search-image {
+  max-width: 100%;
+  border: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 400px;
 }

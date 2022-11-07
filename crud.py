@@ -3,7 +3,7 @@
 from re import A
 from model import User, Genre, Band, Venue, Gig, Band_Genre, Venue_Genre, connect_to_db, db
 
-####### Functions to seed Giggogo database. #######
+####### Functions to seed Giggogo database. #####################################################################################
 
 def create_user(first_name, last_name, email, password, band_id, venue_id, profile_photo):
     """Create and return a new user."""
@@ -47,7 +47,7 @@ def create_venue_genre(venue_id, genre_id):
     venue_genre = Venue_Genre(venue_id = venue_id, genre_id = genre_id)
     return venue_genre
 
-####### Functions for signup and login functionality. #######
+####### Functions for signup and login functionality. ##########################################################################
 
 def all_user_info_by_email(email):
     """Will return all of a user's information, searching by their email."""
@@ -73,7 +73,7 @@ def all_band_info_by_name(band_name):
 
     return band
 
-####### Functions for profile page #######
+####### Functions for profile page ##############################################################################################
 
 def all_users():
     """Will return all users."""
@@ -86,6 +86,53 @@ def all_user_info_specific(user_id):
     all_info = User.query.filter(User.user_id == user_id).first()
 
     return all_info
+
+####### Functions for Home Venue/Band Page ########################################################################################
+
+def all_band_info(band_id):
+    """Will return all of user info by band id."""
+
+    return Band.query.filter(Band.band_id == band_id).first()
+
+def all_venue_info(venue_id):
+    """Will return all of user info by venue id."""
+
+    return Venue.query.filter(Venue.venue_id == venue_id).first()
+
+####### Functions for Venue Search Page #################################################################################################
+
+def low_band_payrate():
+    """Returns band payrates between $0 and $700"""
+
+    return Band.query.filter(Band.band_payrate < 700).all()
+
+def med_band_payrate():
+    """Returns band payrates between $701 and $2000"""
+
+    return Band.query.filter(Band.band_payrate < 2000, Band.band_payrate > 700).all()
+
+def medhigh_band_payrate():
+    """Returns band payrates between $2001 and $5000"""
+
+    return Band.query.filter(Band.band_payrate < 5000, Band.band_payrate > 2001).all()
+
+
+def high_band_payrate():
+    """Returns band payrates over $5000"""
+
+    return Band.query.filter(Band.band_payrate > 5000).all()
+
+def all_band_payrates():
+    """Returns all band payrates"""
+
+    return Band.query.filter(Band.band_payrate < 10000000000000).all()
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     from server import app

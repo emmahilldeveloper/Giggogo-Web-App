@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Band Home {% endblock %}
+{% block body %}
+{% include 'navbar.html' %}
+    {% block content %}
+    <div class="container-fluid">
+        <div class="row" id="band-logo-row">
+            <div class="col-6" id="band-logo-div">
+                <img class="band-logo" src="{{ band_info.band_logo }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
+            </div>
+            <div class="col-6" id="upcoming-gigs">
+                <h1>Upcoming Gigs:</h1>
+            </div>
+        </div>
+        <div class="row" id="band-profile-info-row">
+            <div class="col-6" id="band-profile-info-div">
+                <h1> {{ band_info.band_name }} </h1>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    <!-- Javascript files imported here. -->
+    <script src=""></script>
+{% endblock %}

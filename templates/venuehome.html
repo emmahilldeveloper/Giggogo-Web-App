@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Venue Home {% endblock %}
+{% block head %}
+    <link href='fullcalendar/main.css' rel='stylesheet' />
+    <script src='fullcalendar/main.js'></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+    </script>
+{% endblock %}
+{% block body %}
+{% include 'navbar.html' %}
+    {% block content %}
+    <div id='calendar'></div>
+    <div class="container-fluid">
+        <div class="row" id="venue-logo-row">
+            <div class="col-6" id="venue-logo-div">
+                <img class="venue-logo" src="{{ venue_info.venue_logo }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
+            </div>
+            <div class="col-6" id="upcoming-gigs">
+                <h1>Upcoming Gigs:</h1>
+            </div>
+        </div>
+        <div class="row" id="venue-profile-info-row">
+            <div class="col-6" id="venue-profile-info-div">
+                <h1> {{ venue_info.venue_name }} </h1>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    <!-- Javascript files imported here. -->
+    <script src=""></script>
+{% endblock %}

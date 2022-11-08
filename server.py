@@ -183,7 +183,7 @@ def find_venue():
         venues = crud.all_venues()
         return render_template("/Venue/findvenue.html", venues = venues)
 
-####### Band User Profile #################################################################################################
+####### User Profile ########################################################################################################
 
 @app.route("/profile")
 def profile():
@@ -204,6 +204,8 @@ def profile():
         return redirect("/whoareyou")
 
     return render_template("profile.html", user_info = user_info)
+
+####### Band/Venue Home Profile ##################################################################################################
 
 @app.route("/home")
 def band_or_venue_homepage():
@@ -229,6 +231,8 @@ def band_or_venue_homepage():
         venue_info = crud.all_venue_info(user_info.venue_id)
         return render_template("venuehome.html", venue_info = venue_info)
 
+####### Search Page #############################################################################################################
+
 @app.route("/search", methods=['GET', 'POST'])
 def band_or_venue_search():
     """Allows band/venue to search for the opposite."""
@@ -237,22 +241,24 @@ def band_or_venue_search():
     if "user_id" in session:
         user_id = session["user_id"]
         user_info = crud.all_user_info_specific(user_id)
-        
     #Kick them back to the homepage
     else:
         return redirect("/")
 
-    if request.method == "POST":
-
-        #Show band homepage
-        if user_info.venue_id is None:
-            return render_template("bandsearch.html")
-    
-    #Load the page
-    else:
+    # if request.method == "POST":
+    #     #Show band homepage
+    if user_info.venue_id is None:
+        return render_template("bandsearch.html")
+    elif user_info.band_id is None:
         return render_template("venuesearch.html")
 
-@app.route('/api/search', methods=['POST'])
+    # #Load the page
+    # else:
+    #     return render_template("venuesearch.html")
+
+####### Search for Bands JSON response compiler #########################
+
+@app.route('/api/venuesearch', methods=['POST'])
 def venue_search():
     """Returns results from search form."""
 
@@ -270,6 +276,7 @@ def venue_search():
             low_band['band_name'] = band.band_name
             low_band['band_logo'] = band.band_logo
             low_band['band_payrate'] = band.band_payrate
+            low_band['band_id'] = band.band_id
             matching_bands.append(low_band)
 
     if med is True:
@@ -279,6 +286,7 @@ def venue_search():
             med_band['band_name'] = band.band_name
             med_band['band_logo'] = band.band_logo
             med_band['band_payrate'] = band.band_payrate
+            med_band['band_id'] = band.band_id
             matching_bands.append(med_band)
 
     if medhigh is True:
@@ -288,6 +296,7 @@ def venue_search():
             medhigh_band['band_name'] = band.band_name
             medhigh_band['band_logo'] = band.band_logo
             medhigh_band['band_payrate'] = band.band_payrate
+            medhigh_band['band_id'] = band.band_id
             matching_bands.append(medhigh_band)
 
     if high is True:
@@ -297,9 +306,65 @@ def venue_search():
             high_band['band_name'] = band.band_name
             high_band['band_logo'] = band.band_logo
             high_band['band_payrate'] = band.band_payrate
+            high_band['band_id'] = band.band_id
             matching_bands.append(high_band)
 
     return jsonify({'matches': matching_bands})
+
+####### Search for Venues JSON response compiler #########################
+
+@app.route('/api/bandsearch', methods=['POST'])
+def band_search():
+    """Returns results from search form."""
+
+    low = request.json['low']
+    med = request.json['med']
+    medhigh = request.json['medhigh']
+    high = request.json['high']
+
+    matching_venues = []
+
+    if low is True:
+        all_low_venues = crud.low_venue_payrate()
+        for venue in all_low_venues:
+            low_venue = {}
+            low_venue['venue_name'] = venue.venue_name
+            low_venue['venue_logo'] = venue.venue_logo
+            low_venue['venue_payrate'] = venue.venue_payrate
+            low_venue['venue_id'] = venue.venue_id
+            matching_venues.append(low_venue)
+
+    if med is True:
+        all_med_venues = crud.med_venue_payrate()
+        for venue in all_med_venues:
+            med_venue = {}
+            med_venue['venue_name'] = venue.venue_name
+            med_venue['venue_logo'] = venue.venue_logo
+            med_venue['venue_payrate'] = venue.venue_payrate
+            med_venue['venue_id'] = venue.venue_id
+            matching_venues.append(med_venue)
+
+    if medhigh is True:
+        all_medhigh_venues = crud.medhigh_venue_payrate()
+        for venue in all_medhigh_venues:
+            medhigh_venue = {}
+            medhigh_venue['venue_name'] = venue.venue_name
+            medhigh_venue['venue_logo'] = venue.venue_logo
+            medhigh_venue['venue_payrate'] = venue.venue_payrate
+            medhigh_venue['venue_id'] = venue.venue_id
+            matching_venues.append(medhigh_venue)
+
+    if high is True:
+        all_high_venues = crud.high_venue_payrate()
+        for venue in all_high_venues:
+            high_venue = {}
+            high_venue['venue_name'] = venue.venue_name
+            high_venue['venue_logo'] = venue.venue_logo
+            high_venue['venue_payrate'] = venue.venue_payrate
+            high_venue['venue_id'] = venue.venue_id
+            matching_venues.append(high_venue)
+
+    return jsonify({'matches': matching_venues})
 
 if __name__ == "__main__":
 

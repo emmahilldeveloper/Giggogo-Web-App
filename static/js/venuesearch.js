@@ -16,7 +16,7 @@ searchButton.addEventListener("click", (evt) => {
         high: document.getElementById("high-payrate").checked,
     };
 
-    fetch(`/api/search`, {
+    fetch(`/api/venuesearch`, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -61,8 +61,9 @@ searchButton.addEventListener("click", (evt) => {
             bandLink.className = "btn btn-primary";
             bandLink.innerHTML= "Band Details";
             bandLink.type = "click";
-            bandDivCardBody.appendChild(bandLink)
+            bandLink.href = "";
+            bandDivCardBody.appendChild(bandLink);
+            //add evt listen
         })
-
     });
 })

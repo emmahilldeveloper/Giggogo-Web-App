@@ -116,23 +116,32 @@ def medhigh_band_payrate():
 
     return Band.query.filter(Band.band_payrate < 5000, Band.band_payrate > 2001).all()
 
-
 def high_band_payrate():
     """Returns band payrates over $5000"""
 
     return Band.query.filter(Band.band_payrate > 5000).all()
 
-def all_band_payrates():
-    """Returns all band payrates"""
+####### Functions for Band Search Page #################################################################################################
 
-    return Band.query.filter(Band.band_payrate < 10000000000000).all()
+def low_venue_payrate():
+    """Returns venue payrates between $0 and $700"""
 
+    return Venue.query.filter(Venue.venue_payrate < 700).all()
 
+def med_venue_payrate():
+    """Returns venue payrates between $701 and $2000"""
 
+    return Venue.query.filter(Venue.venue_payrate < 2000, Venue.venue_payrate > 700).all()
 
+def medhigh_venue_payrate():
+    """Returns venue payrates between $2001 and $5000"""
 
+    return Venue.query.filter(Venue.venue_payrate < 5000, Venue.venue_payrate > 2001).all()
 
+def high_venue_payrate():
+    """Returns venue payrates over $5000"""
 
+    return Venue.query.filter(Venue.venue_payrate > 5000).all()
 
 if __name__ == '__main__':
     from server import app

@@ -45,9 +45,9 @@
         "profile_photo": "https://www.msgsports.com/wp-content/uploads/2021/09/JamesDolan-web-1.jpg"
     },
     {
-        "first_name": "Mrs.",
-        "last_name": "Target",
-        "email": "mrstarget@gmail.com",
+        "first_name": "Target",
+        "last_name": "Corp",
+        "email": "targetcorp@gmail.com",
         "password": "123abc",
         "band_id": null,
         "venue_id": 2,
@@ -126,12 +126,12 @@
         "profile_photo": "https://hips.hearstapps.com/hmg-prod/images/unknown-1626438936.jpeg"
     },
     {
-        "first_name": "Ted",
-        "last_name": "Nugent",
-        "email": "tednugent@gmail.com",
+        "first_name": "Melissa",
+        "last_name": "Jefferson",
+        "email": "melissajefferson@gmail.com",
         "password": "123abc",
         "band_id": 4,
         "venue_id": null,
-        "profile_photo": "https://rockcelebrities.net/wp-content/uploads/2021/07/ted-nugent-young.jpg"
+        "profile_photo": "https://www.bostonglobe.com/resizer/-99YnLhexWU9EPG6dR7tgvBE_tc=/arc-anglerfish-arc2-prod-bostonglobe/public/K4DLO6SWU4G5YF7TYJGYV7G2XU.jpg"
     }
 ]

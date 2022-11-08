@@ -2,7 +2,7 @@
     {
         "band_name": "The Rolling Stones",
         "band_phone": "123-4567",
-        "band_payrate": 1000000,
+        "band_payrate": 10000,
         "band_logo": "https://st3.depositphotos.com/5572200/12714/i/450/depositphotos_127142614-stock-photo-the-rolling-stones-logo.jpg",
         "band_photo": "https://media.pitchfork.com/photos/5cb9f730c0d4212dc70e28da/16:9/w_1280,c_limit/The-Rolling-Stones.jpg",
         "band_video": "https://youtu.be/Jwtyn-L-2gQ"
@@ -10,24 +10,24 @@
     {
         "band_name": "Fleetwood Mac",
         "band_phone": "123-4567",
-        "band_payrate": 800000,
-        "band_logo": "",
+        "band_payrate": 4800,
+        "band_logo": "https://ih1.redbubble.net/image.2982915993.0382/st,small,507x507-pad,600x600,f8f8f8.jpg",
         "band_photo": "",
         "band_video": ""
     },
     {
         "band_name": "John Mayer",
         "band_phone": "123-4567",
-        "band_payrate": 500000,
-        "band_logo": "",
+        "band_payrate": 804,
+        "band_logo": "https://www.rollingstone.com/wp-content/uploads/2022/03/john-mayer-leaves-columbia.jpg?w=1581&h=1054&crop=1",
         "band_photo": "",
         "band_video": ""
     },
     {
-        "band_name": "Ted Nugent",
+        "band_name": "Lizzo",
         "band_phone": "123-4567",
-        "band_payrate": 100000,
-        "band_logo": "",
+        "band_payrate": 2780,
+        "band_logo": "https://media.bizj.us/view/img/11531858/beauty-lizzo-4*1200xx2357-1326-0-792.jpg",
         "band_photo": "",
         "band_video": ""
     }

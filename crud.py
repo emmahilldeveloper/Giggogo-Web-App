@@ -143,6 +143,11 @@ def high_venue_payrate():
 
     return Venue.query.filter(Venue.venue_payrate > 5000).all()
 
+def all_genres():
+    """Returns all genres info."""
+
+    return Genre.query.all()
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

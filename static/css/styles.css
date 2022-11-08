@@ -164,10 +164,18 @@
 
 /* Search Page Styling */
 
-#search-image {
+/* #band-search-result {
   max-width: 100%;
   border: solid;
   border-width: 3px;
   border-color: black;
+  border-radius: 0px;
+} */
+
+/* #band-search-result-img {
+  max-width: 40%;
+  border: solid;
+  border-width: 1px;
+  border-color: black;
   border-radius: 400px;
-}
+} */

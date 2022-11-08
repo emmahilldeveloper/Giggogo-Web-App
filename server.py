@@ -247,12 +247,6 @@ def band_or_venue_search():
         #Show band homepage
         if user_info.venue_id is None:
             return render_template("bandsearch.html")
-
-        #Show venue homepage
-        else:
-        #Get values from checked payrate boxes
-            payrate = request.args.getlist("payrate")
-            print(payrate)
     
     #Load the page
     else:
@@ -267,49 +261,45 @@ def venue_search():
     medhigh = request.json['medhigh']
     high = request.json['high']
 
-    low_bands = []
-    med_bands = []
-    medhigh_bands = []
-    high_bands = []
+    matching_bands = []
 
     if low is True:
         all_low_bands = crud.low_band_payrate()
-        for i in range(len(all_low_bands)):
-            band_name = all_low_bands[i].band_name
-            low_bands.append(band_name)
-            band_logo = all_low_bands[i].band_logo
-            low_bands.append(band_logo)
-            payrate = f'${all_low_bands[i].band_payrate}/hr'
-            low_bands.append(payrate)
+        for band in all_low_bands:
+            low_band = {}
+            low_band['band_name'] = band.band_name
+            low_band['band_logo'] = band.band_logo
+            low_band['band_payrate'] = band.band_payrate
+            matching_bands.append(low_band)
+
     if med is True:
         all_med_bands = crud.med_band_payrate()
-        for i in range(len(all_med_bands)):
-            band_name = all_med_bands[i].band_name
-            med_bands.append(band_name)
-            band_logo = all_med_bands[i].band_logo
-            med_bands.append(band_logo)
-            payrate = f'${all_med_bands[i].band_payrate}/hr'
-            med_bands.append(payrate)
+        for band in all_med_bands:
+            med_band = {}
+            med_band['band_name'] = band.band_name
+            med_band['band_logo'] = band.band_logo
+            med_band['band_payrate'] = band.band_payrate
+            matching_bands.append(med_band)
+
     if medhigh is True:
         all_medhigh_bands = crud.medhigh_band_payrate()
-        for i in range(len(all_medhigh_bands)):
-            band_name = all_medhigh_bands[i].band_name
-            medhigh_bands.append(band_name)
-            band_logo = all_medhigh_bands[i].band_logo
-            medhigh_bands.append(band_logo)
-            payrate = f'${all_medhigh_bands[i].band_payrate}/hr'
-            medhigh_bands.append(payrate)
+        for band in all_medhigh_bands:
+            medhigh_band = {}
+            medhigh_band['band_name'] = band.band_name
+            medhigh_band['band_logo'] = band.band_logo
+            medhigh_band['band_payrate'] = band.band_payrate
+            matching_bands.append(medhigh_band)
+
     if high is True:
         all_high_bands = crud.high_band_payrate()
-        for i in range(len(all_high_bands)):
-            band_name = all_high_bands[i].band_name
-            high_bands.append(band_name)
-            band_logo = all_high_bands[i].band_logo
-            high_bands.append(band_logo)
-            payrate = f'${all_high_bands[i].band_payrate}/hr'
-            high_bands.append(payrate)
+        for band in all_high_bands:
+            high_band = {}
+            high_band['band_name'] = band.band_name
+            high_band['band_logo'] = band.band_logo
+            high_band['band_payrate'] = band.band_payrate
+            matching_bands.append(high_band)
 
-    return jsonify({'low': low_bands, 'med': med_bands, 'medhigh': medhigh_bands, 'high': high_bands})
+    return jsonify({'matches': matching_bands})
 
 if __name__ == "__main__":
 

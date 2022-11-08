@@ -3,6 +3,7 @@
 {% block body %}
 {% include 'navbar.html' %}
     {% block content %}
+    
     <div class="container-fluid">
         <div class="row" id="band-logo-row">
             <div class="col-6" id="band-logo-div">
@@ -17,6 +18,13 @@
                 <h1> {{ band_info.band_name }} </h1>
             </div>
         </div>
+        <!-- <div class="row" id="band-profile-music-sample">
+            <div class="col-6" id="band-profile-music-sample-div">
+                <div id="spotify-preview">
+                    <iframe class="the-rolling-stones" style="border-radius:12px" src="https://open.spotify.com/embed/artist/22bE4uQ6baNwSHPVcDxLCe?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div> -->
     </div>
     {% endblock %}
     <!-- Javascript files imported here. -->

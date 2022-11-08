@@ -15,25 +15,25 @@
                             <div class="row">
                                 <p class="border-bottom">Hourly Rate ($ to $$$$) </p>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="low" id="payrate" name="payrate">
+                                    <input class="form-check-input" type="checkbox" value="low" id="low-payrate" name="payrate">
                                     <label class="form-check-label" for="low-payrate">
                                       $
                                     </label>
                                   </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="med" id="payrate" name="payrate">
+                                    <input class="form-check-input" type="checkbox" value="med" id="med-payrate" name="payrate">
                                     <label class="form-check-label" for="med-payrate">
                                         $$
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="medhigh" id="payrate" name="payrate">
+                                    <input class="form-check-input" type="checkbox" value="medhigh" id="med-high-payrate" name="payrate">
                                     <label class="form-check-label" for="med-high-payrate">
                                         $$$
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="high" id="payrate" name="payrate">
+                                    <input class="form-check-input" type="checkbox" value="high" id="high-payrate" name="payrate">
                                     <label class="form-check-label" for="high-payrate">
                                         $$$$
                                     </label>
@@ -42,14 +42,12 @@
                             <div class="row">
                                 <p class="border-bottom">Genre </p>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="low" id="low-payrate" name="payrate">
-                                    <label class="form-check-label" for="low-payrate">
+                                    <input class="form-check-input" type="checkbox" value="low" id="genre" name="payrate">
+                                    <label class="form-check-label" for="genre">
                                       Genre...
                                     </label>
                                   </div>
                             </div>
-
-
                         </div>
                     </div>
                 </form>
@@ -60,16 +58,9 @@
                     <div class="card-header"><h5>Bands that fit criteria</h5></div>
                     <div class="card-body">
                         <div class="row">
-                            {% for band in all_band_payrates %}
-                            <button>
-                                <div class="col-md-3">
-                                    <div id="band-search-result-div">
-                                        <p>{{ band.band_name }}</p>
-                                        <img src="{{band.band_logo}}" id="search-image" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
-                                    </div>
-                                </div>
-                            </button>
-                            {% endfor %}
+                            <div id="band-search-result-div">
+                                <!-- JS DOM manipulation here -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -79,5 +70,5 @@
  
     {% endblock %}
     <!-- Javascript files imported here. -->
-    <script src=""></script>
+    <script src="/static/js/venuesearch.js"></script>
 {% endblock %}

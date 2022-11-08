@@ -3,30 +3,25 @@
 /////// Search Button Functionality ///////
 let searchButton = document.getElementById("search");
 
-function onClick(evt) {
+searchButton.addEventListener("click", (evt) => {
     evt.preventDefault();
-    low = document.getElementById("low-payrate");
-    med = document.getElementById("med-payrate");
-    medhigh = document.getElementById("med-high-payrate");
-    high = document.getElementById("high-payrate");
 
-    let payrate = document.getElementById("payrate").value;
+    const data = {
+        low: document.getElementById("low-payrate").checked,
+        med: document.getElementById("med-payrate").checked,
+        medhigh: document.getElementById("med-high-payrate").checked,
+        high: document.getElementById("high-payrate").checked,
+    };
 
-
-    // data = {
-    //     low: low.checked,
-    //     med: med.checked,
-    //     med_high: medhigh.checked,
-    //     high: high.checked
-    // }
-
-    fetch(`/ap(i/search?payrate=${payrate}`)
-        .then((response) => response.json())
-        .then(jsonData => {
-            document.getElementById("band-search-result-div").innerHTML = 
-            // DOM elements
-
-        });
-}
-
-searchButton.addEventListener("click", onClick(evt));
+    fetch(`/api/search`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then((response) => response.json())
+    .then(responseData => {
+        document.getElementById("band-search-result-div").innerHTML = responseData[1]
+    });
+})

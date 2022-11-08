@@ -1,4 +1,5 @@
-from flask import Flask, redirect, render_template, session, request, flash, url_for
+from flask import Flask, redirect, render_template, session, request, flash, url_for, jsonify
+from itsdangerous import json
 from jinja2 import StrictUndefined
 from model import connect_to_db, db
 import crud
@@ -220,7 +221,9 @@ def band_or_venue_homepage():
     #Show band homepage
     if user_info.venue_id is None:
         band_info = crud.all_band_info(user_info.band_id)
+
         return render_template("bandhome.html", band_info = band_info)
+    
     #Show venue homepage
     else:
         venue_info = crud.all_venue_info(user_info.venue_id)
@@ -253,20 +256,60 @@ def band_or_venue_search():
     
     #Load the page
     else:
-        # all_low_bands = crud.low_band_payrate()
-        # all_med_bands = crud.med_band_payrate()
-        # all_medhigh_bands = crud.medhigh_band_payrate()
-        # all_high_bands = crud.high_band_payrate()
-        all_band_payrates = crud.all_band_payrates()
+        return render_template("venuesearch.html")
 
-        return render_template("venuesearch.html", all_band_payrates = all_band_payrates)
+@app.route('/api/search', methods=['POST'])
+def venue_search():
+    """Returns results from search form."""
 
+    low = request.json['low']
+    med = request.json['med']
+    medhigh = request.json['medhigh']
+    high = request.json['high']
 
+    low_bands = []
+    med_bands = []
+    medhigh_bands = []
+    high_bands = []
 
+    if low is True:
+        all_low_bands = crud.low_band_payrate()
+        for i in range(len(all_low_bands)):
+            band_name = all_low_bands[i].band_name
+            low_bands.append(band_name)
+            band_logo = all_low_bands[i].band_logo
+            low_bands.append(band_logo)
+            payrate = f'${all_low_bands[i].band_payrate}/hr'
+            low_bands.append(payrate)
+    if med is True:
+        all_med_bands = crud.med_band_payrate()
+        for i in range(len(all_med_bands)):
+            band_name = all_med_bands[i].band_name
+            med_bands.append(band_name)
+            band_logo = all_med_bands[i].band_logo
+            med_bands.append(band_logo)
+            payrate = f'${all_med_bands[i].band_payrate}/hr'
+            med_bands.append(payrate)
+    if medhigh is True:
+        all_medhigh_bands = crud.medhigh_band_payrate()
+        for i in range(len(all_medhigh_bands)):
+            band_name = all_medhigh_bands[i].band_name
+            medhigh_bands.append(band_name)
+            band_logo = all_medhigh_bands[i].band_logo
+            medhigh_bands.append(band_logo)
+            payrate = f'${all_medhigh_bands[i].band_payrate}/hr'
+            medhigh_bands.append(payrate)
+    if high is True:
+        all_high_bands = crud.high_band_payrate()
+        for i in range(len(all_high_bands)):
+            band_name = all_high_bands[i].band_name
+            high_bands.append(band_name)
+            band_logo = all_high_bands[i].band_logo
+            high_bands.append(band_logo)
+            payrate = f'${all_high_bands[i].band_payrate}/hr'
+            high_bands.append(payrate)
 
-
-
-
+    return jsonify({'low': low_bands, 'med': med_bands, 'medhigh': medhigh_bands, 'high': high_bands})
 
 if __name__ == "__main__":
 

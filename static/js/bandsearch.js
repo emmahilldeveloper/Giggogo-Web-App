@@ -61,7 +61,7 @@ searchButton.addEventListener("click", (evt) => {
             venueLink.className = "btn btn-primary";
             venueLink.innerHTML= "Venue Details";
             venueLink.type = "click";
-            venueLink.setAttribute("href",`/home/${element.venue_id}`);
+            venueLink.setAttribute("href",`/venuehome/${element.venue_id}`);
             venueDivCardBody.appendChild(venueLink);
         })
     });

@@ -185,29 +185,38 @@ def find_venue():
 
 ####### User Profile ########################################################################################################
 
-@app.route("/profile")
-def profile():
-    """Shows profile of user."""
-
-    # user_info
-
-    #If the user has logged in and their cookies are saved, get all their data
+def user_determination():
+    """Helps server determine user type and route to correct homepage."""
+    
+    #Gets user session details
     if "user_id" in session:
         user_id = session["user_id"]
         user_info = crud.all_user_info_specific(user_id)
-        
-    #Kick them back to the homepage
+
+        #If there is no band or venue id, kick the user out
+        #If there's a value for venue id, send user to venue page
+        #If there's a value for band id, send user to band page
+        if (user_info.band_id is None) and (user_info.venue_id is None):
+            return redirect("/whoareyou")
+        elif user_info.venue_id:
+            return redirect(url_for("venue_homepage", venue_id = user_info.venue_id))
+        elif user_info.band_id:
+            return redirect(url_for("band_homepage", band_id = user_info.band_id))
+
+    #Kick them back to the homepage is there are no user cookies
     else:
         return redirect("/")
 
-    if (user_info.band_id is None) and (user_info.venue_id is None):
-        return redirect("/whoareyou")
+@app.route("/profile")
+def user_routes_to_home_profile():
+    """Shows profile of user."""
 
-    return render_template("profile.html", user_info = user_info)
+    #This just redirects the user to the right page
+    return user_determination()
 
 ####### Band/Venue Home Profile ##################################################################################################
 
-@app.route("/home/<venue_id>")
+@app.route("/venuehome/<venue_id>")
 def venue_homepage(venue_id):
     """Shows profile of venue."""
 
@@ -220,35 +229,28 @@ def venue_homepage(venue_id):
     else:
         return redirect("/")
 
-    #Show venue homepage
-    if user_info.venue_id is None:
-        venue_info = crud.all_venue.info(user_info.venue_id)
+    # #Show venue homepage
+    venue_info = crud.all_venue_info(venue_id)
 
-        return render_template("venuehome.html", venue_info = venue_info)
+    return render_template("venuehome.html", venue_info = venue_info, user_info = user_info)
 
-# @app.route("/home")
-# def band_or_venue_homepage():
-#     """Shows profile of band/venue."""
+@app.route("/bandhome/<band_id>")
+def band_homepage(band_id):
+    """Shows profile of band."""
 
-#     #If the user has logged in and their cookies are saved, get all their data
-#     if "user_id" in session:
-#         user_id = session["user_id"]
-#         user_info = crud.all_user_info_specific(user_id)
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
         
-#     #Kick them back to the homepage
-#     else:
-#         return redirect("/")
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
 
-#     #Show band homepage
-#     if user_info.venue_id is None:
-#         band_info = crud.all_band_info(user_info.band_id)
+    # #Show band homepage
+    band_info = crud.all_band_info(band_id)
 
-#         return render_template("bandhome.html", band_info = band_info)
-    
-#     #Show venue homepage
-#     else:
-#         venue_info = crud.all_venue_info(user_info.venue_id)
-#         return render_template("venuehome.html", venue_info = venue_info)
+    return render_template("bandhome.html", band_info = band_info, user_info = user_info)
 
 ####### Search Page #############################################################################################################
 
@@ -264,16 +266,10 @@ def band_or_venue_search():
     else:
         return redirect("/")
 
-    # if request.method == "POST":
-    #     #Show band homepage
     if user_info.venue_id is None:
-        return render_template("bandsearch.html")
+        return render_template("bandsearch.html", user_info = user_info)
     elif user_info.band_id is None:
-        return render_template("venuesearch.html")
-
-    # #Load the page
-    # else:
-    #     return render_template("venuesearch.html")
+        return render_template("venuesearch.html", user_info = user_info)
 
 ####### Search for Bands JSON response compiler #########################
 

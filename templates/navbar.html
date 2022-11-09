@@ -5,8 +5,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/profile">My Profile</a>
-      <a class="nav-item nav-link active" href="/home">My Home</a>
+      {% if user_info.venue_id %}
+      <a class="nav-item nav-link active" href="/venuehome/{{ user_info.venue_id }}">My Home</a>
+      {% else %}
+      <a class="nav-item nav-link active" href="/bandhome/{{ user_info.band_id }}">My Home</a>
+      {% endif %}
       <a class="nav-item nav-link active" href="/search">Gig Search</a>
     </div>
   </div>

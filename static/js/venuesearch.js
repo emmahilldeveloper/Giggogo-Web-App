@@ -57,13 +57,12 @@ searchButton.addEventListener("click", (evt) => {
             bandDivCardBody.appendChild(bandNameCardTitle);
 
             //Book Gig Button
-            const bandLink = document.createElement("button");
+            const bandLink = document.createElement("a");
             bandLink.className = "btn btn-primary";
             bandLink.innerHTML= "Band Details";
             bandLink.type = "click";
-            bandLink.href = "";
+            bandLink.setAttribute("href",`/bandhome/${element.band_id}`);
             bandDivCardBody.appendChild(bandLink);
-            //add evt listen
         })
     });
 })

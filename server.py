@@ -207,9 +207,28 @@ def profile():
 
 ####### Band/Venue Home Profile ##################################################################################################
 
-# @app.route("/home/<user_id>")
-# def band_homepage(user_id):
-#     """Shows profile of band."""
+@app.route("/home/<venue_id>")
+def venue_homepage(venue_id):
+    """Shows profile of venue."""
+
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+        
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
+
+    #Show venue homepage
+    if user_info.venue_id is None:
+        venue_info = crud.all_venue.info(user_info.venue_id)
+
+        return render_template("venuehome.html", venue_info = venue_info)
+
+# @app.route("/home")
+# def band_or_venue_homepage():
+#     """Shows profile of band/venue."""
 
 #     #If the user has logged in and their cookies are saved, get all their data
 #     if "user_id" in session:
@@ -225,30 +244,11 @@ def profile():
 #         band_info = crud.all_band_info(user_info.band_id)
 
 #         return render_template("bandhome.html", band_info = band_info)
-
-@app.route("/home")
-def band_or_venue_homepage():
-    """Shows profile of band/venue."""
-
-    #If the user has logged in and their cookies are saved, get all their data
-    if "user_id" in session:
-        user_id = session["user_id"]
-        user_info = crud.all_user_info_specific(user_id)
-        
-    #Kick them back to the homepage
-    else:
-        return redirect("/")
-
-    #Show band homepage
-    if user_info.venue_id is None:
-        band_info = crud.all_band_info(user_info.band_id)
-
-        return render_template("bandhome.html", band_info = band_info)
     
-    #Show venue homepage
-    else:
-        venue_info = crud.all_venue_info(user_info.venue_id)
-        return render_template("venuehome.html", venue_info = venue_info)
+#     #Show venue homepage
+#     else:
+#         venue_info = crud.all_venue_info(user_info.venue_id)
+#         return render_template("venuehome.html", venue_info = venue_info)
 
 ####### Search Page #############################################################################################################
 

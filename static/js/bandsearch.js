@@ -57,13 +57,12 @@ searchButton.addEventListener("click", (evt) => {
             venueDivCardBody.appendChild(venueNameCardTitle);
 
             //Book Gig Button
-            const venueLink = document.createElement("button");
+            const venueLink = document.createElement("a");
             venueLink.className = "btn btn-primary";
             venueLink.innerHTML= "Venue Details";
             venueLink.type = "click";
-            venueLink.href = "";
+            venueLink.setAttribute("href",`/home/${element.venue_id}`);
             venueDivCardBody.appendChild(venueLink);
-            //add evt listen
         })
     });
 })

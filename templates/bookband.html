@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} Book a Band {% endblock %}
+{% block head %}
+    <link href='fullcalendar/main.css' rel='stylesheet' />
+    <script src='fullcalendar/main.js'></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+    </script>
+{% endblock %}
+{% block body %}
+{% include 'navbar.html' %}
+    {% block content %}
+   
+    <div class="center">
+        <form action="/bookband/{{ band_info.band_id }}" method="POST" class="book-band-form" name="book-band-form">
+            <div class="mx-auto" style="width: 200px;">
+                <div class="col-5 col-md-3 order-md-1">
+                    <div class="form-floating mb-3" style="width: 250px;">
+                        <input class="form-control" id="floatingInput" type="date" name="request-date" placeholder="Request Date"/>
+                        <label for="floatingInput">Request Date</label>
+                    </div>
+                </div>
+                <div class="col-5 col-md-3 order-md-1">
+                    <div class="form-floating mb-3" style="width: 250px;">
+                        <input class="form-control" id="floatingInput" type="time" name="request-time" placeholder="Request Time"/>
+                        <label for="floatingInput">Request Time</label>
+                    </div>
+                </div>
+                <div class="col-5 col-md-3 order-md-1">
+                    <div class="form-floating mb-3" style="width: 250px;">
+                        <input class="form-control" id="floatingInput" type="currency" name="request-payrate" placeholder="Request Payrate"/>
+                        <label for="floatingInput">Request Payrate ($/hr)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mx-auto" style="width: 200px;">
+                <button type="submit" class="btn btn-dark" style="width: 250px;">Request Gig</button>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+    <!-- Javascript files imported here. -->
+    <script src=""></script>
+{% endblock %}

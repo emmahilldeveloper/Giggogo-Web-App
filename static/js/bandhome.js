@@ -2,8 +2,23 @@
 
 /////// Spotify Functionality ///////
 
-let band_id = document.getElementById("spotify").value()
+//here eventually
 
-if (band_id == "1") {
-    $()
+/////// Book Gig Button Functionality ///////
+
+let bandBookButton = document.getElementById("book-band-button");
+let currentVisibility = bandBookButton.style.display;
+
+let band = document.getElementById("band");
+let venue = document.getElementById("venue");
+
+function showBookButton() {
+    if(venue) {
+        bandBookButton.style.display = 'block';
+    }
+    else {
+        bandBookButton.style.display = 'none';
+    }
 }
+
+window.onload = showBookButton;

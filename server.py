@@ -247,10 +247,11 @@ def band_homepage(band_id):
     else:
         return redirect("/")
 
-    # #Show band homepage
+    #Show band homepage
     band_info = crud.all_band_info(band_id)
+    gig_info = crud.all_gigs_by_band(band_id)
 
-    return render_template("bandhome.html", band_info = band_info, user_info = user_info)
+    return render_template("bandhome.html", band_info = band_info, user_info = user_info, gig_info = gig_info)
 
 ####### Search Page #############################################################################################################
 
@@ -380,6 +381,49 @@ def band_search():
             matching_venues.append(high_venue)
 
     return jsonify({'matches': matching_venues})
+
+####### Gig Book Page #############################################################################################################
+
+@app.route("/bookband/<band_id>", methods = ["GET", "POST"])
+def venue_book_band(band_id):
+    """A venue can book a band."""
+
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
+
+    band_info = crud.all_band_info(band_id)
+
+    if request.method == "POST":
+        request_date = request.form.get("request-date")
+        request_time = request.form.get("request-time")
+        gig_date = request_date + " " + request_time
+        venue_id = user_info.venue_id
+        final_payrate = request.form.get("request-payrate")
+        gig_complete = False
+        gig_paid = False
+        band_id = band_info.band_id
+
+        gig = crud.create_gig(venue_id, band_id, gig_date, final_payrate, gig_complete, gig_paid)
+        db.session.add(gig)
+        db.session.commit()
+        flash("SUCCESS: Gig request sent.", category='success')
+        return redirect(url_for("venue_homepage", venue_id = user_info.venue_id))
+
+    else:
+        return render_template("bookband.html", user_info = user_info, band_info = band_info)
+
+@app.route("/bookvenue")
+def band_book_venue():
+    """A band can book a venue."""
+
+    return None
+
+
 
 if __name__ == "__main__":
 

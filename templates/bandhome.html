@@ -11,12 +11,26 @@
             </div>
             <div class="col-6" id="upcoming-gigs">
                 <h1>Upcoming Gigs:</h1>
+                {% for gig in gig_info %}
+                <div class="card" style="width:18rem" id="{{ gig_info.gig_id }}">
+                    {{ gig_info.venue_id}}
+                    {{ gig_info.gig_date}}
+                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="row" id="band-profile-info-row">
             <div class="col-6" id="band-profile-info-div">
                 <h1> {{ band_info.band_name }} </h1>
             </div>
+        </div>
+        <div value="{{ user_info.venue_id }}" id="book-band-button-div">
+            <a class="btn btn-primary" id="book-band-button" type="click" href="/bookband/{{ band_info.band_id }}">Book Band</a>
+            {% if user_info.band_id %}
+            <span id="band"></span>
+            {% else %}
+            <span id="venue"></span>
+            {% endif %}
         </div>
         <!-- <div class="row" id="band-profile-music-sample">
             <div class="col-6" id="band-profile-music-sample-div">
@@ -28,5 +42,5 @@
     </div>
     {% endblock %}
     <!-- Javascript files imported here. -->
-    <script src=""></script>
+    <script src="/static/js/bandhome.js"></script>
 {% endblock %}

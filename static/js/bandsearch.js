@@ -56,7 +56,7 @@ searchButton.addEventListener("click", (evt) => {
             venueNameCardTitle.innerText = element.venue_name;
             venueDivCardBody.appendChild(venueNameCardTitle);
 
-            //Book Gig Button
+            //Show details button
             const venueLink = document.createElement("a");
             venueLink.className = "btn btn-primary";
             venueLink.innerHTML= "Venue Details";

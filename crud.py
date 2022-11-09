@@ -148,6 +148,18 @@ def all_genres():
 
     return Genre.query.all()
 
+####### Functions for Booking a Gig Page #################################################################################################
+
+def all_gigs_by_band(band_id):
+    """Returns all gigs for a specific band."""
+
+    return Gig.query.filter(Gig.band_id == band_id).all()
+
+def all_gigs_be_venue(venue_id):
+    """Returns all gigs for a specific venue."""
+
+    return Gig.query.filter(Gig.venue_id == venue_id).all()
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

@@ -231,8 +231,15 @@ def venue_homepage(venue_id):
 
     # #Show venue homepage
     venue_info = crud.all_venue_info(venue_id)
+    gig_info = crud.all_gigs_by_venue(venue_id)
 
-    return render_template("venuehome.html", venue_info = venue_info, user_info = user_info)
+    gig_dates = {}
+
+    for gig in gig_info:
+        gig_dates['gig_date'] = gig.gig_date
+    print(gig_dates)
+
+    return render_template("venuehome.html", venue_info = venue_info, user_info = user_info, gig_info = gig_info)
 
 @app.route("/bandhome/<band_id>")
 def band_homepage(band_id):
@@ -251,7 +258,15 @@ def band_homepage(band_id):
     band_info = crud.all_band_info(band_id)
     gig_info = crud.all_gigs_by_band(band_id)
 
-    return render_template("bandhome.html", band_info = band_info, user_info = user_info, gig_info = gig_info)
+    venues = {}
+
+    for gig in gig_info:
+        venue_id = gig.venue_id
+        venue_info = crud.all_venue_info(venue_id)
+        venues["venue_name"] = venue_info.venue_name
+        venues["venue_id"] = venue_info.venue_id
+
+    return render_template("bandhome.html", band_info = band_info, user_info = user_info, gig_info = gig_info, venues = venues)
 
 ####### Search Page #############################################################################################################
 

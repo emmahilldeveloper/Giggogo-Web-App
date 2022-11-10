@@ -155,7 +155,7 @@ def all_gigs_by_band(band_id):
 
     return Gig.query.filter(Gig.band_id == band_id).all()
 
-def all_gigs_be_venue(venue_id):
+def all_gigs_by_venue(venue_id):
     """Returns all gigs for a specific venue."""
 
     return Gig.query.filter(Gig.venue_id == venue_id).all()

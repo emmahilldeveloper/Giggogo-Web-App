@@ -99,9 +99,9 @@
 .band-logo {
   max-width: 100%;
   border: solid;
-  border-width: 3px;
-  border-color: black;
-  border-radius: 400px;
+  border-width: 1px;
+  border-color: grey;
+  border-radius: 0px;
 }
 
 #band-logo-div {
@@ -122,9 +122,9 @@
   display: flex;
   padding-left: 30px;
   border: solid;
-  border-width: 3px;
-  border-color: black;
-  border-radius: 10px;
+  border-width: 1px;
+  border-color: grey;
+  border-radius: 0px;
   background-color: white;
 }
 
@@ -133,9 +133,9 @@
 .venue-logo {
   max-width: 100%;
   border: solid;
-  border-width: 3px;
-  border-color: black;
-  border-radius: 10px;
+  border-width: 1px;
+  border-color: grey;
+  border-radius: 0px;
 }
 
 #venue-logo-div {
@@ -156,9 +156,9 @@
   display: flex;
   padding-left: 30px;
   border: solid;
-  border-width: 3px;
-  border-color: black;
-  border-radius: 10px;
+  border-width: 1px;
+  border-color: grey;
+  border-radius: 0px;
   background-color: white;
 }
 

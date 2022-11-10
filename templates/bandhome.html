@@ -9,12 +9,14 @@
             <div class="col-6" id="band-logo-div">
                 <img class="band-logo" src="{{ band_info.band_logo }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
             </div>
-            <div class="col-6" id="upcoming-gigs">
+            <div class="card" id="upcoming-gigs">
                 <h1>Upcoming Gigs:</h1>
                 {% for gig in gig_info %}
-                <div class="card" style="width:18rem" id="{{ gig_info.gig_id }}">
-                    {{ gig_info.venue_id}}
-                    {{ gig_info.gig_date}}
+                <div class="card" style="width:18rem" id="{{ gig.gig_id }}">
+                    {% if gig.venue_id == venues["venue_id"] %}
+                    <h4>{{ venues["venue_name"] }}</h4>
+                    {% endif %}
+                    <h4>{{ gig.gig_date }}</h4>
                 </div>
                 {% endfor %}
             </div>

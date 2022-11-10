@@ -1,14 +1,11 @@
 {% extends 'base.html' %}
 {% block title %} Create a Venue {% endblock %}
 {% block body %}
+<img src="/static/media/audience.jpg" id="background-photo">
 <div class="center">
     <div id="create-venue-div">
         <form method="POST">
             <div class="mx-auto" style="width: 200px;">
-                <div class="mb-3" name="profile-photo" style="width: 250px;">
-                    <label for="create-venue-logo" class="form-label">Upload a Venue Logo!</label>
-                    <input type="file" class="form-control" id="create-venue-logo" name="create-venue-logo"/>
-
                     <div class="form-floating mb-3" style="width: 250px;">
                         <input class="form-control" id="floatingInput" type="text" name="create-venue-logo" placeholder="Photo URL"/>
                         <label for="floatingInput">Venue Logo URL</label>

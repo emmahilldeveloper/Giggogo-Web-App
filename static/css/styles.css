@@ -6,10 +6,15 @@
     background-color:white;
 }
 
+.btn.btn-dark {
+  background-color: orange;
+  color: black;
+}
+
 /* Homepage Styling */
 
 #homepage-logo {
-  max-width: 500px;
+  max-width: 1000px;
   position: absolute;
   top:0;
   bottom: 500px;
@@ -138,6 +143,10 @@
   border-color: grey;
   border-radius: 0px;
   background-color: white;
+}
+
+.band-member-img {
+  max-width: 100px;
 }
 
 /* Venue Home Styling */

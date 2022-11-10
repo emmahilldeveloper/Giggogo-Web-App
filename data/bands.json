@@ -30,5 +30,85 @@
         "band_logo": "https://media.bizj.us/view/img/11531858/beauty-lizzo-4*1200xx2357-1326-0-792.jpg",
         "band_photo": "",
         "band_video": ""
+    },
+    {
+        "band_name": "Nirvana",
+        "band_phone": "123-4567",
+        "band_payrate": 405,
+        "band_logo": "https://imageio.forbes.com/specials-images/imageserve/5ddd961f755ebf0006fb8aec/Nirvana-yellow-outline-smiley-face-with-x-s-for-eyes-and-tongue-hanging-out/960x0.jpg?format=jpg&width=960",
+        "band_photo": "",
+        "band_video": ""
+    },
+    {
+        "band_name": "Heart",
+        "band_phone": "123-4567",
+        "band_payrate": 1430,
+        "band_logo": "https://www.heart-music.com/assets/db9cb31d/images/default.jpg",
+        "band_photo": "",
+        "band_video": ""
+    },
+    {
+        "band_name": "Aerosmith",
+        "band_phone": "123-4567",
+        "band_payrate": 5060,
+        "band_logo": "https://1000logos.net/wp-content/uploads/2016/10/AOL-symbol.jpg",
+        "band_photo": "",
+        "band_video": ""
+    },
+    {
+        "band_name": "Creedence Clearwater Revival",
+        "band_phone": "123-4567",
+        "band_payrate": 3769,
+        "band_logo": "https://i.ebayimg.com/images/g/G4YAAOSwJT9hSQk5/s-l500.png",
+        "band_photo": "",
+        "band_video": ""
+    },
+    {
+        "band_name": "Billie Eilish",
+        "band_phone": "123-4567",
+        "band_payrate": 6709,
+        "band_logo": "https://assets.vogue.com/photos/609bb445758287e5e091eeed/master/pass/Billie-Eilish-Happier-Than-Ever.jpeg",
+        "band_photo": "",
+        "band_video": ""
+    },
+    {
+        "band_name": "Alicia Keys",
+        "band_phone": "123-4567",
+        "band_payrate": 3626,
+        "band_logo": "http://cdn.cnn.com/cnnnext/dam/assets/200806120231-alicia-keys-elf-cosmetics.jpg",
+        "band_photo": "",
+        "band_video": ""
+    },
+    {
+        "band_name": "Beyonce",
+        "band_phone": "123-4567",
+        "band_payrate": 2836,
+        "band_logo": "https://www.billboard.com/wp-content/uploads/2022/07/beyonce-press-2022-cr-parkwood-entertaiment-billboard-1548.jpg?w=942&h=623&crop=1",
+        "band_photo": "",
+        "band_video": ""
+    },
+    {
+        "band_name": "Cardi B",
+        "band_phone": "123-4567",
+        "band_payrate": 3729,
+        "band_logo": "https://www.gannett-cdn.com/-mm-/bf8007cb85a1b86354d3728fdfc31c5e23da480e/c=0-230-4566-2810/local/-/media/2017/10/28/USATODAY/USATODAY/636447905862496955-AP-2017-Power-105.1-Powerhouse.jpg",
+        "band_photo": "",
+        "band_video": ""
+    },
+    {
+        "band_name": "Imagine Dragons",
+        "band_phone": "123-4567",
+        "band_payrate": 304,
+        "band_logo": "https://ae01.alicdn.com/kf/Hfc7d376a842f4e908399e5432963c32cj/58mm-Imagine-Dragons-logo-Kitchen-Home-Decor-Refrigerator-Magnet-Bottle-Opener-Beer-Coke.jpg_640x640.jpg",
+        "band_photo": "",
+        "band_video": ""
+    },
+    {
+        "band_name": "Thin Lizzy",
+        "band_phone": "123-4567",
+        "band_payrate": 3004,
+        "band_logo": "https://cdn11.bigcommerce.com/s-fg272t4iw0/images/stencil/500x659/products/9065/9318/C-19116__69272.1557820098.jpg?c=2",
+        "band_photo": "",
+        "band_video": ""
     }
 ]

@@ -233,13 +233,15 @@ def venue_homepage(venue_id):
     venue_info = crud.all_venue_info(venue_id)
     gig_info = crud.all_gigs_by_venue(venue_id)
 
-    gig_dates = {}
+    bands = {}
 
     for gig in gig_info:
-        gig_dates['gig_date'] = gig.gig_date
-    print(gig_dates)
+        band_id = gig.band_id
+        band_info = crud.all_band_info(band_id)
+        bands["band_name"] = band_info.band_name
+        bands["band_id"] = band_info.band_id
 
-    return render_template("venuehome.html", venue_info = venue_info, user_info = user_info, gig_info = gig_info)
+    return render_template("venuehome.html", venue_info = venue_info, user_info = user_info, gig_info = gig_info, bands = bands)
 
 @app.route("/bandhome/<band_id>")
 def band_homepage(band_id):
@@ -257,8 +259,17 @@ def band_homepage(band_id):
     #Show band homepage
     band_info = crud.all_band_info(band_id)
     gig_info = crud.all_gigs_by_band(band_id)
+    all_members = crud.all_band_members(band_id)
 
     venues = {}
+    members = {}
+
+    for band_member in all_members:
+        user_id = band_member.user_id
+        user_info = crud.all_user_info_specific(user_id)
+        members["member_id"] = user_info.user_id
+        members["member_name"] = user_info.first_name + " " + user_info.last_name
+        members["member_photo"] = user_info.profile_photo
 
     for gig in gig_info:
         venue_id = gig.venue_id
@@ -266,7 +277,7 @@ def band_homepage(band_id):
         venues["venue_name"] = venue_info.venue_name
         venues["venue_id"] = venue_info.venue_id
 
-    return render_template("bandhome.html", band_info = band_info, user_info = user_info, gig_info = gig_info, venues = venues)
+    return render_template("bandhome.html", band_info = band_info, user_info = user_info, gig_info = gig_info, venues = venues, members = members, all_members = all_members)
 
 ####### Search Page #############################################################################################################
 
@@ -432,13 +443,38 @@ def venue_book_band(band_id):
     else:
         return render_template("bookband.html", user_info = user_info, band_info = band_info)
 
-@app.route("/bookvenue")
-def band_book_venue():
+@app.route("/bookvenue/<venue_id>", methods = ["GET", "POST"])
+def band_book_venue(venue_id):
     """A band can book a venue."""
 
-    return None
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
 
+    venue_info = crud.all_venue_info(venue_id)
 
+    if request.method == "POST":
+        request_date = request.form.get("request-date")
+        request_time = request.form.get("request-time")
+        gig_date = request_date + " " + request_time
+        venue_id = venue_info.venue_id
+        final_payrate = request.form.get("request-payrate")
+        gig_complete = False
+        gig_paid = False
+        band_id = user_info.band_id
+
+        gig = crud.create_gig(venue_id, band_id, gig_date, final_payrate, gig_complete, gig_paid)
+        db.session.add(gig)
+        db.session.commit()
+        flash("SUCCESS: Gig request sent.", category='success')
+        return redirect(url_for("band_homepage", band_id = user_info.band_id))
+
+    else:
+        return render_template("bookvenue.html", user_info = user_info, venue_info = venue_info)
 
 if __name__ == "__main__":
 

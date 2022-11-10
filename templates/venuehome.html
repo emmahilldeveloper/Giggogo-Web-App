@@ -16,28 +16,23 @@
 {% block body %}
 {% include 'navbar.html' %}
     {% block content %}
-    <div id='calendar'>
-
-
-
-    </div>
-    <script>
-        let calendarEl = document.getElementById('calendar');
-
-        let calendar = new FullCalendar.Calendar(calendarEl, {
-                // put events here
-        });
-
-        calendar.render()
-    </script>
-
     <div class="container-fluid">
         <div class="row" id="venue-logo-row">
             <div class="col-6" id="venue-logo-div">
                 <img class="venue-logo" src="{{ venue_info.venue_logo }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
             </div>
-            <div class="col-6" id="upcoming-gigs">
+        </div>
+        <div class="row" id="upcoming-gigs-row">
+            <div class="card" id="upcoming-gigs">
                 <h1>Upcoming Gigs:</h1>
+                {% for gig in gig_info %}
+                <div class="card" style="width:18rem" id="{{ gig.gig_id }}">
+                    {% if gig.band_id == bands["band_id"] %}
+                    <h4>{{ bands["band_name"] }}</h4>
+                    {% endif %}
+                    <h4>{{ gig.gig_date }}</h4>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="row" id="venue-profile-info-row">
@@ -45,8 +40,16 @@
                 <h1> {{ venue_info.venue_name }} </h1>
             </div>
         </div>
+        <div value="{{ user_info.band_id }}" id="book-venue-button-div">
+            <a class="btn btn-primary" id="book-venue-button" type="click" href="/bookvenue/{{ venue_info.venue_id }}">Book Venue</a>
+            {% if user_info.venue_id %}
+            <span id="venue"></span>
+            {% else %}
+            <span id="band"></span>
+            {% endif %}
+        </div>
     </div>
     {% endblock %}
     <!-- Javascript files imported here. -->
-    <script src=""></script>
+    <script src="/static/js/venuehome.js"></script>
 {% endblock %}

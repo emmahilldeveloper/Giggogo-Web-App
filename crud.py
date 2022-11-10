@@ -83,9 +83,7 @@ def all_users():
 def all_user_info_specific(user_id):
     """Returns all user info for specific user."""
 
-    all_info = User.query.filter(User.user_id == user_id).first()
-
-    return all_info
+    return User.query.filter(User.user_id == user_id).first()
 
 ####### Functions for Home Venue/Band Page ########################################################################################
 
@@ -98,6 +96,11 @@ def all_venue_info(venue_id):
     """Will return all of user info by venue id."""
 
     return Venue.query.filter(Venue.venue_id == venue_id).first()
+
+def all_band_members(band_id):
+    """Will return all of the members in a band."""
+
+    return User.query.filter(User.band_id == band_id).all()
 
 ####### Functions for Venue Search Page #################################################################################################
 

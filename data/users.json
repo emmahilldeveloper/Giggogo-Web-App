@@ -45,13 +45,13 @@
         "profile_photo": "https://www.msgsports.com/wp-content/uploads/2021/09/JamesDolan-web-1.jpg"
     },
     {
-        "first_name": "Target",
-        "last_name": "Corp",
-        "email": "targetcorp@gmail.com",
+        "first_name": "Bullseye",
+        "last_name": "Target",
+        "email": "janetarget@gmail.com",
         "password": "123abc",
         "band_id": null,
         "venue_id": 2,
-        "profile_photo": ""
+        "profile_photo": "https://www.theglobeandmail.com/resizer/ntoDqXhXzH-Y5vKAEJcIR4FJI4w=/1200x1637/filters:quality(80)/arc-anglerfish-tgam-prod-tgam.s3.amazonaws.com/public/C7YLT2SPHZCJ5PKMCENTYFQTUI"
     },
     {
         "first_name": "Dayna",
@@ -133,5 +133,312 @@
         "band_id": 4,
         "venue_id": null,
         "profile_photo": "https://www.bostonglobe.com/resizer/-99YnLhexWU9EPG6dR7tgvBE_tc=/arc-anglerfish-arc2-prod-bostonglobe/public/K4DLO6SWU4G5YF7TYJGYV7G2XU.jpg"
+    },
+    {
+        "first_name": "Kurt",
+        "last_name": "Cobain",
+        "email": "kurtcobain@gmail.com",
+        "password": "123abc",
+        "band_id": 5,
+        "venue_id": null,
+        "profile_photo": "https://media.newyorker.com/photos/5ad514a5cd7220727ab349eb/master/w_2560%2Cc_limit/940425_ra505.jpg"
+    },
+    {
+        "first_name": "Krist",
+        "last_name": "Novoselic",
+        "email": "kristnovoselic@gmail.com",
+        "password": "123abc",
+        "band_id": 5,
+        "venue_id": null,
+        "profile_photo": "https://www.rollingstone.com/wp-content/uploads/2018/06/rs-181336-111170313.jpg"
+    },
+    {
+        "first_name": "Dave",
+        "last_name": "Grohl",
+        "email": "davegrohl@gmail.com",
+        "password": "123abc",
+        "band_id": 5,
+        "venue_id": null,
+        "profile_photo": "https://upload.wikimedia.org/wikipedia/commons/0/07/FoosDublin210819-2_%2848620472807%29_%28cropped%29.jpg"
+    },
+    {
+        "first_name": "Ann",
+        "last_name": "Wilson",
+        "email": "annwilson@gmail.com",
+        "password": "123abc",
+        "band_id": 6,
+        "venue_id": null,
+        "profile_photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4Y_cYru4fPn_75O8zpf1Pg2cc6Cq766P9tg&usqp=CAU"
+    },
+    {
+        "first_name": "Nancy",
+        "last_name": "Wilson",
+        "email": "nancywilson@gmail.com",
+        "password": "123abc",
+        "band_id": 6,
+        "venue_id": null,
+        "profile_photo": "https://i.etsystatic.com/9986576/r/il/3e69f3/3123058675/il_fullxfull.3123058675_p8pn.jpg"
+    },
+    {
+        "first_name": "Howard",
+        "last_name": "Leese",
+        "email": "howardlesse@gmail.com",
+        "password": "123abc",
+        "band_id": 6,
+        "venue_id": null,
+        "profile_photo": "https://i.pinimg.com/236x/21/89/59/21895944eefe8ee4f278f97505e1e8db--heart-beat-rock-roll.jpg"
+    },
+    {
+        "first_name": "Michael",
+        "last_name": "Derosier",
+        "email": "michaelderosier@gmail.com",
+        "password": "123abc",
+        "band_id": 6,
+        "venue_id": null,
+        "profile_photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2EN-pgI-uPQ9nohSiH-if5U78sCAB48qtdeg0o3SGSa_UZyvoOdmHGwQ0hY7GSzXxk8E&usqp=CAU"
+    },
+    {
+        "first_name": "Steve",
+        "last_name": "Fossen",
+        "email": "stevefossen@gmail.com",
+        "password": "123abc",
+        "band_id": 6,
+        "venue_id": null,
+        "profile_photo": "https://bloximages.chicago2.vip.townnews.com/lacrossetribune.com/content/tncms/assets/v3/editorial/5/3b/53b9958b-00f1-586b-8af3-8eeac78d8643/5bb636e85b662.image.jpg"
+    },
+    {
+        "first_name": "Roger",
+        "last_name": "Fisher",
+        "email": "rogerfisher@gmail.com",
+        "password": "123abc",
+        "band_id": 6,
+        "venue_id": null,
+        "profile_photo": "https://images.squarespace-cdn.com/content/v1/58a14abfe6f2e1990ac958cc/1486966801825-YGJECXIY2BMYXN8HNVOC/03Roger.jpg"
+    },
+    {
+        "first_name": "Steven",
+        "last_name": "Tyler",
+        "email": "steventyler@gmail.com",
+        "password": "123abc",
+        "band_id": 7,
+        "venue_id": null,
+        "profile_photo": "https://www.wonderwall.com/wp-content/uploads/sites/2/2018/05/1026880-various.jpg"
+    },
+    {
+        "first_name": "Tom",
+        "last_name": "Hamilton",
+        "email": "tomhamilton@gmail.com",
+        "password": "123abc",
+        "band_id": 7,
+        "venue_id": null,
+        "profile_photo": "https://i.pinimg.com/originals/b5/de/dd/b5deddad1be0ad42b4f90c61624fbe62.jpg"
+    },
+    {
+        "first_name": "Joey",
+        "last_name": "Kramer",
+        "email": "joeykramer@gmail.com",
+        "password": "123abc",
+        "band_id": 7,
+        "venue_id": null,
+        "profile_photo": "https://i.dailymail.co.uk/1s/2020/01/22/01/23705848-7914171-image-m-11_1579658139575.jpg"
+    },
+    {
+        "first_name": "Joe",
+        "last_name": "Perry",
+        "email": "joeperry@gmail.com",
+        "password": "123abc",
+        "band_id": 7,
+        "venue_id": null,
+        "profile_photo": "https://swaves.com/Back_Issues/Feb08/Joe-Perry-color-by-Melissa-Mahoney.gif"
+    },
+    {
+        "first_name": "Brad",
+        "last_name": "Whitford",
+        "email": "bradwhitford@gmail.com",
+        "password": "123abc",
+        "band_id": 7,
+        "venue_id": null,
+        "profile_photo": "https://i.pinimg.com/originals/dd/4a/4f/dd4a4fcb8c126e14d2a09bce34180360.jpg"
+    },
+    {
+        "first_name": "John",
+        "last_name": "Fogerty",
+        "email": "johnfogerty@gmail.com",
+        "password": "123abc",
+        "band_id": 8,
+        "venue_id": null,
+        "profile_photo": "https://i.pinimg.com/originals/f4/c0/34/f4c0344b2a8c8b63efccec5bc9c517d2.jpg"
+    },
+    {
+        "first_name": "Tom",
+        "last_name": "Fogerty",
+        "email": "tomfogerty@gmail.com",
+        "password": "123abc",
+        "band_id": 8,
+        "venue_id": null,
+        "profile_photo": "https://townsquare.media/site/295/files/2015/09/Tom-Fogerty.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89"
+    },
+    {
+        "first_name": "Doug",
+        "last_name": "Clifford",
+        "email": "dougclifford@gmail.com",
+        "password": "123abc",
+        "band_id": 8,
+        "venue_id": null,
+        "profile_photo": "https://concord.com/wp-content/uploads/2018/06/DOUG_CLIFFORD_3.jpg"
+    },
+    {
+        "first_name": "Stu",
+        "last_name": "Cook",
+        "email": "stucook@gmail.com",
+        "password": "123abc",
+        "band_id": 8,
+        "venue_id": null,
+        "profile_photo": "https://www.kboo.com/sites/default/files/images/lead/station_content/20e4aab8ef39696ec104569050b226ea.jpg"
+    },
+    {
+        "first_name": "Billie",
+        "last_name": "Eilish",
+        "email": "billieeilish@gmail.com",
+        "password": "123abc",
+        "band_id": 9,
+        "venue_id": null,
+        "profile_photo": "https://media.allure.com/photos/605247e1bddfa641546fa160/1:1/w_2264,h_2264,c_limit/billie%20eilish.jpg"
+    },
+    {
+        "first_name": "Alicia",
+        "last_name": "Cook",
+        "email": "aliciacook@gmail.com",
+        "password": "123abc",
+        "band_id": 10,
+        "venue_id": null,
+        "profile_photo": "https://media.allure.com/photos/604f8a962b43f0167a3f3a30/1:1/w_2000,h_2000,c_limit/Alicia%20Keys%20Allure%20April%202021.jpg"
+    },
+    {
+        "first_name": "Beyoncé",
+        "last_name": "Knowles",
+        "email": "beyonceknowles@gmail.com",
+        "password": "123abc",
+        "band_id": 11,
+        "venue_id": null,
+        "profile_photo": "https://cdn.britannica.com/51/188751-050-D4E1CFBC/Beyonce-2010.jpg"
+    },
+    {
+        "first_name": "Belcalis",
+        "last_name": "Alamánzar",
+        "email": "balcalisalamanzar@gmail.com",
+        "password": "123abc",
+        "band_id": 12,
+        "venue_id": null,
+        "profile_photo": "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTUzMDQ5MDQ5NDIxODQ5NjA3/cardi-b-arrives-at-the-2017-mtv-video-music-awards-at-the-forum-on-august-27-2017-in-inglewood-california-photo-by-gregg-deguire_getty-images-500.jpg"
+    },
+    {
+        "first_name": "Dan",
+        "last_name": "Reynolds",
+        "email": "danreynolds@gmail.com",
+        "password": "123abc",
+        "band_id": 13,
+        "venue_id": null,
+        "profile_photo": "https://s3-us-west-1.amazonaws.com/wasserman-media-library/music_artists/dan-reynolds-20210918.jpg"
+    },
+    {
+        "first_name": "Andrew",
+        "last_name": "Tolman",
+        "email": "andrewtolman@gmail.com",
+        "password": "123abc",
+        "band_id": 13,
+        "venue_id": null,
+        "profile_photo": "https://static.wikia.nocookie.net/imaginedragons/images/6/62/Andrew_tolman.jpg/revision/latest?cb=20171029173345"
+    },
+    {
+        "first_name": "Andrew",
+        "last_name": "Beck",
+        "email": "andrewbeck@gmail.com",
+        "password": "123abc",
+        "band_id": 13,
+        "venue_id": null,
+        "profile_photo": "https://images.equipboard.com/uploads/user/image/10156/big_andrew-beck.jpg?v=1667353838"
+    },
+    {
+        "first_name": "Aurora",
+        "last_name": "Florence",
+        "email": "auroraflorence@gmail.com",
+        "password": "123abc",
+        "band_id": 13,
+        "venue_id": null,
+        "profile_photo": "https://static.wixstatic.com/media/a6e176_f2f8df7b924f46b48a8dbf1ef1c413c8~mv2_d_6000_4000_s_4_2.jpg/v1/crop/x_122,y_0,w_5756,h_4000/fill/w_708,h_491,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/cute-18.jpg"
+    },
+    {
+        "first_name": "Phil",
+        "last_name": "Lynott",
+        "email": "phillynott@gmail.com",
+        "password": "123abc",
+        "band_id": 14,
+        "venue_id": null,
+        "profile_photo": "https://www.nme.com/wp-content/uploads/2019/11/Ireland-to-issue-commemorative-coin-of-Thin-Lizzys-Phil-Lynott.jpg"
+    },
+    {
+        "first_name": "Brian",
+        "last_name": "Downey",
+        "email": "briandowney@gmail.com",
+        "password": "123abc",
+        "band_id": 14,
+        "venue_id": null,
+        "profile_photo": "https://www.drummerworld.com/drummerworld2/briandowney55098.jpg"
+    },
+    {
+        "first_name": "Eric",
+        "last_name": "Bell",
+        "email": "ericbell@gmail.com",
+        "password": "123abc",
+        "band_id": 14,
+        "venue_id": null,
+        "profile_photo": "https://express-images.franklymedia.com/3745/sites/10/2019/10/28140837/thinlizzy.jpg"
+    },
+    {
+        "first_name": "Eric",
+        "last_name": "Wrixon",
+        "email": "ericwrixon@gmail.com",
+        "password": "123abc",
+        "band_id": 14,
+        "venue_id": null,
+        "profile_photo": "https://www.nzherald.co.nz/resizer/_OukuNP1xVOPh8EoUffSs557M78=/768x922/smart/filters:quality(70)/cloudfront-ap-southeast-2.images.arcpublishing.com/nzme/PURZMYCV5KWL3P3JQU52X3O3GA.jpg"
+    },
+    {
+        "first_name": "John",
+        "last_name": "Klick",
+        "email": "johnklick@gmail.com",
+        "password": "123abc",
+        "band_id": null,
+        "venue_id": 5,
+        "profile_photo": "https://bloximages.newyork1.vip.townnews.com/swnewsmedia.com/content/tncms/assets/v3/editorial/2/fa/2fa14159-b06c-5a9d-852a-8ca63c3d29ae/553e511cec652.image.jpg?resize=317%2C500"
+    },
+    {
+        "first_name": "John",
+        "last_name": "Bischoff",
+        "email": "johnbischoff@gmail.com",
+        "password": "123abc",
+        "band_id": null,
+        "venue_id": 6,
+        "profile_photo": "https://www.indeedbrewing.com/uploads/old-wp-content/Josh_Metro-Mug.jpg"
+    },
+    {
+        "first_name": "Omar",
+        "last_name": "Ansari",
+        "email": "omaransari@gmail.com",
+        "password": "123abc",
+        "band_id": null,
+        "venue_id": 7,
+        "profile_photo": "https://cdn.minnesotamonthly.com/wp-content/uploads/sites/85/2019/07/Omar_Ansari_1.jpg"
+    },
+    {
+        "first_name": "Jane",
+        "last_name": "Hollywood",
+        "email": "janehollywood@gmail.com",
+        "password": "123abc",
+        "band_id": null,
+        "venue_id": 8,
+        "profile_photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb97YCru8jmiLOqCE43AFqX2_iPOLIRXeVr8nAgCtwxcHgxcTKC-vrxN8QCw3J6gEqtSM&usqp=CAU"
     }
 ]
+

@@ -16,23 +16,27 @@
 {% block body %}
 {% include 'navbar.html' %}
     {% block content %}
+    <img src="/static/media/audience.jpg" id="background-photo">
+
     <div class="container-fluid">
         <div class="row" id="venue-logo-row">
-            <div class="col-6" id="venue-logo-div">
+            <div class="col" id="venue-logo-div">
                 <img class="venue-logo" src="{{ venue_info.venue_logo }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
             </div>
         </div>
-        <div class="row" id="upcoming-gigs-row">
-            <div class="card" id="upcoming-gigs">
-                <h1>Upcoming Gigs:</h1>
-                {% for gig in gig_info %}
-                <div class="card" style="width:18rem" id="{{ gig.gig_id }}">
-                    {% if gig.band_id == bands["band_id"] %}
-                    <h4>{{ bands["band_name"] }}</h4>
-                    {% endif %}
-                    <h4>{{ gig.gig_date }}</h4>
+        <div class="col" id="upcoming-gigs-row">
+            <div class="row" id="upcoming-gigs-row">
+                <div class="card" id="upcoming-gigs">
+                    <h1>Upcoming Gigs:</h1>
+                    {% for band in bands %}
+                    <div class="card" style="width:18rem" id="{{ band.gig_id }}">
+                        <ul class="list-group-item">
+                            <li class="list-group-item"><b>Band: </b><br>{{ band.band_name }}</li>
+                            <li class="list-group-item"><b>Date: </b><br>{{ band.gig_date }}</li>
+                        </ul>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
         <div class="row" id="venue-profile-info-row">

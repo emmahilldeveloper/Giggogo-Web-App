@@ -92,26 +92,6 @@ for genre in genres_data:
 
 model.db.session.add_all(genres_in_db)
 
-# ####### Creating gigs in Giggogo database. #######
-
-gigs_in_db = []
-
-with open('data/gigs.json') as f:
-    gigs_data = json.loads(f.read())
-
-for gig in gigs_data:
-    venue_id = gig["venue_id"]
-    band_id = gig["band_id"]
-    gig_date = gig["gig_date"]
-    final_payrate = gig["final_payrate"]
-    gig_complete = gig["gig_complete"]
-    gig_paid = gig["gig_paid"]
-
-    db_gig = crud.create_gig(venue_id, band_id, gig_date, final_payrate, gig_complete, gig_paid)
-    gigs_in_db.append(db_gig)
-
-model.db.session.add_all(gigs_in_db)
-
 # ####### Creating band genres in Giggogo database. #######
 
 band_genres_in_db = []

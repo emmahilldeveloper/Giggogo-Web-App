@@ -233,13 +233,17 @@ def venue_homepage(venue_id):
     venue_info = crud.all_venue_info(venue_id)
     gig_info = crud.all_gigs_by_venue(venue_id)
 
-    bands = {}
+    bands = []
 
     for gig in gig_info:
         band_id = gig.band_id
         band_info = crud.all_band_info(band_id)
-        bands["band_name"] = band_info.band_name
-        bands["band_id"] = band_info.band_id
+        bands_dict = {}
+        bands_dict["band_name"] = band_info.band_name
+        bands_dict["gig_date"] = gig.gig_date
+        bands_dict["gig_id"] = gig.gig_id
+        bands_dict["band_id"] = band_info.band_id
+        bands.append(bands_dict)
 
     return render_template("venuehome.html", venue_info = venue_info, user_info = user_info, gig_info = gig_info, bands = bands)
 
@@ -261,23 +265,29 @@ def band_homepage(band_id):
     gig_info = crud.all_gigs_by_band(band_id)
     all_members = crud.all_band_members(band_id)
 
-    venues = {}
-    members = {}
+    venues = []
+    members = []
 
     for band_member in all_members:
         user_id = band_member.user_id
-        user_info = crud.all_user_info_specific(user_id)
-        members["member_id"] = user_info.user_id
-        members["member_name"] = user_info.first_name + " " + user_info.last_name
-        members["member_photo"] = user_info.profile_photo
+        band_member_info = crud.all_user_info_specific(user_id)
+        members_dict = {}
+        members_dict["member_id"] = band_member_info.user_id
+        members_dict["member_name"] = band_member_info.first_name + " " + band_member_info.last_name
+        members_dict["member_photo"] = band_member_info.profile_photo
+        members.append(members_dict)
 
     for gig in gig_info:
         venue_id = gig.venue_id
         venue_info = crud.all_venue_info(venue_id)
-        venues["venue_name"] = venue_info.venue_name
-        venues["venue_id"] = venue_info.venue_id
+        venues_dict = {}
+        venues_dict["venue_name"] = venue_info.venue_name
+        venues_dict["venue_id"] = venue_info.venue_id
+        venues_dict["gig_date"] = gig.gig_date
+        venues_dict["gig_id"] = gig.gig_id
+        venues.append(venues_dict)
 
-    return render_template("bandhome.html", band_info = band_info, user_info = user_info, gig_info = gig_info, venues = venues, members = members, all_members = all_members)
+    return render_template("bandhome.html", band_info = band_info, user_info = user_info, gig_info = gig_info, venues = venues, members = members)
 
 ####### Search Page #############################################################################################################
 
@@ -293,8 +303,17 @@ def band_or_venue_search():
     else:
         return redirect("/")
 
+    genres = []
+
     if user_info.venue_id is None:
-        return render_template("bandsearch.html", user_info = user_info)
+        all_genres = crud.all_genres()
+        for genre in all_genres:
+            genres_dict = {}
+            genres_dict["genre_name"] = genre.genre_name
+            genres_dict["genre_id"] = genre.genre_id
+            genres.append(genres_dict)
+
+        return render_template("bandsearch.html", user_info = user_info, genres = genres)
     elif user_info.band_id is None:
         return render_template("venuesearch.html", user_info = user_info)
 
@@ -363,8 +382,19 @@ def band_search():
     med = request.json['med']
     medhigh = request.json['medhigh']
     high = request.json['high']
+    genre = request.json['genre']
 
     matching_venues = []
+
+    venues = crud.all_venues_by_genre(genre)
+    print(venues)
+    venues_dict = {}
+    venues_dict['venue_name'] = matching_venues.venue_name
+    venues_dict['venue_logo'] = matching_venues.venue_logo
+    venues_dict['venue_payrate'] = matching_venues.venue_payrate
+    venues_dict['venue_id'] = matching_venues.venue_id
+    matching_venues.append(venues_dict)
+
 
     if low is True:
         all_low_venues = crud.low_venue_payrate()

@@ -3,12 +3,29 @@
 /* Giggogo app theme. */
 
 .theme-style {
-    background-color:white;
+    background-color:grey;
 }
 
 .btn.btn-dark {
   background-color: orange;
   color: black;
+}
+
+/* Navbar styling */
+
+.nav-item.nav-link.active:hover {
+  color: black;
+  background-color: white;
+  border-color: black;
+}
+
+#navbar-logo {
+  padding-left: 50px;
+  max-width: 200px;
+}
+
+.navbar-nav a {
+  color:white;
 }
 
 /* Homepage Styling */
@@ -117,36 +134,37 @@
   max-width: 100%;
   border: solid;
   border-width: 1px;
-  border-color: grey;
+  border-color: black;
   border-radius: 0px;
 }
 
 #band-logo-div {
   display: flex;
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
 #band-logo-row {
-  padding-top: 30px;
+  padding-right: 20px;
+  display: flex;
 }
 
-#profile-info-row {
+#upcoming-gigs-div {
   display: flex;
-  padding-left: 30px;
-}
-
-#upcoming-gigs {
-  display: flex;
-  padding-left: 30px;
+  padding-left: 0px;
   border: solid;
   border-width: 1px;
-  border-color: grey;
+  border-color: black;
   border-radius: 0px;
   background-color: white;
 }
 
-.band-member-img {
+#band-member-img {
   max-width: 100px;
+}
+
+#band-profile-info-div {
+  background-color: white;
+  color:black;
 }
 
 /* Venue Home Styling */
@@ -155,13 +173,13 @@
   max-width: 100%;
   border: solid;
   border-width: 1px;
-  border-color: grey;
+  border-color: black;
   border-radius: 0px;
 }
 
 #venue-logo-div {
   display: flex;
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
 #venue-logo-row {
@@ -170,7 +188,7 @@
 
 #profile-info-row {
   display: flex;
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
 #upcoming-gigs {

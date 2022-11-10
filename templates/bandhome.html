@@ -3,49 +3,54 @@
 {% block body %}
 {% include 'navbar.html' %}
     {% block content %}
+    <img src="/static/media/audience.jpg" id="background-photo">
+
     
+
     <div class="container-fluid">
         <div class="row" id="band-logo-row">
-            <div class="col-6" id="band-logo-div">
+            <div class="col" id="band-logo-div">
                 <img class="band-logo" src="{{ band_info.band_logo }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
             </div>
-            <div class="col-6" id="band-member-div">
-                {% for band_member in all_members %}
-                <div class="card" style="width:18rem" id="{{ band_member.user_id }}">
-                    {% if band_member.user_id == members["member_id"] %}
-                    <img class="band-member-img" src="{{ members["member_photo"] }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
-                    <h4>{{ members["member_name"] }}</h4>
-                    {% endif %}
+            <div class="col" id="upcoming-gigs-div">
+                <div class="row" id="upcoming-gigs">
+                    <h1>Upcoming Gigs:</h1>
+                    {% for venue in venues %}
+                    <div class="card" style="width:18rem" id="{{ venue.gig_id }}">
+                        <ul class="list-group-item">
+                            <li class="list-group-item"><b>Venue: </b><br>{{ venue.venue_name }}</li>
+                            <li class="list-group-item"><b>Date: </b><br>{{ venue.gig_date }}</li>
+                        </ul>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
-        </div>
-        <div class="row" id="upcoming-gigs-row">
-            <div class="card" id="upcoming-gigs">
-                <h1>Upcoming Gigs:</h1>
-                {% for gig in gig_info %}
-                <div class="card" style="width:18rem" id="{{ gig.gig_id }}">
-                    {% if gig.venue_id == venues["venue_id"] %}
-                    <h4>{{ venues["venue_name"] }}</h4>
-                    {% endif %}
-                    <h4>{{ gig.gig_date }}</h4>
+        <br>
+        <br>
+        <div class="row" id="band-members-row">
+            <div class="col" id="band-profile-info-div">
+                <h1> {{ band_info.band_name }} 
+                    <div value="{{ user_info.venue_id }}" id="book-band-button-div" style="width: 250px;">
+                        <a class="btn btn-primary" id="book-band-button" type="click" href="/bookband/{{ band_info.band_id }}">Book Band</a>
+                        {% if user_info.band_id %}
+                        <span id="band"></span>
+                        {% else %}
+                        <span id="venue"></span>
+                        {% endif %}
+                    </div>
+                </h1>
+                <div class="row" id="band-profile-info-div">
+                    {% for member in members %}
+                    <div class="card" style="width:18rem" id="band-member-card">
+                        <img class="card" id="band-member-img" src="{{ member['member_photo'] }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
+                        <h4>{{ member["member_name"] }}</h4>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
-        <div class="row" id="band-profile-info-row">
-            <div class="col-6" id="band-profile-info-div">
-                <h1> {{ band_info.band_name }} </h1>
-            </div>
         </div>
-        <div value="{{ user_info.venue_id }}" id="book-band-button-div">
-            <a class="btn btn-primary" id="book-band-button" type="click" href="/bookband/{{ band_info.band_id }}">Book Band</a>
-            {% if user_info.band_id %}
-            <span id="band"></span>
-            {% else %}
-            <span id="venue"></span>
-            {% endif %}
-        </div>
+        
         <!-- <div class="row" id="band-profile-music-sample">
             <div class="col-6" id="band-profile-music-sample-div">
                 <div id="spotify-preview">

@@ -151,6 +151,11 @@ def all_genres():
 
     return Genre.query.all()
 
+def all_venues_by_genre(genre_id):
+    """Returns all venues with a certain genre preference."""
+
+    return Venue_Genre.query.filter(Venue_Genre.genre_id == genre_id).all()
+
 ####### Functions for Booking a Gig Page #################################################################################################
 
 def all_gigs_by_band(band_id):

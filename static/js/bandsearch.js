@@ -9,10 +9,14 @@ clearButton.addEventListener("click", () => {})
 searchButton.addEventListener("click", (evt) => {
     evt.preventDefault();
 
-    let genreSelect = document.getElementById("genre-select")
-    let genreResult = null
-    if (genreSelect.checked == true) {
-        genreResult = document.getElementById("genre-select").value;
+    let genres = document.getElementsByClassName("genre-select");
+
+    let genre_ids = [];
+
+    for (let genre of genres) {
+        if (genre.checked) {
+            genre_ids.push(genre.value)
+        }
     }
 
     const data = {
@@ -20,7 +24,7 @@ searchButton.addEventListener("click", (evt) => {
         med: document.getElementById("med-payrate").checked,
         medhigh: document.getElementById("med-high-payrate").checked,
         high: document.getElementById("high-payrate").checked,
-        genre: genreResult,
+        genre: genre_ids,
     };
 
     fetch(`/api/bandsearch`, {

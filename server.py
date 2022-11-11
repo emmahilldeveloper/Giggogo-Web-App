@@ -382,19 +382,22 @@ def band_search():
     med = request.json['med']
     medhigh = request.json['medhigh']
     high = request.json['high']
-    genre = request.json['genre']
+    genres = request.json['genre']
 
     matching_venues = []
 
-    venues = crud.all_venues_by_genre(genre)
-    print(venues)
-    venues_dict = {}
-    venues_dict['venue_name'] = matching_venues.venue_name
-    venues_dict['venue_logo'] = matching_venues.venue_logo
-    venues_dict['venue_payrate'] = matching_venues.venue_payrate
-    venues_dict['venue_id'] = matching_venues.venue_id
-    matching_venues.append(venues_dict)
+    for genre in genres:
+        venues = crud.all_venues_by_genre(genre)
 
+        for venue in venues:
+            venue_id = venue.venue_id
+            venue_details = crud.all_venue_info(venue_id)
+            venues_dict = {}
+            venues_dict['venue_name'] = venue_details.venue_name
+            venues_dict['venue_logo'] = venue_details.venue_logo
+            venues_dict['venue_payrate'] = venue_details.venue_payrate
+            venues_dict['venue_id'] = venue.venue_id
+            matching_venues.append(venues_dict)
 
     if low is True:
         all_low_venues = crud.low_venue_payrate()

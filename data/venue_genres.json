@@ -14,5 +14,97 @@
     {
         "venue_id": 4,
         "genre_id": 2
+    },
+    {
+        "venue_id": 1,
+        "genre_id": 30
+    },
+    {
+        "venue_id": 1,
+        "genre_id": 31
+    },
+    {
+        "venue_id": 1,
+        "genre_id": 25
+    },
+    {
+        "venue_id": 1,
+        "genre_id": 26
+    },
+    {
+        "venue_id": 2,
+        "genre_id": 15
+    },
+    {
+        "venue_id": 2,
+        "genre_id": 2
+    },
+    {
+        "venue_id": 2,
+        "genre_id": 33
+    },
+    {
+        "venue_id": 4,
+        "genre_id": 33
+    },
+    {
+        "venue_id": 4,
+        "genre_id": 15
+    },
+    {
+        "venue_id": 5,
+        "genre_id": 1
+    },
+    {
+        "venue_id": 5,
+        "genre_id": 2
+    },
+    {
+        "venue_id": 5,
+        "genre_id": 12
+    },
+    {
+        "venue_id": 5,
+        "genre_id": 37
+    },
+    {
+        "venue_id": 5,
+        "genre_id": 24
+    },
+    {
+        "venue_id": 6,
+        "genre_id": 4
+    },
+    {
+        "venue_id": 6,
+        "genre_id": 6
+    },
+    {
+        "venue_id": 6,
+        "genre_id": 31
+    },
+    {
+        "venue_id": 6,
+        "genre_id": 11
+    },
+    {
+        "venue_id": 6,
+        "genre_id": 17
+    },
+    {
+        "venue_id": 7,
+        "genre_id": 1
+    },
+    {
+        "venue_id": 7,
+        "genre_id": 28
+    },
+    {
+        "venue_id": 7,
+        "genre_id": 21
+    },
+    {
+        "venue_id": 7,
+        "genre_id": 33
     }
 ]

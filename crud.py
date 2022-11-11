@@ -124,6 +124,22 @@ def high_band_payrate():
 
     return Band.query.filter(Band.band_payrate > 5000).all()
 
+def all_bands_by_genre(genre_id):
+    """Returns all bands with a certain genre preference."""
+
+    return Band_Genre.query.filter(Band_Genre.genre_id == genre_id).all()
+
+def all_users_in_band(band_id):
+    """Returns the number of users in a band."""
+
+    specific_band = User.query.filter(User.band_id == band_id).all()
+    user_ids = []
+
+    for member in specific_band:
+        user_ids.append(member.user_id)
+
+    return len(user_ids)
+
 ####### Functions for Band Search Page #################################################################################################
 
 def low_venue_payrate():

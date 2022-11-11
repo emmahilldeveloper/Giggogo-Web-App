@@ -5,22 +5,142 @@
     },
     {
         "band_id": 1,
-        "genre_id": 2
+        "genre_id": 4
     },
     {
         "band_id": 2,
         "genre_id": 6
     },
     {
-        "band_id": 3,
-        "genre_id": 10
+        "band_id": 2,
+        "genre_id": 4
     },
     {
         "band_id": 3,
-        "genre_id": 1
+        "genre_id": 5
+    },
+    {
+        "band_id": 3,
+        "genre_id": 7
+    },
+    {
+        "band_id": 3,
+        "genre_id": 22
+    },
+    {
+        "band_id": 3,
+        "genre_id": 31
     },
     {
         "band_id": 4,
+        "genre_id": 27
+    },
+    {
+        "band_id": 4,
+        "genre_id": 12
+    },
+    {
+        "band_id": 4,
+        "genre_id": 15
+    },
+    {
+        "band_id": 5,
+        "genre_id": 1
+    },
+    {
+        "band_id": 5,
         "genre_id": 2
+    },
+    {
+        "band_id": 6,
+        "genre_id": 4
+    },
+    {
+        "band_id": 7,
+        "genre_id": 3
+    },
+    {
+        "band_id": 7,
+        "genre_id": 4
+    },
+    {
+        "band_id": 8,
+        "genre_id": 4
+    },
+    {
+        "band_id": 8,
+        "genre_id": 18
+    },
+    {
+        "band_id": 8,
+        "genre_id": 21
+    },
+    {
+        "band_id": 9,
+        "genre_id": 31
+    },
+    {
+        "band_id": 9,
+        "genre_id": 30
+    },
+    {
+        "band_id": 10,
+        "genre_id": 7
+    },
+    {
+        "band_id": 10,
+        "genre_id": 15
+    },
+    {
+        "band_id": 10,
+        "genre_id": 35
+    },
+    {
+        "band_id": 10,
+        "genre_id": 31
+    },
+    {
+        "band_id": 11,
+        "genre_id": 30
+    },
+    {
+        "band_id": 11,
+        "genre_id": 12
+    },
+    {
+        "band_id": 11,
+        "genre_id": 15
+    },
+    {
+        "band_id": 12,
+        "genre_id": 33
+    },
+    {
+        "band_id": 12,
+        "genre_id": 28
+    },
+    {
+        "band_id": 13,
+        "genre_id": 5
+    },
+    {
+        "band_id": 13,
+        "genre_id": 6
+    },
+    {
+        "band_id": 13,
+        "genre_id": 31
+    },
+    {
+        "band_id": 13,
+        "genre_id": 30
+    },
+    {
+        "band_id": 14,
+        "genre_id": 3
+    },
+    {
+        "band_id": 14,
+        "genre_id": 4
     }
 ]

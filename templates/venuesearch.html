@@ -15,48 +15,82 @@
 
                             </h5>
                         </div>
+
                         <div class="card-body">
-                            <div class="row">
-                                <p class="border-bottom">Hourly Rate ($ to $$$$) </p>
+                            <div class="card">
+                                <p>
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        Filter by Hourly Rate
+                                    </button>
+                                </p>
+                                <div class="collapse" id="collapseOne">
+                                    <div class="card card-body" id="form-check">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="low" id="low-payrate" name="payrate">
+                                            <label class="form-check-label" for="low-payrate">
+                                            $
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="med" id="med-payrate" name="payrate">
+                                            <label class="form-check-label" for="med-payrate">
+                                                $$
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="medhigh" id="med-high-payrate" name="payrate">
+                                            <label class="form-check-label" for="med-high-payrate">
+                                                $$$
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="high" id="high-payrate" name="payrate">
+                                            <label class="form-check-label" for="high-payrate">
+                                                $$$$
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        <p>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Filter by Genre
+                            </button>
+                        </p>
+                        <div class="collapse" id="collapseTwo">
+                            <div class="card card-body" id="form-check">
+                                {% for genre in genres %}
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="low" id="low-payrate" name="payrate">
-                                    <label class="form-check-label" for="low-payrate">
-                                      $
-                                    </label>
-                                  </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="med" id="med-payrate" name="payrate">
-                                    <label class="form-check-label" for="med-payrate">
-                                        $$
+                                    <input class="form-check-input genre-select" type="checkbox" value="{{ genre.genre_id }}" id="{{ genre.genre_id }}" name="genre">
+                                    <label class="form-check-label" for="{{ genre.genre_id }}">
+                                        {{ genre.genre_name }}
                                     </label>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="medhigh" id="med-high-payrate" name="payrate">
-                                    <label class="form-check-label" for="med-high-payrate">
-                                        $$$
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="high" id="high-payrate" name="payrate">
-                                    <label class="form-check-label" for="high-payrate">
-                                        $$$$
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <p class="border-bottom">Genre </p>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="low" id="genre" name="payrate">
-                                    <label class="form-check-label" for="genre">
-                                      Genre...
-                                    </label>
-                                  </div>
+                                {% endfor %}
                             </div>
                         </div>
+
+                        <p>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Filter by Size
+                            </button>
+                        </p>
+                        <div class="collapse" id="collapseThree">
+                            <div class="card card-body" id="form-check">
+                                {% for member in band_count %}
+                                <div class="form-check">
+                                    <input class="form-check-input size-select" type="checkbox" value="{{ member }}" id="{{ member }}" name="size">
+                                    <label class="form-check-label" for="{{ member }}">
+                                        {{ member }}
+                                    </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
                     </div>
                 </form>
             </div>
-
             <div class="col-md-9">
                 <div class="card shadow mt-4">
                     <div class="card-header"><h5>Bands:</h5></div>

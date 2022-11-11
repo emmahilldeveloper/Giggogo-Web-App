@@ -430,15 +430,6 @@
         "band_id": null,
         "venue_id": 7,
         "profile_photo": "https://cdn.minnesotamonthly.com/wp-content/uploads/sites/85/2019/07/Omar_Ansari_1.jpg"
-    },
-    {
-        "first_name": "Jane",
-        "last_name": "Hollywood",
-        "email": "janehollywood@gmail.com",
-        "password": "123abc",
-        "band_id": null,
-        "venue_id": 8,
-        "profile_photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb97YCru8jmiLOqCE43AFqX2_iPOLIRXeVr8nAgCtwxcHgxcTKC-vrxN8QCw3J6gEqtSM&usqp=CAU"
     }
 ]
 

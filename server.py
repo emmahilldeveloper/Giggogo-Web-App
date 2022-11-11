@@ -315,7 +315,15 @@ def band_or_venue_search():
 
         return render_template("bandsearch.html", user_info = user_info, genres = genres)
     elif user_info.band_id is None:
-        return render_template("venuesearch.html", user_info = user_info)
+        all_genres = crud.all_genres()
+        band_count = ["1","2","3","4","5","6","7","8","9","10"]
+        for genre in all_genres:
+            genres_dict = {}
+            genres_dict["genre_name"] = genre.genre_name
+            genres_dict["genre_id"] = genre.genre_id
+            genres.append(genres_dict)
+
+        return render_template("venuesearch.html", user_info = user_info, genres = genres, band_count = band_count)
 
 ####### Search for Bands JSON response compiler #########################
 
@@ -327,8 +335,37 @@ def venue_search():
     med = request.json['med']
     medhigh = request.json['medhigh']
     high = request.json['high']
+    genres = request.json['genre']
+    sizes = request.json['size']
 
     matching_bands = []
+
+    for size in sizes:
+        all_bands = crud.all_bands()
+        band_id = all_bands.band_id
+        count_members = crud.all_users_in_band(band_id)
+        bands_dict = {}
+        if size == count_members:
+            bands_dict['band_size'] = count_members
+            bands_dict['band_name'] = band_details.band_name
+            bands_dict['band_logo'] = band_details.band_logo
+            bands_dict['band_payrate'] = band_details.band_payrate
+            bands_dict['band_id'] = band.band_id
+            matching_bands.append(bands_dict)
+
+
+    for genre in genres:
+        bands = crud.all_bands_by_genre(genre)
+
+        for band in bands:
+            band_id = band.band_id
+            band_details = crud.all_band_info(band_id)
+            bands_dict = {}
+            bands_dict['band_name'] = band_details.band_name
+            bands_dict['band_logo'] = band_details.band_logo
+            bands_dict['band_payrate'] = band_details.band_payrate
+            bands_dict['band_id'] = band.band_id
+            matching_bands.append(bands_dict)
 
     if low is True:
         all_low_bands = crud.low_band_payrate()

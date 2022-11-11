@@ -61,14 +61,5 @@
         "venue_logo": "http://washingtonbeerblog.com/wp-content/uploads/2019/06/surly-brewing-logo.jpg",
         "venue_photo": "",
         "venue_video": ""
-    },
-    {
-        "venue_name": "Hollywood Bowl",
-        "venue_phone": "123-4567",
-        "venue_address": "2301 N Highland Ave, Los Angeles, CA 90068",
-        "venue_payrate": 5038,
-        "venue_logo": "https://static.wikia.nocookie.net/ladygaga/images/b/bf/Hollywood_Bowl.jpg/revision/latest?cb=20180424083218",
-        "venue_photo": "",
-        "venue_video": ""
     }
 ]

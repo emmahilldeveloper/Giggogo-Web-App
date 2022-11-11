@@ -9,11 +9,33 @@ clearButton.addEventListener("click", () => {})
 searchButton.addEventListener("click", (evt) => {
     evt.preventDefault();
 
+    let genres = document.getElementsByClassName("genre-select");
+
+    let genre_ids = [];
+
+    for (let genre of genres) {
+        if (genre.checked) {
+            genre_ids.push(genre.value)
+        }
+    }
+
+    let sizes = document.getElementsByClassName("size-select");
+
+    let band_sizes = [];
+
+    for (let size of sizes) {
+        if (size.checked) {
+            band_sizes.push(size.value)
+        }
+    }
+
     const data = {
         low: document.getElementById("low-payrate").checked,
         med: document.getElementById("med-payrate").checked,
         medhigh: document.getElementById("med-high-payrate").checked,
         high: document.getElementById("high-payrate").checked,
+        genre: genre_ids,
+        size: band_sizes,
     };
 
     fetch(`/api/venuesearch`, {

@@ -88,7 +88,7 @@ def all_user_info_specific(user_id):
 ####### Functions for Home Venue/Band Page ########################################################################################
 
 def all_band_info(band_id):
-    """Will return all of user info by band id."""
+    """Will return all of band info by band id."""
 
     return Band.query.filter(Band.band_id == band_id).first()
 

@@ -342,17 +342,24 @@ def venue_search():
 
     for size in sizes:
         all_bands = crud.all_bands()
-        band_id = all_bands.band_id
-        count_members = crud.all_users_in_band(band_id)
-        bands_dict = {}
-        if size == count_members:
-            bands_dict['band_size'] = count_members
-            bands_dict['band_name'] = band_details.band_name
-            bands_dict['band_logo'] = band_details.band_logo
-            bands_dict['band_payrate'] = band_details.band_payrate
-            bands_dict['band_id'] = band.band_id
-            matching_bands.append(bands_dict)
+        band_ids = []
 
+        for i in range(len(all_bands)):
+            band_id = all_bands[i].band_id
+            band_ids.append(band_id)
+
+        for band_id in band_ids:
+            count_members = crud.all_users_in_band(band_id)
+            all_band_info = crud.all_band_info(band_id)
+
+            if int(size) == count_members:
+                bands_dict = {}
+                bands_dict['band_size'] = count_members
+                bands_dict['band_name'] = all_band_info.band_name
+                bands_dict['band_logo'] = all_band_info.band_logo
+                bands_dict['band_payrate'] = all_band_info.band_payrate
+                bands_dict['band_id'] = all_band_info.band_id
+                matching_bands.append(bands_dict)
 
     for genre in genres:
         bands = crud.all_bands_by_genre(genre)
@@ -407,7 +414,13 @@ def venue_search():
             high_band['band_id'] = band.band_id
             matching_bands.append(high_band)
 
-    return jsonify({'matches': matching_bands})
+    #makes sure there are not duplicates in my search results
+    results = []
+    for i in range(len(matching_bands)):
+        if matching_bands[i] not in matching_bands[i + 1:]:
+            results.append(matching_bands[i])
+
+    return jsonify({'matches': results})
 
 ####### Search for Venues JSON response compiler #########################
 
@@ -476,7 +489,13 @@ def band_search():
             high_venue['venue_id'] = venue.venue_id
             matching_venues.append(high_venue)
 
-    return jsonify({'matches': matching_venues})
+    #makes sure there are not duplicates in my search results
+    results = []
+    for i in range(len(matching_venues)):
+        if matching_venues[i] not in matching_venues[i + 1:]:
+            results.append(matching_venues[i])
+
+    return jsonify({'matches': results})
 
 ####### Gig Book Page #############################################################################################################
 
@@ -552,6 +571,7 @@ if __name__ == "__main__":
 
     app.run(
         host="0.0.0.0",
-        use_reloader=True,
-        use_debugger=True,
+        use_reloader=False,
+        use_debugger=False,
+        passthrough_errors=True,
     )

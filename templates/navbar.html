@@ -7,6 +7,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        My Profile
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="nav-item nav-link active" href="/user/{{ user_info.user_id }}">My Profile</a>
+        <a class="nav-item nav-link active" href="/">Log Out</a>
+      </div>
       {% if user_info.venue_id %}
       <a class="nav-item nav-link active" href="/venuehome/{{ user_info.venue_id }}">My Home</a>
       {% else %}

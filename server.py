@@ -209,10 +209,25 @@ def user_determination():
 
 @app.route("/profile")
 def user_routes_to_home_profile():
-    """Shows profile of user."""
+    """Redirects to band or venue homepage."""
 
     #This just redirects the user to the right page
     return user_determination()
+
+@app.route("/user/<user_id>")
+def user_profile(user_id):
+    """Shows profile of user."""
+
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
+
+    return render_template("profile.html", user_info = user_info)
 
 ####### Band/Venue Home Profile ##################################################################################################
 
@@ -354,7 +369,6 @@ def venue_search():
 
             if int(size) == count_members:
                 bands_dict = {}
-                bands_dict['band_size'] = count_members
                 bands_dict['band_name'] = all_band_info.band_name
                 bands_dict['band_logo'] = all_band_info.band_logo
                 bands_dict['band_payrate'] = all_band_info.band_payrate

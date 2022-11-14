@@ -4,10 +4,12 @@
 let searchButton = document.getElementById("search");
 let clearButton = document.getElementById("clear");
 
-clearButton.addEventListener("click", () => {})
+clearButton.addEventListener("click", () => {});
 
 searchButton.addEventListener("click", (evt) => {
     evt.preventDefault();
+
+    document.getElementById("venue-search-result-div").innerHTML = "";
 
     let genres = document.getElementsByClassName("genre-select");
 
@@ -19,7 +21,7 @@ searchButton.addEventListener("click", (evt) => {
         }
     }
 
-    const data = {
+    let data = {
         low: document.getElementById("low-payrate").checked,
         med: document.getElementById("med-payrate").checked,
         medhigh: document.getElementById("med-high-payrate").checked,

@@ -4,10 +4,12 @@
 let searchButton = document.getElementById("search");
 let clearButton = document.getElementById("clear");
 
-clearButton.addEventListener("click", () => {})
+clearButton.addEventListener("click", () => {});
 
 searchButton.addEventListener("click", (evt) => {
     evt.preventDefault();
+
+    document.getElementById("band-search-result-div").innerHTML = "";
 
     let genres = document.getElementsByClassName("genre-select");
 

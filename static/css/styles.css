@@ -208,6 +208,12 @@
   background-color: white;
 }
 
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+
 /* Search Page Styling */
 
 /* #band-search-result {

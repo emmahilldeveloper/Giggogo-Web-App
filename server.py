@@ -3,6 +3,8 @@ from itsdangerous import json
 from jinja2 import StrictUndefined
 from model import connect_to_db, db
 import crud
+import urllib.parse
+import requests
 
 app = Flask(__name__)
 app.config.update(TESTING=True, SECRET_KEY='DEV')
@@ -223,13 +225,15 @@ def user_profile(user_id):
         user_id = session["user_id"]
         user_info = crud.all_user_info_specific(user_id)
         band_id = user_info.band_id
+        venue_id = user_info.venue_id
         band_info = crud.all_band_info(band_id)
+        venue_info = crud.all_venue_info(venue_id)
 
     #Kick them back to the homepage
     else:
         return redirect("/")
 
-    return render_template("profile.html", user_info = user_info, band_info = band_info)
+    return render_template("profile.html", user_info = user_info, band_info = band_info, venue_info = venue_info)
 
 @app.route("/edituser", methods = ["GET", "POST"])
 def edit_user_data():
@@ -302,7 +306,14 @@ def venue_homepage(venue_id):
         bands_dict["band_id"] = band_info.band_id
         bands.append(bands_dict)
 
-    return render_template("venuehome.html", venue_info = venue_info, user_info = user_info, gig_info = gig_info, bands = bands)
+    address = venue_info.venue_address
+    url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
+
+    response = requests.get(url).json()
+    print(response[0]["lat"])
+    print(response[0]["lon"])
+
+    return render_template("venuehome.html", venue_info = venue_info, user_info = user_info, gig_info = gig_info, bands = bands, response = response)
 
 @app.route("/bandhome/<band_id>")
 def band_homepage(band_id):

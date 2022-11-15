@@ -13,8 +13,11 @@
             <div class="col" id="information-div">
                 <div class="row" id="information-row">
                     <h3>Name: {{ user_info.first_name }} {{ user_info.last_name }}</h3>
+                    {% if user_info.band_id %}
                     <h3>Band: {{ band_info.band_name }}</h3>
-                    <h3>Instrument:</h3>
+                    {% else %}
+                    <h3>Venue: {{ venue_info.venue_name }}</h3>
+                    {% endif %}
                     <h3>Email: {{ user_info.email }}<h3>
                     <div class="mx-auto" style="width: 200px;">
                         <a href="/edituser" type="submit" class="btn btn-dark" id="edit-user-data" style="width: 250px;">Edit</a>

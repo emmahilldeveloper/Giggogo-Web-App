@@ -2,4 +2,4 @@ env
 .DS_Store
 __pycache__
 .vscode
-venuehome.html
+node_modules

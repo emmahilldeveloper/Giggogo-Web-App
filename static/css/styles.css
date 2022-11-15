@@ -24,6 +24,12 @@
   max-width: 200px;
 }
 
+.nav-link.dropdown-toggle:hover {
+  color: black;
+  background-color: white;
+  border-color: black;
+}
+
 /* .navbar-light .navbar-nav .nav-link.active {
   color:white;
 } */
@@ -93,39 +99,40 @@
 .btn.btn-dark {
   margin: 15px;
 }
-
 /* User Profile Styling */
 
 .profile-photo {
   max-width: 100%;
   border: solid;
-  border-width: 3px;
+  border-width: 1px;
   border-color: black;
-  border-radius: 400px;
+  border-radius: 0px;
 }
 
 #profile-photo-div {
   display: flex;
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
 #profile-photo-row {
-  padding-top: 30px;
+  padding-right: 20px;
+  display: flex;
 }
 
-#profile-info-row {
+#information-div {
   display: flex;
-  padding-left: 30px;
-}
-
-#upcoming-gigs {
-  display: flex;
-  padding-left: 30px;
+  padding-left: 0px;
   border: solid;
-  border-width: 3px;
+  border-width: 1px;
   border-color: black;
-  border-radius: 10px;
+  border-radius: 0px;
   background-color: white;
+}
+
+#information-row {
+  display: flex;
+  padding-left: 30px;
+  padding-top: 30px;
 }
 
 /* Band Home Styling */

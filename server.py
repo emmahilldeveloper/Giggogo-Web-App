@@ -222,12 +222,54 @@ def user_profile(user_id):
     if "user_id" in session:
         user_id = session["user_id"]
         user_info = crud.all_user_info_specific(user_id)
+        band_id = user_info.band_id
+        band_info = crud.all_band_info(band_id)
 
     #Kick them back to the homepage
     else:
         return redirect("/")
 
-    return render_template("profile.html", user_info = user_info)
+    return render_template("profile.html", user_info = user_info, band_info = band_info)
+
+@app.route("/edituser", methods = ["GET", "POST"])
+def edit_user_data():
+    """Allows user to edit their user data."""
+
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
+
+    #Get data from siginup form
+    if request.method == "POST":
+        first_name = request.form.get("first-name")
+        last_name = request.form.get("last-name")
+        email = request.form.get("email")
+        password = request.form.get("password")
+        profile_photo = request.form.get("profile-photo")
+
+        user = crud.all_user_info_specific(user_id)
+
+        if first_name:
+            user.first_name = first_name
+        if last_name:
+            user.last_name = last_name
+        if email:
+            user.email = email
+        if password:
+            user.password = password
+        if profile_photo:
+            user.profile_photo = profile_photo
+        db.session.commit()
+        flash("User Information Successfully Updated.", category='success')
+        return redirect("/user/<user_id>")
+
+    #Load the page
+    else:
+        return render_template("edituserdata.html")
 
 ####### Band/Venue Home Profile ##################################################################################################
 

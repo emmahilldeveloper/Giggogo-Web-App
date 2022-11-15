@@ -5,6 +5,25 @@
     {% block content %}
     <img src="/static/media/audience.jpg" id="background-photo">
 
+    <div class="container-fluid">
+        <div class="row" id="profile-photo-row">
+            <div class="col" id="profile-photo-div">
+                <img class="profile-photo" src="{{ user_info.profile_photo }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
+            </div>
+            <div class="col" id="information-div">
+                <div class="row" id="information-row">
+                    <h3>Name: {{ user_info.first_name }} {{ user_info.last_name }}</h3>
+                    <h3>Band: {{ band_info.band_name }}</h3>
+                    <h3>Instrument:</h3>
+                    <h3>Email: {{ user_info.email }}<h3>
+                    <div class="mx-auto" style="width: 200px;">
+                        <a href="/edituser" type="submit" class="btn btn-dark" id="edit-user-data" style="width: 250px;">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {% endblock %}
     <!-- Javascript files imported here. -->
     <script src=""></script>

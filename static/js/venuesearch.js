@@ -49,6 +49,7 @@ searchButton.addEventListener("click", (evt) => {
     })
     .then((response) => response.json())
     .then(responseData => {
+
         responseData.matches.forEach((element) => {
 
             //Create parent div to house all band search results

@@ -47,7 +47,15 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row" id="calendar-row">
+            <div id="calendar_container">
+                <!-- React DOM Manipulation Here -->
+            </div>
         </div>
+    </div>
         
         <!-- <div class="row" id="band-profile-music-sample">
             <div class="col-6" id="band-profile-music-sample-div">
@@ -56,11 +64,11 @@
                 </div>
             </div>
         </div> -->
-    </div>
     {% endblock %}
     <!-- Javascript files imported here. -->
     <script src="/static/js/bandhome.js"></script>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script type="text/babel" src="/static/js/calendar.jsx"></script>
 {% endblock %}

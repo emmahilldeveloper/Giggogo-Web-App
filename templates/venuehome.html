@@ -20,12 +20,10 @@
 
     <div class="container-fluid">
         <div class="row" id="venue-logo-row">
-            <div class="col" id="venue-logo-div">
+            <div class="col-6" id="venue-logo-div">
                 <img class="venue-logo" src="{{ venue_info.venue_logo }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
             </div>
-        </div>
-        <div class="col" id="upcoming-gigs-row">
-            <div class="row" id="upcoming-gigs-row">
+            <div class="col-6" id="upcoming-gigs-row">
                 <div class="card" id="upcoming-gigs">
                     <h1>Upcoming Gigs:</h1>
                     {% for band in bands %}
@@ -52,7 +50,15 @@
             <span id="band"></span>
             {% endif %}
         </div>
-        <div id="map"></div>
+    </div>
+    <div class="container-fluid">
+        <div class="row" id="map-row">
+            <div class="col-4" id="map-div">
+                <div id="map"></div>
+                <div id='lat' value='{{ response[0]["lat"] }}'></div>
+                <div id='lon' value='{{ response[0]["lon"] }}'></div>
+            </div>
+        </div>
     </div>
     {% endblock %}
     <!-- Javascript files imported here. -->

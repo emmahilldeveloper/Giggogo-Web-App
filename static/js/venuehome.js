@@ -21,12 +21,18 @@ window.onload = showBookButton;
 
 /////// Google Maps Functionality ///////
 
+let lat = parseFloat(document.getElementById("lat").getAttribute('value'));
+let lng = parseFloat(document.getElementById("lon").getAttribute('value'));
+
+console.log(lat)
+console.log(lng)
+
 function initMap() {
     // The location of Uluru
-    const venue = { lat: 40.750512900000004, lng: -73.99351594545152};
-    // The map, centered at Uluru
+    const venue = { lat: lat, lng: lng };
+    // The map, centered at venue
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 4,
+      zoom: 15,
       center: venue,
     });
     // The marker, positioned at Uluru

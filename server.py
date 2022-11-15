@@ -306,12 +306,15 @@ def venue_homepage(venue_id):
         bands_dict["band_id"] = band_info.band_id
         bands.append(bands_dict)
 
+    # Google Map function
     address = venue_info.venue_address
     url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
-
     response = requests.get(url).json()
-    print(response[0]["lat"])
-    print(response[0]["lon"])
+
+    if len(response) == 0:
+        name = venue_info.venue_name
+        url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(name) +'?format=json'
+        response = requests.get(url).json()
 
     return render_template("venuehome.html", venue_info = venue_info, user_info = user_info, gig_info = gig_info, bands = bands, response = response)
 

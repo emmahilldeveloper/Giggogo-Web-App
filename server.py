@@ -637,6 +637,12 @@ def band_book_venue(venue_id):
     else:
         return render_template("bookvenue.html", user_info = user_info, venue_info = venue_info)
 
+
+####### Message Page #############################################################################################################
+
+
+
+
 if __name__ == "__main__":
 
     connect_to_db(app)

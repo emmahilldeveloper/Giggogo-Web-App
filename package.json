@@ -2,6 +2,7 @@
   "dependencies": {
     "@fullcalendar/daygrid": "^5.11.3",
     "@fullcalendar/react": "^5.11.2",
+    "@weavy/dropin-js": "^14.0.2",
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2"
   },

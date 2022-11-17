@@ -1,7 +1,7 @@
 """CRUD operations for Giggogo app."""
 
 from re import A
-from model import User, Genre, Band, Venue, Gig, Band_Genre, Venue_Genre, connect_to_db, db
+from model import User, Genre, Band, Venue, Gig, Band_Genre, Venue_Genre, Message, connect_to_db, db
 
 ####### Functions to seed Giggogo database. #####################################################################################
 
@@ -183,6 +183,24 @@ def all_gigs_by_venue(venue_id):
     """Returns all gigs for a specific venue."""
 
     return Gig.query.filter(Gig.venue_id == venue_id).all()
+
+####### Functions for Messaging Page #################################################################################################
+
+def create_message(message_id, venue_id, band_id, message_text):
+    """Create and return a new user."""
+    message = Message(message_id = message_id, venue_id = venue_id, 
+                        band_id = band_id, message_text = message_text)
+    return message
+
+def all_messages_between_gig_parties(band_id, venue_id):
+    """Returns all messages from band to venue."""
+
+    return Message.query.filter(Message.band_id == band_id, Message.venue_id == venue_id).all()
+
+def all_messages_between_band_members(band_id):
+    """Returns all messages between badn members."""
+
+    return Message.query.filter(Message.band_id == band_id).all()
 
 if __name__ == '__main__':
     from server import app

@@ -80,6 +80,7 @@ class Band(db.Model):
     gigs = db.relationship("Gig", back_populates = "bands")
     users = db.relationship("User", back_populates = "bands")
     band_genres = db.relationship("Band_Genre", back_populates = "bands")
+    messages = db. relationship("Message", back_populates = "bands")
 
     def __repr__(self):
         return f'<Band band_id = { self.band_id } band_name = { self.band_name }>'
@@ -119,6 +120,7 @@ class Venue(db.Model):
     gigs = db.relationship("Gig", back_populates = "venue")
     users = db.relationship("User", back_populates = "venue")
     venue_genres = db.relationship("Venue_Genre", back_populates = "venue")
+    messages = db. relationship("Message", back_populates = "venue")
 
     def __repr__(self):
         return f'<Venue venue_id = { self.venue_id } venue_name = { self.venue_name }>'
@@ -138,6 +140,23 @@ class Venue_Genre(db.Model):
 
     def __repr__(self):
         return f'<Venue_Genre venue_genre_id = { self.venue_genre_id } venue_id = { self.venue_id } genre_id = { self.genre_id }>'
+
+class Message(db.Model):
+    """Table for messages."""
+
+    __tablename__ = "messages"
+
+    message_id = db.Column(db.Integer, autoincrement = True, primary_key = True)
+    venue_id = db.Column(db.Integer, db.ForeignKey("venues.venue_id"), nullable = True)
+    band_id = db.Column(db.Integer, db.ForeignKey("bands.band_id"))
+    message_text = db.Column(db.String, unique = False, nullable = True)
+
+    #foreign keys used by "Message" table
+    venue = db.relationship("Venue", back_populates = "messages")
+    bands = db.relationship("Band", back_populates = "messages")
+
+    def __repr__(self):
+        return f'<Message message_id = { self.message_id } Message = { self.message_text }>'
 
 def connect_to_db(flask_app, db_uri="postgresql:///giggogo", echo=False):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri

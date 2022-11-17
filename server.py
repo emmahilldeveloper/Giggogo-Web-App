@@ -640,7 +640,20 @@ def band_book_venue(venue_id):
 
 ####### Message Page #############################################################################################################
 
+@app.route("/messages/<user_id>")
+def messages(user_id):
+    """Shows user's messaging page."""
 
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+        
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
+
+    return render_template("messages.html", user_info = user_info)
 
 
 if __name__ == "__main__":

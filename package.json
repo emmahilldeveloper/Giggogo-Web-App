@@ -1,6 +1,26 @@
 {
   "dependencies": {
     "@fullcalendar/daygrid": "^5.11.3",
-    "@fullcalendar/react": "^5.11.2"
-  }
+    "@fullcalendar/react": "^5.11.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  },
+  "name": "giggogo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmahilldeveloper/Giggogo-Web-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emmahilldeveloper/Giggogo-Web-App/issues"
+  },
+  "homepage": "https://github.com/emmahilldeveloper/Giggogo-Web-App#readme",
+  "description": ""
 }

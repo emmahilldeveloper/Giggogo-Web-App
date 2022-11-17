@@ -75,8 +75,12 @@ if __name__ == '__main__':
 # * Sort the list (hard)
 # * Add a third value (hard)
 def population_tracker(country: str, population: int):
-    # your code here
+    pop_dict = {}
+    pop_dict[country] = population
+    results = pop_dict
     pass
+
+
 
 
 def main():

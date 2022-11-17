@@ -5,11 +5,13 @@ from model import connect_to_db, db
 import crud
 import urllib.parse
 import requests
+import os
 
 app = Flask(__name__)
 app.config.update(TESTING=True, SECRET_KEY='DEV')
 app.jinja_env.undefined = StrictUndefined
 app.jinja_env.auto_reload = True
+apikey = os.environ['API']
 
 ####### Homepage #################################################################################################
 
@@ -316,7 +318,7 @@ def venue_homepage(venue_id):
         url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(name) +'?format=json'
         response = requests.get(url).json()
 
-    return render_template("venuehome.html", venue_info = venue_info, user_info = user_info, gig_info = gig_info, bands = bands, response = response)
+    return render_template("venuehome.html", venue_info = venue_info, user_info = user_info, gig_info = gig_info, bands = bands, response = response, apikey = apikey)
 
 @app.route("/bandhome/<band_id>")
 def band_homepage(band_id):

@@ -186,9 +186,9 @@ def all_gigs_by_venue(venue_id):
 
 ####### Functions for Messaging Page #################################################################################################
 
-def create_message(message_id, venue_id, band_id, message_text):
+def create_message(venue_id, band_id, message_text):
     """Create and return a new user."""
-    message = Message(message_id = message_id, venue_id = venue_id, 
+    message = Message(venue_id = venue_id, 
                         band_id = band_id, message_text = message_text)
     return message
 
@@ -201,6 +201,13 @@ def all_messages_between_band_members(band_id):
     """Returns all messages between badn members."""
 
     return Message.query.filter(Message.band_id == band_id).all()
+
+def find_band_by_user(user_id):
+    """Returns band_id by user_id."""
+
+    user = User.query.filter(User.user_id == user_id).all()
+
+    return user[0]
 
 if __name__ == '__main__':
     from server import app

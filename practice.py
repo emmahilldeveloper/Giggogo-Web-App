@@ -1,41 +1,39 @@
 # problem
-def main():
-    raw_numbers: str = input('Please enter a list of comma separated numbers e.g. 1,2,3: ')
-    string_list: list[str] = raw_numbers.split(',')
-    numbers_list: list[int] = [int(i) for i in string_list]
+# def main():
+#     raw_numbers: str = input('Please enter a list of comma separated numbers e.g. 1,2,3: ')
+#     string_list: list[str] = raw_numbers.split(',')
+#     numbers_list: list[int] = [int(i) for i in string_list]
 
-    even_nums = []
+#     even_nums = []
 
-    for num in numbers_list:
-        if num % 2 == 0:
-            print(num)
-            even_nums.append(num)
+#     for num in numbers_list:
+#         if num % 2 == 0:
+#             print(num)
+#             even_nums.append(num)
 
-    return even_nums
+#     return even_nums
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 
 # buggy
-def main():
-    raw_numbers: str = input('Please enter a list of comma separated numbers e.g. 1,2,3: ')
-    string_list: list[str] = raw_numbers.split(',')
-    numbers_list: list[int] = [int(i) for i in string_list]
-    even_numbers: list[int] = []
-    for num in numbers_list:
-        if num / 2 == 0:
-            print(num)
-            even_numbers.append(num)
+# def main():
+#     raw_numbers: str = input('Please enter a list of comma separated numbers e.g. 1,2,3: ')
+#     string_list: list[str] = raw_numbers.split(',')
+#     numbers_list: list[int] = [int(i) for i in string_list]
+#     even_numbers: list[int] = []
+#     for num in numbers_list:
+#         if num / 2 == 0:  #here
+#             print(num)
+#             even_numbers.append(num)
 
-    print("The even numbers are:", ', '.join(str(number) for number in even_numbers))
+#     print("The even numbers are:", ', '.join(str(number) for number in even_numbers))
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 
 # problem
-# Find Maximum
-
 # Write a method that returns the largest integer in the list. 
 # You can assume that the list has at least one element.
 # ```
@@ -45,26 +43,23 @@ if __name__ == '__main__':
 # * Assume it has no elements
 # * Find the minimum with negative numbers
 # * Change it use double/long
-def main():
-    raw_numbers: str = input('Please enter a list of comma separated numbers e.g. 1,2,3: ')
-    string_list: list[str] = raw_numbers.split(',')
-    numbers_list: list[int] = [int(i) for i in string_list]
-    max_num: int = 0
-    for num in numbers_list:
-        max_num: int = 0
-        if num > max_num:
-            max_num = num
+# def main():
+#     raw_numbers: str = input('Please enter a list of comma separated numbers e.g. 1,2,3: ')
+#     string_list: list[str] = raw_numbers.split(',')
+#     numbers_list: list[int] = [int(i) for i in string_list]
+#     max_num: int = 0
+#     for num in numbers_list:
+#         max_num: int = 0
+#         if num > max_num:
+#             max_num = num
 
-    print('The max number in the array is:', max_num)
+#     print('The max number in the array is:', max_num)
 
 
-if __name__ == '__main__':
-    main()
-
-# Population Tracker
+# if __name__ == '__main__':
+#     main()
 
 ### Problem
-# Population Tracker
 
 # Write a function that given a country x and it’s population y, will store the combination and print out all the values stored.
 # ```
@@ -74,38 +69,23 @@ if __name__ == '__main__':
 # * Remove an element from the list
 # * Sort the list (hard)
 # * Add a third value (hard)
-def population_tracker(country: str, population: int):
-    pop_dict = {}
-    pop_dict[country] = population
-    results = pop_dict
-    pass
+
+# tracker: dict[str, str] = {}
 
 
+# def population_tracker(country: str, population: int):
+#     temp: dict[str, str] = {}
+#     temp[country] = population
+#     tracker = temp
 
 
-def main():
-    population_tracker()
+# def main():
+#     population_tracker('USA', 331002651)
+#     population_tracker('China', 1439323776)
+#     population_tracker('India', 1380004385)
+#     print(tracker)
 
 
-if __name__ == '__main__':
-    main()
-
-tracker: dict[str, str] = {}
-
-
-def population_tracker(country: str, population: int):
-    temp: dict[str, str] = {}
-    temp[country] = population
-    tracker = temp
-
-
-def main():
-    population_tracker('USA', 331002651)
-    population_tracker('China', 1439323776)
-    population_tracker('India', 1380004385)
-    print(tracker)
-
-
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 

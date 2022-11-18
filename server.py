@@ -1,5 +1,4 @@
 from flask import Flask, redirect, render_template, session, request, flash, url_for, jsonify
-from itsdangerous import json
 from jinja2 import StrictUndefined
 from model import connect_to_db, db
 import crud
@@ -640,7 +639,7 @@ def band_book_venue(venue_id):
 
 ####### Message Page #############################################################################################################
 
-@app.route("/messages/<user_id>")
+@app.route("/messages/<user_id>", methods = ["GET", "POST"])
 def messages(user_id):
     """Shows user's messaging page."""
 
@@ -653,7 +652,33 @@ def messages(user_id):
     else:
         return redirect("/")
 
-    return render_template("messages.html", user_info = user_info)
+    band_info = crud.find_band_by_user(user_id)
+    band_id = band_info.band_id
+    gigs = crud.all_gigs_by_band(band_id)
+    current_messages = set()
+
+    for gig in gigs:
+        venue_id = gig.venue_id
+        venue_info = crud.all_venue_info(venue_id)
+        current_messages.add(venue_info)
+
+    all_messages = crud.all_messages_between_gig_parties(band_id, venue_id)
+
+    if request.method == "POST":
+        message_text = request.form.get("message-text")
+        message = crud.create_message(venue_id, band_id, message_text)
+        db.session.add(message)
+        db.session.commit()
+        return redirect("/messages/<user_id>")
+
+    else:
+        return render_template("messages.html", current_messages = current_messages, user_info = user_info, band_info = band_info, all_messages = all_messages, gigs = gigs)
+
+
+
+
+
+
 
 
 if __name__ == "__main__":

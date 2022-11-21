@@ -24,8 +24,9 @@
                             </form>
                         </div>
                     </div>
+                    {% if user_info.band_id %}
                     {% for message in current_messages %}
-                    <a class="btn btn-secondary" href="" type="click">
+                    <a class="btn btn-secondary" href="" type="click" id="message" value="{{ message.venue_id }}">
                         <div class="d-flex align-items-start">
                             <img src="{{ message.venue_logo }}" class="square-circle mr-1" alt="Venue" width="60" height="60">
                             <div class="flex-grow-1 ml-3">
@@ -34,10 +35,23 @@
                         </div>
                     </a>
                     {% endfor %}
+                    {% else %}
+                    {% for message in current_messages %}
+                    <a class="btn btn-secondary" href="" type="click" id="message" value="{{ message.band_id }}">
+                        <div class="d-flex align-items-start">
+                            <img src="{{ message.band_logo }}" class="square-circle mr-1" alt="Band" width="60" height="60">
+                            <div class="flex-grow-1 ml-3">
+                                {{ message.band_name }}
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                    {% endif %}
+
                     <hr class="d-block d-lg-none mt-1 mb-0">
 				</div>
 
-				<div class="col-12 col-lg-7 col-xl-9">
+				<div class="col-12 col-lg-7 col-xl-9" id="message-details">
 					<div class="py-2 px-4 border-bottom d-none d-lg-block">
 						<div class="d-flex align-items-center py-1">
 							<div class="position-relative">
@@ -69,18 +83,17 @@
 									Hey we're here. Where should we load the gear?
 								</div>
 							</div>
-
 						</div>
 					</div>
 
-                <form action="/messages/{{ user_info.user_id }}" method="POST" class="signup-form" name="signup-form">
-					<div class="flex-grow-0 py-3 px-4 border-top">
-						<div class="input-group" name="{{ venue_info.venue_id }}">
-							<input type="text" name="message-text" class="form-control" placeholder="Type your message...">
-							<button class="btn btn-primary" type="submit">Send</button>
-						</div>
-					</div>
-                </form>
+                    <form action="/messages/{{ user_info.user_id }}" method="POST" class="signup-form" name="signup-form">
+                        <div class="flex-grow-0 py-3 px-4 border-top">
+                            <div class="input-group" name="">
+                                <input type="text" name="message-text" class="form-control" placeholder="Type your message...">
+                                <button class="btn btn-primary" type="submit">Send</button>
+                            </div>
+                        </div>
+                    </form>
 				</div>
 			</div>
 		</div>

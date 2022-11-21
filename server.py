@@ -653,16 +653,23 @@ def messages(user_id):
         return redirect("/")
 
     band_info = crud.find_band_by_user(user_id)
+    venue_info = crud.find_venue_by_user(user_id)
     band_id = band_info.band_id
-    gigs = crud.all_gigs_by_band(band_id)
+    venue_id = venue_info.venue_id
+    band_gigs = crud.all_gigs_by_band(band_id)
+    venue_gigs = crud.all_gigs_by_venue(venue_id)
     current_messages = set()
 
-    for gig in gigs:
-        venue_id = gig.venue_id
-        venue_info = crud.all_venue_info(venue_id)
-        current_messages.add(venue_info)
-
-    all_messages = crud.all_messages_between_gig_parties(band_id, venue_id)
+    if user_info.band_id:
+        for gig in band_gigs:
+            venue_id = gig.venue_id
+            booked_venue_info = crud.all_venue_info(venue_id)
+            current_messages.add(booked_venue_info)
+    else:
+        for gig in venue_gigs:
+            band_id = gig.band_id
+            booked_band_info = crud.all_band_info(band_id)
+            current_messages.add(booked_band_info)
 
     if request.method == "POST":
         message_text = request.form.get("message-text")
@@ -672,13 +679,43 @@ def messages(user_id):
         return redirect("/messages/<user_id>")
 
     else:
-        return render_template("messages.html", current_messages = current_messages, user_info = user_info, band_info = band_info, all_messages = all_messages, gigs = gigs)
+        return render_template("messages.html", current_messages = current_messages, user_info = user_info, band_info = band_info)
 
+@app.route('/api/messages', methods=['POST'])
+def messages_data():
+    """Returns results from search form."""
 
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+        
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
 
+    #JSON data from fetch
+    message_click = request.json['messageClick']
+    message_value = request.json['messageValue']
 
+    if message_click == True and user_info.band_id:
+        venue_id = message_value
+        venue_info = crud.all_venue_info(venue_id)
+        band_id = user_info.band_id
+        message_history = crud.all_messages_between_gig_parties(band_id, venue_id)
 
+        return jsonify({'messages': message_history, 'message_recipient_details': venue_info})
 
+    elif message_click == True and user_info.venue_id:
+        band_id = message_value
+        band_info = crud.all_band_info(band_id)
+        venue_id = user_info.venue_id
+        message_history = crud.all_messages_between_gig_parties(band_id, venue_id)
+
+        return jsonify({'messages': message_history, 'message_recipient_details': band_info})
+
+    elif message_click == False:
+        return jsonify({'messages': None, 'message_recipient_details': None})
 
 
 if __name__ == "__main__":

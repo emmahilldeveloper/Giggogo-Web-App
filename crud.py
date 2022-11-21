@@ -209,6 +209,13 @@ def find_band_by_user(user_id):
 
     return user[0]
 
+def find_venue_by_user(user_id):
+    """Returns venue_id by user_id."""
+
+    user = User.query.filter(User.user_id == user_id).all()
+
+    return user[0]
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

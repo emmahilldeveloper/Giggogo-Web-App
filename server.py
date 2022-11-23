@@ -681,8 +681,8 @@ def messages(user_id):
     else:
         return render_template("messages.html", current_messages = current_messages, user_info = user_info, band_info = band_info)
 
-@app.route('/api/messages', methods=['POST'])
-def messages_data():
+@app.route('/api/bandmessages', methods=['POST'])
+def bandmessages_data():
     """Returns results from search form."""
 
     #If the user has logged in and their cookies are saved, get all their data
@@ -706,7 +706,27 @@ def messages_data():
 
         return jsonify({'messages': message_history, 'message_recipient_details': venue_info})
 
-    elif message_click == True and user_info.venue_id:
+    elif message_click == False:
+        return jsonify({'messages': None, 'message_recipient_details': None})
+
+@app.route('/api/venuemessages', methods=['POST'])
+def venuemessages_data():
+    """Returns results from search form."""
+
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+        
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
+
+    #JSON data from fetch
+    message_click = request.json['messageClick']
+    message_value = request.json['messageValue']
+
+    if message_click == True and user_info.venue_id:
         band_id = message_value
         band_info = crud.all_band_info(band_id)
         venue_id = user_info.venue_id
@@ -716,7 +736,6 @@ def messages_data():
 
     elif message_click == False:
         return jsonify({'messages': None, 'message_recipient_details': None})
-
 
 if __name__ == "__main__":
 

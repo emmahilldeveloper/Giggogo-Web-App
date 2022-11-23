@@ -38,6 +38,7 @@
                     {% else %}
                     {% for message in current_messages %}
                     <a class="btn btn-secondary" href="" type="click" id="message" value="{{ message.band_id }}">
+                        {{ message.band_id }}
                         <div class="d-flex align-items-start">
                             <img src="{{ message.band_logo }}" class="square-circle mr-1" alt="Band" width="60" height="60">
                             <div class="flex-grow-1 ml-3">
@@ -100,5 +101,5 @@
 	</div>
 </main>
 
-
+<script src="/static/js/messages.js"> </script>
 {% endblock %}

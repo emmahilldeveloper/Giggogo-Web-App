@@ -683,7 +683,7 @@ def messages(user_id):
 
 @app.route('/api/bandmessages', methods=['POST'])
 def bandmessages_data():
-    """Returns results from search form."""
+    """Returns messages from venues."""
 
     #If the user has logged in and their cookies are saved, get all their data
     if "user_id" in session:
@@ -695,23 +695,34 @@ def bandmessages_data():
         return redirect("/")
 
     #JSON data from fetch
-    message_click = request.json['messageClick']
     message_value = request.json['messageValue']
 
-    if message_click == True and user_info.band_id:
+    if user_info.band_id:
+
+        messages = []
+        venue_recipient = []
+
         venue_id = message_value
         venue_info = crud.all_venue_info(venue_id)
+        venue_dict = {}
+        venue_dict["venue_name"] = venue_info.venue_name
+        venue_dict["venue_logo"] = venue_info.venue_logo
+        venue_recipient.append(venue_dict)
+
         band_id = user_info.band_id
         message_history = crud.all_messages_between_gig_parties(band_id, venue_id)
+        message_dict = {}
+        message_dict["message_history"] = message_history
+        messages.append(message_dict)
 
-        return jsonify({'messages': message_history, 'message_recipient_details': venue_info})
+        print(messages)
+        print(venue_recipient)
 
-    elif message_click == False:
-        return jsonify({'messages': None, 'message_recipient_details': None})
+        return jsonify({'messages': messages, 'message_recipient_details': venue_recipient})
 
 @app.route('/api/venuemessages', methods=['POST'])
 def venuemessages_data():
-    """Returns results from search form."""
+    """Returns messages from bands."""
 
     #If the user has logged in and their cookies are saved, get all their data
     if "user_id" in session:

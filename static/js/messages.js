@@ -9,14 +9,10 @@ message.addEventListener("click", (evt) => {
 
     document.getElementById("message-details").innerHTML = "";
     const messageRecipient = document.getElementById("message").getAttribute('value');
-    const messageClick = document.getElementById("message").addEventListener("click", () => {return true});
 
     const data = {
-        messageClick: messageClick,
         messageValue: messageRecipient,
     }
-
-    console.log(data)
 
     fetch(`/api/bandmessages`, {
         method: 'POST',
@@ -27,7 +23,6 @@ message.addEventListener("click", (evt) => {
     })
     .then((response) => response.json())
     .then(responseData => {
-
         responseData.message_recipient_details.forEach((element) => {
 
             //Create parent div to house messages
@@ -61,10 +56,32 @@ message.addEventListener("click", (evt) => {
             chatBubbleRecipient.className = "position-relative";
             parentDiv.appendChild(chatBubbleRecipient);
 
+            const recipientBubbleDiv = document.createElement("div");
+            recipientBubbleDiv.className = "chat-messages p-4";
+            chatBubbleRecipient.appendChild(recipientBubbleDiv);
 
+            const recipientBubble = document.createElement("div");
+            recipientBubble.className = "chat-message-right pb-4";
+            recipientBubbleDiv.appendChild(recipientBubble);
 
+            const recipientBubbleDetails = document.createElement("div");
+            recipientBubble.appendChild(recipientBubbleDetails);
 
-        })
+            const recipientBubbleImage = document.createElement("img");
+            recipientBubbleImage.src = element.venue_logo;
+            recipientBubbleImage.className = "square mr-1";
+            recipientBubbleImage.alt = "Venue";
+            recipientBubbleImage.style = "width: 40px; height:40px;";
+            recipientBubbleDetails.appendChild(recipientBubbleImage);
+
+            const recipientBubbleName = document.createElement("div");
+            recipientBubbleName.className("font-weight-bold mb-1");
+            recipientBubbleName.innerText = element.venue_name
+
+                responseData.messages.forEach((element) => {
+
+            });
+        });
     });
 })
 
@@ -79,13 +96,13 @@ message.addEventListener("click", (evt) => {
     //     </div>
     // </div>
     // <div class="position-relative">
-
     //     <div class="chat-messages p-4">
     //         <div class="chat-message-right pb-4">
     //             <div>
     //                 <img src="" class="square mr-1" alt="Venue" width="40" height="40">
     //                 <div class="font-weight-bold mb-1"> Venue Name </div>
     //             </div>
+
     //             <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
     //                 Let us know when you show up!
     //             </div>

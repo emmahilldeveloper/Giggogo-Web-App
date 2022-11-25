@@ -35,17 +35,18 @@
                 </div>
 
                 <div class="col-12 col-lg-7 col-xl-9" id="message-details">
+                <!-- JS DOM here -->
+                </div>
 
-
-                    <form action="/messages/{{ user_info.user_id }}" method="POST" class="signup-form" name="signup-form">
-                        <div class="flex-grow-0 py-3 px-4 border-top">
-                            <div class="input-group" name="">
-                                <input type="text" name="message-text" class="form-control" placeholder="Type your message...">
-                                <button class="btn btn-primary" type="submit">Send</button>
-                            </div>
+                <form action="/messages/{{ user_info.user_id }}" method="POST" class="signup-form" name="signup-form">
+                    <div class="flex-grow-0 py-3 px-4 border-top">
+                        <div class="input-group" name="">
+                            <input type="text" name="message-text" class="form-control" placeholder="Type your message...">
+                            <button class="btn btn-primary" type="submit">Send</button>
                         </div>
-                    </form>
-				</div>
+                    </div>
+                </form>
+				
 			</div>
 		</div>
 	</div>

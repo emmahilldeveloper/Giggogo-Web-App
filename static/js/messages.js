@@ -81,15 +81,17 @@ allMessageButtons.forEach((element) => {
                 const recipientBubbleName = document.createElement("div");
                 recipientBubbleName.className = "font-weight-bold mb-1";
                 recipientBubbleName.innerText = element.venue_name
+                recipientBubbleDetails.appendChild(recipientBubbleName);
     
-                    responseData.messages.forEach((element) => {
-    
-                        const recipientMessageContent = document.createElement("div");
-                        recipientMessageContent.className = "flex-shrink-1 bg-light rounded py-2 px-3 mr-3";
-                        recipientMessageContent.innerText = element.message_text;
-                        recipientBubble.appendChild(recipientMessageContent);
-                    });
-    
+                responseData.messages.forEach((element) => {
+                    const recipientMessageContent = document.createElement("div");
+                    recipientMessageContent.className = "flex-shrink-1 bg-secondary rounded py-2 px-3 mr-3";
+                    if (element.sender_type == "Venue") {
+                    recipientMessageContent.innerText = element.message;
+                    recipientBubble.appendChild(recipientMessageContent);
+                    }
+                });
+
                 const senderBubble = document.createElement("div");
                 senderBubble.className = "chat-message-left pb-4";
                 recipientBubbleDiv.appendChild(senderBubble);
@@ -107,15 +109,16 @@ allMessageButtons.forEach((element) => {
                 const senderBubbleName = document.createElement("div");
                 senderBubbleName.className = "font-weight-bold mb-1";
                 senderBubbleName.innerText = element.band_name
-    
-                    responseData.messages.forEach((element) => {
-    
-                        const senderMessageContent = document.createElement("div");
-                        senderMessageContent.className = "flex-shrink-1 bg-light rounded py-2 px-3 ml-3";
-                        senderMessageContent.innerText = element.message_text;
+                senderBubbleDetails.appendChild(senderBubbleName);
+
+                responseData.messages.forEach((element) => {
+                    const senderMessageContent = document.createElement("div");
+                    senderMessageContent.className = "flex-shrink-1 bg-primary rounded py-2 px-3 ml-3";
+                    if (element.sender_type == "Band") {
+                        senderMessageContent.innerText = element.message;
                         senderBubble.appendChild(senderMessageContent);
-    
-                    });
+                    }
+                });
             });
         });
     })

@@ -708,21 +708,27 @@ def bandmessages_data():
 
         venue_id = message_value
         venue_info = crud.all_venue_info(venue_id)
+        band_info = crud.all_band_info(user_info.band_id)
         venue_dict = {}
         venue_dict["venue_name"] = venue_info.venue_name
         venue_dict["venue_logo"] = venue_info.venue_logo
+        venue_dict["band_name"] = band_info.band_name
+        venue_dict["band_logo"] = band_info.band_logo
         venue_recipient.append(venue_dict)
 
-        band_id = user_info.band_id
-        message_history = crud.all_messages_between_gig_parties(band_id, venue_id)
-        message_dict = {}
-        for message in message_history:
-            message_string = message.message_text
-            sender_type = message.sender_type
-            message_dict["venue_message"] = message_string
-            message_dict["sender_type"] = sender_type
+        message_history = crud.all_messages_between_gig_parties(user_info.band_id, venue_id)
 
-        messages.append(message_dict)
+        for message in message_history:
+            if message.sender_type == "Band":
+                band_message_dict = {}
+                band_message_dict["message"] = message.message_text
+                band_message_dict["sender_type"] = message.sender_type
+                messages.append(band_message_dict)
+            elif message.sender_type == "Venue":
+                venue_message_dict = {}
+                venue_message_dict["message"] = message.message_text
+                venue_message_dict["sender_type"] = message.sender_type
+                messages.append(venue_message_dict)
 
         print(messages)
         print(venue_recipient)

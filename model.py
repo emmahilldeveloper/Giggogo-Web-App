@@ -150,6 +150,7 @@ class Message(db.Model):
     venue_id = db.Column(db.Integer, db.ForeignKey("venues.venue_id"), nullable = True)
     band_id = db.Column(db.Integer, db.ForeignKey("bands.band_id"))
     message_text = db.Column(db.String, unique = False, nullable = True)
+    sender_type = db.Column(db.String, unique = False, nullable = False)
 
     #foreign keys used by "Message" table
     venue = db.relationship("Venue", back_populates = "messages")

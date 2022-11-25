@@ -186,10 +186,10 @@ def all_gigs_by_venue(venue_id):
 
 ####### Functions for Messaging Page #################################################################################################
 
-def create_message(venue_id, band_id, message_text):
+def create_message(venue_id, band_id, message_text, sender_type):
     """Create and return a new user."""
     message = Message(venue_id = venue_id, 
-                        band_id = band_id, message_text = message_text)
+                        band_id = band_id, message_text = message_text, sender_type = sender_type)
     return message
 
 def all_messages_between_gig_parties(band_id, venue_id):

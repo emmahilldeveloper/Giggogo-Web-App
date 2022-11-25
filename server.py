@@ -673,7 +673,11 @@ def messages(user_id):
 
     if request.method == "POST":
         message_text = request.form.get("message-text")
-        message = crud.create_message(venue_id, band_id, message_text)
+        if user_info.band_id:
+            sender_type = "Band"
+        else:
+            sender_type = "Venue"
+        message = crud.create_message(venue_id, band_id, message_text, sender_type)
         db.session.add(message)
         db.session.commit()
         return redirect("/messages/<user_id>")
@@ -712,13 +716,19 @@ def bandmessages_data():
         band_id = user_info.band_id
         message_history = crud.all_messages_between_gig_parties(band_id, venue_id)
         message_dict = {}
-        message_dict["message_history"] = message_history
+        for message in message_history:
+            message_string = message.message_text
+            sender_type = message.sender_type
+            message_dict["venue_message"] = message_string
+            message_dict["sender_type"] = sender_type
+
         messages.append(message_dict)
 
         print(messages)
         print(venue_recipient)
 
         return jsonify({'messages': messages, 'message_recipient_details': venue_recipient})
+
 
 @app.route('/api/venuemessages', methods=['POST'])
 def venuemessages_data():

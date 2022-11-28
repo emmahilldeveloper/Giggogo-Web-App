@@ -596,6 +596,10 @@ def venue_book_band(band_id):
 
         gig = crud.create_gig(venue_id, band_id, gig_date, final_payrate, gig_complete, gig_paid)
         db.session.add(gig)
+        message_text = "Hello, " + band_info.band_name + "! We're excited to gig with you. Message us with any questions."
+        sender_type = "Venue"
+        message = crud.create_message(venue_id, band_id, message_text, sender_type)
+        db.session.add(message)
         db.session.commit()
         flash("SUCCESS: Gig request sent.", category='success')
         return redirect(url_for("venue_homepage", venue_id = user_info.venue_id))
@@ -629,6 +633,10 @@ def band_book_venue(venue_id):
 
         gig = crud.create_gig(venue_id, band_id, gig_date, final_payrate, gig_complete, gig_paid)
         db.session.add(gig)
+        message_text = "Hello, " + venue_info.venue_name + "! We're excited to gig with you. Message us with any questions."
+        sender_type = "Band"
+        message = crud.create_message(venue_id, band_id, message_text, sender_type)
+        db.session.add(message)
         db.session.commit()
         flash("SUCCESS: Gig request sent.", category='success')
         return redirect(url_for("band_homepage", band_id = user_info.band_id))
@@ -723,15 +731,13 @@ def bandmessages_data():
                 band_message_dict = {}
                 band_message_dict["message"] = message.message_text
                 band_message_dict["sender_type"] = message.sender_type
+                band_message_dict["message_id"] = message.message_id
                 messages.append(band_message_dict)
             elif message.sender_type == "Venue":
                 venue_message_dict = {}
                 venue_message_dict["message"] = message.message_text
                 venue_message_dict["sender_type"] = message.sender_type
                 messages.append(venue_message_dict)
-
-        print(messages)
-        print(venue_recipient)
 
         return jsonify({'messages': messages, 'message_recipient_details': venue_recipient})
 

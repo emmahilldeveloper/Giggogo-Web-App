@@ -52,6 +52,7 @@ allMessageButtons.forEach((element) => {
                 messageAlignDiv.appendChild(messageRecipientImage);
     
                 const messageRecipientName = document.createElement("div");
+                document.getElementById("hidden-message-recipient").value = element.venue_id;
                 messageRecipientName.className = "flex-grow-1 pl-3";
                 messageRecipientName.innerText = element.venue_name;
                 messageAlignDiv.appendChild(messageRecipientName);
@@ -126,6 +127,5 @@ allMessageButtons.forEach((element) => {
                 });
             });
         });
-    })
-})
-
+    });
+});

@@ -59,11 +59,11 @@
 
     <div class="row" id="spotify-row">
         <div class="col-5" id="band-profile-music-sample">
-                <div class="card" id="spotify-preview">
-                    <div class="card" style="width:35rem" id="band-member-card">
-                        <iframe class="the-rolling-stones" style="border-radius:12px" src="https://open.spotify.com/embed/artist/{{ band_spotify_ID }}" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
+            <div class="card" id="spotify-preview">
+                <div class="card" style="width:35rem" id="band-spotify">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/{{ band_spotify_ID }}" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
+            </div>
         </div>
     {% endblock %}
     <!-- Javascript files imported here. -->

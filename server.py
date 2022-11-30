@@ -801,6 +801,28 @@ def show_all_gigs(user_id):
     else:
         return redirect("/")
 
+    band_info = crud.find_band_by_user(user_id)
+    venue_info = crud.find_venue_by_user(user_id)
+    band_id = band_info.band_id
+    venue_id = venue_info.venue_id
+    band_gigs = crud.all_gigs_by_band(band_id)
+    venue_gigs = crud.all_gigs_by_venue(venue_id)
+
+    venue_list = []
+    band_list = []
+
+    if band_id:
+        for gig in band_gigs:
+            booked_venue_info = crud.all_venue_info(gig.venue_id)
+            venue_list.append(booked_venue_info)
+
+    if venue_id:
+        for gig in venue_gigs:
+            booked_band_info = crud.all_band_info(gig.band_id)
+            band_list.append(booked_band_info)
+
+    return render_template("gigs.html", user_info = user_info, band_list = band_list, venue_list = venue_list)
+
 if __name__ == "__main__":
 
     connect_to_db(app)

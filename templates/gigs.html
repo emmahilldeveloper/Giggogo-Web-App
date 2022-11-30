@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} Messages {% endblock %}
+{% block body %}
+{% include 'navbar.html' %}
+
+<img src="/static/media/audience.jpg" id="background-photo">
+
+<main class="content">
+    <div class="container p-0">
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-12 col-lg-5 col-xl-3 border-right" id="all-gigs">
+                    {% if user_info.band_id %}
+                    {% for venue in venue_list %}
+                    {{ venue.venue_name }}
+                    {% endfor %}
+                    {% endif %}
+
+                    {% if user_info.venue_id %}
+                    {% for band in band_list %}
+                    {{ band.band_name }}
+                    {% endfor %}
+                    {% endif %}
+
+                </div>
+
+                <div class="col-12 col-lg-7 col-xl-9" id="message-details">
+                <!-- JS DOM here -->
+                </div>
+
+			</div>
+		</div>
+	</div>
+</main>
+
+<script src="/static/js/gigs.js"> </script>
+{% endblock %}

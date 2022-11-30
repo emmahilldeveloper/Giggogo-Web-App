@@ -12,11 +12,11 @@ def create_user(first_name, last_name, email, password, band_id, venue_id, profi
                 venue_id = venue_id, profile_photo = profile_photo)
     return user
 
-def create_band(band_name, band_phone, band_payrate, band_logo, band_photo, band_video):
+def create_band(band_name, band_phone, band_payrate, band_logo, band_photo, band_video, band_website, band_spotify):
     """Create and return a new band."""
     band = Band(band_name = band_name, band_phone = band_phone, 
                 band_payrate = band_payrate, band_logo = band_logo, 
-                band_photo = band_photo, band_video = band_video)
+                band_photo = band_photo, band_video = band_video, band_website = band_website, band_spotify = band_spotify)
     return band
 
 def create_venue(venue_name, venue_phone, venue_address, venue_payrate, venue_logo, venue_photo):

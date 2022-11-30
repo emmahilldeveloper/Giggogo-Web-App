@@ -7,19 +7,26 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Profile
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="nav-item nav-link active" href="/user/{{ user_info.user_id }}">Profile</a>
+        <a class="nav-item nav-link active" href="/user/{{ user_info.user_id }}">My Profile</a>
         <a class="nav-item nav-link active" href="/">Log Out</a>
       </div>
-      {% if user_info.venue_id %}
-      <a class="nav-item nav-link active" href="/venuehome/{{ user_info.venue_id }}">Home</a>
-      {% else %}
-      <a class="nav-item nav-link active" href="/bandhome/{{ user_info.band_id }}">Home</a>
-      {% endif %}
-      <a class="nav-item nav-link active" href="/messages/ {{ user_info.user_id }}">Messages</a>
+      <div class="btn-group">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Home
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {% if user_info.venue_id %}
+          <a class="nav-item nav-link active" href="/venuehome/{{ user_info.venue_id }}">My Home</a>
+          {% else %}
+          <a class="nav-item nav-link active" href="/bandhome/{{ user_info.band_id }}">My Home</a>
+          {% endif %}
+          <a class="nav-item nav-link active" href="/messages/ {{ user_info.user_id }}">My Messages</a>
+        </div>
+      </div>
       <a class="nav-item nav-link active" href="/search">Search</a>
     </div>
   </div>

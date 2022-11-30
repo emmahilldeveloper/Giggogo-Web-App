@@ -30,8 +30,10 @@ for band in bands_data:
     band_logo = band["band_logo"]
     band_photo = band["band_photo"]
     band_video = band["band_video"]
+    band_website = band["band_website"]
+    band_spotify = band["band_spotify"]
 
-    db_band = crud.create_band(band_name, band_phone, band_payrate, band_logo, band_photo, band_video)
+    db_band = crud.create_band(band_name, band_phone, band_payrate, band_logo, band_photo, band_video, band_website, band_spotify)
     bands_in_db.append(db_band)
 
 model.db.session.add_all(bands_in_db)

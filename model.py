@@ -75,6 +75,8 @@ class Band(db.Model):
     band_logo = db.Column(db.Text, nullable = True)
     band_photo = db.Column(db.Text, nullable = True)
     band_video = db.Column(db.Text, nullable = True)
+    band_website = db.Column(db.Text, nullable = True)
+    band_spotify = db.Column(db.Text, nullable = True)
 
     #tables using "bands" table data as foreign key
     gigs = db.relationship("Gig", back_populates = "bands")

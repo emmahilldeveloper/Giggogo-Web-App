@@ -107,11 +107,13 @@ def new_band():
         band_phone = request.form.get("create-band-phone")
         band_payrate = request.form.get("create-band-payrate")
         band_logo = request.form.get("create-band-logo")
+        band_website = request.form.get("create-band-website")
+        band_spotify = request.form.get("create-band-website")
         band_photo = None
         band_video = None
 
         #Create new band to db
-        band = crud.create_band(band_name, band_phone, band_payrate, band_logo, band_photo, band_video)
+        band = crud.create_band(band_name, band_phone, band_payrate, band_logo, band_photo, band_video, band_website, band_spotify)
         db.session.add(band)
         db.session.commit()
 
@@ -340,6 +342,9 @@ def band_homepage(band_id):
     venues = []
     members = []
 
+    band_spotify_split = band_info.band_spotify.split("/")
+    band_spotify_ID = band_spotify_split[4]
+
     for band_member in all_members:
         user_id = band_member.user_id
         band_member_info = crud.all_user_info_specific(user_id)
@@ -359,7 +364,7 @@ def band_homepage(band_id):
         venues_dict["gig_id"] = gig.gig_id
         venues.append(venues_dict)
 
-    return render_template("bandhome.html", band_info = band_info, user_info = user_info, gig_info = gig_info, venues = venues, members = members)
+    return render_template("bandhome.html", band_info = band_info, user_info = user_info, gig_info = gig_info, venues = venues, members = members, band_spotify_ID = band_spotify_ID)
 
 ####### Search Page #############################################################################################################
 
@@ -782,6 +787,19 @@ def bandmessages_data():
                 messages.append(venue_message_dict)
 
         return jsonify({'messages': messages, 'message_recipient_details': band_recipient})
+
+@app.route("/gigs/<user_id>", methods = ["GET", "POST"])
+def show_all_gigs(user_id):
+    """Shows band's/venue's gig page."""
+
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+        
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
 
 if __name__ == "__main__":
 

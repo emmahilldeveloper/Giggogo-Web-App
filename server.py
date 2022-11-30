@@ -673,7 +673,8 @@ def messages(user_id):
             venue_id = gig.venue_id
             booked_venue_info = crud.all_venue_info(venue_id)
             current_messages.add(booked_venue_info)
-    else:
+
+    elif user_info.venue_id:
         for gig in venue_gigs:
             band_id = gig.band_id
             booked_band_info = crud.all_band_info(band_id)
@@ -682,11 +683,14 @@ def messages(user_id):
     if request.method == "POST":
         message_text = request.form.get("message-text")
         recipient_id = request.form.get("hidden-message-recipient")
-        print(recipient_id)
+
         if user_info.band_id:
             sender_type = "Band"
+            venue_id = int(recipient_id)
         else:
             sender_type = "Venue"
+            band_id = int(recipient_id)
+
         message = crud.create_message(venue_id, band_id, message_text, sender_type)
         db.session.add(message)
         db.session.commit()
@@ -725,6 +729,7 @@ def bandmessages_data():
         venue_dict["venue_logo"] = venue_info.venue_logo
         venue_dict["band_name"] = band_info.band_name
         venue_dict["band_logo"] = band_info.band_logo
+        venue_dict["current_user"] = "Band"
         venue_recipient.append(venue_dict)
 
         message_history = crud.all_messages_between_gig_parties(user_info.band_id, venue_id)
@@ -758,9 +763,10 @@ def bandmessages_data():
         band_dict["band_name"] = band_info.band_name
         band_dict["band_id"] = band_info.band_id
         band_dict["band_logo"] = band_info.band_logo
+        band_dict["current_user"] = "Venue"
         band_recipient.append(band_dict)
 
-        message_history = crud.all_messages_between_gig_parties(user_info.venue_id, band_id)
+        message_history = crud.all_messages_between_gig_parties(band_id, user_info.venue_id)
 
         for message in message_history:
             if message.sender_type == "Band":

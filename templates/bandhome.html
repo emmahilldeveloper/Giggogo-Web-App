@@ -16,8 +16,8 @@
                     {% for venue in venues %}
                     <div class="card" style="width:18rem" id="{{ venue.gig_id }}">
                         <ul class="list-group-item">
-                            <li class="list-group-item"><b>Venue: </b><br>{{ venue.venue_name }}</li>
-                            <li class="list-group-item"><b>Date: </b><br>{{ venue.gig_date }}</li>
+                            <li class="list-group-item"><b>Venue: </b>{{ venue.venue_name }}</li>
+                            <li class="list-group-item"><b>Date: </b>{{ venue.gig_date.strftime('%m/%d/%Y') }} @ {{ venue.gig_date.strftime('%I:%M %p') }}</li>
                         </ul>
                     </div>
                     {% endfor %}

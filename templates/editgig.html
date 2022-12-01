@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} Edit User {% endblock %}
+{% block body %}
+<img src="/static/media/audience.jpg" id="background-photo">
+<div class="center">
+    <form action="/edituser" method="POST" class="edit-user-data-form" name="edit-user-data-form">
+        <div class="mx-auto" style="width: 200px;">
+            <div class="col-5 col-md-3 order-md-1">
+                <div class="form-floating mb-3" style="width: 250px;">
+                    <input class="form-control" id="floatingInput" type="text" name="profile-photo" placeholder="Photo URL"/>
+                    <label for="floatingInput">Update Profile Photo URL</label>
+                </div>
+            </div>
+            <div class="col-5 col-md-3 order-md-1">
+                <div class="form-floating mb-3" style="width: 250px;">
+                    <input class="form-control" id="floatingInput" type="text" name="first-name" placeholder="First Name"/>
+                    <label for="floatingInput">Update First Name</label>
+                </div>
+            </div>
+            <div class="col-5 col-md-3 order-md-1">
+                <div class="form-floating mb-3" style="width: 250px;">
+                    <input class="form-control" id="floatingInput" type="text" name="last-name" placeholder="Last Name"/>
+                    <label for="floatingInput">Update Last Name</label>
+                </div>
+            </div>
+                <div class="ccol-5 col-md-3 order-md-1">
+                <div class="form-floating mb-3" style="width: 250px;">
+                    <input class="form-control" id="floatingInput" type="email" name="email" placeholder="Email"/>
+                    <label for="floatingInput">Update Email</label>
+                </div>
+            </div>
+            <div class="col-5 col-md-3 order-md-1">
+                <div class="form-floating mb-3" style="width: 250px;">
+                    <input class="form-control" id="floatingInput" type="password" name="password" placeholder="Password"/>
+                    <label for="floatingInput">Update Password</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-auto" style="width: 200px;">
+            <button type="submit" class="btn btn-dark" style="width: 250px;">Save</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

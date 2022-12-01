@@ -1,17 +1,6 @@
 {% extends 'base.html' %}
 {% block title %} Venue Home {% endblock %}
 {% block head %}
-    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.css' rel='stylesheet' />
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.js'></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
-        });
-        calendar.render();
-      });
-    </script>
 {% endblock %}
 {% block body %}
 {% include 'navbar.html' %}
@@ -20,43 +9,51 @@
 
     <div class="container-fluid">
         <div class="row" id="venue-logo-row">
-            <div class="col-6" id="venue-logo-div">
-                <img class="venue-logo" src="{{ venue_info.venue_logo }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
+            <div class="card col-6 shadow mt" id="venue-logo-div">
+                <div class="card-header" id="upcoming-gigs">
+                    <h1>{{ venue_info.venue_name }}</h1>
+                    <div value="{{ user_info.band_id }}" id="book-venue-button-div">
+                        <a class="btn btn-primary" id="book-venue-button" type="click" href="/bookvenue/{{ venue_info.venue_id }}">Book Venue</a>
+                        {% if user_info.venue_id %}
+                        <span id="venue"></span>
+                        {% else %}
+                        <span id="band"></span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <img class="venue-logo" src="{{ venue_info.venue_logo }}" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';">
+                </div>
             </div>
-            <div class="col-6" id="upcoming-gigs-row">
-                <div class="card" id="upcoming-gigs">
+            <div class="card col-6 shadow mt" id="upcoming-gigs-row">
+                <div class="card-header" id="upcoming-gigs">
                     <h1>Upcoming Gigs:</h1>
+                </div>
                     {% for band in bands %}
-                    <div class="card" style="width:18rem" id="{{ band.gig_id }}">
+                    <div class="card-body" style="width:30rem" id="{{ band.gig_id }}" style="background-image: url('{{ band.band_logo }}');">
                         <ul class="list-group-item">
-                            <li class="list-group-item"><b>Band: </b><br>{{ band.band_name }}</li>
-                            <li class="list-group-item"><b>Date: </b><br>{{ band.gig_date }}</li>
+                            <img style="height: 50px;" src="{{ band.band_logo }}">
+                            <li class="list-group-item"><b>Band: </b>{{ band.band_name }}</li>
+                            <li class="list-group-item"><b>Date: </b>{{ band.gig_date.strftime('%m/%d/%Y') }}</li>
+                            <li class="list-group-item"><b>Time: </b>{{ band.gig_date.strftime('%I:%M %p') }}</li>
                         </ul>
                     </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
-        <div class="row" id="venue-profile-info-row">
-            <div class="col-6" id="venue-profile-info-div">
-                <h1> {{ venue_info.venue_name }} </h1>
-            </div>
-        </div>
-        <div value="{{ user_info.band_id }}" id="book-venue-button-div">
-            <a class="btn btn-primary" id="book-venue-button" type="click" href="/bookvenue/{{ venue_info.venue_id }}">Book Venue</a>
-            {% if user_info.venue_id %}
-            <span id="venue"></span>
-            {% else %}
-            <span id="band"></span>
-            {% endif %}
-        </div>
     </div>
     <div class="container-fluid">
         <div class="row" id="map-row">
-            <div class="col-4" id="map-div">
-                <div id="map"></div>
-                <div id='lat' value='{{ response[0]["lat"] }}'></div>
-                <div id='lon' value='{{ response[0]["lon"] }}'></div>
+            <div class="card col-12 shadow mt" id="venue-logo-div">
+                <div class="card-header">
+                    <h1>Location:</h1>
+                </div>
+                <div class="col-12" id="map-div">
+                    <div id="map"></div>
+                    <div id='lat' value='{{ response[0]["lat"] }}'></div>
+                    <div id='lon' value='{{ response[0]["lon"] }}'></div>
+                </div>
             </div>
         </div>
     </div>

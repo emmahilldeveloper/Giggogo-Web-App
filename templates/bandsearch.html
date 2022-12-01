@@ -25,7 +25,7 @@
                                     </button>
                                 </p>
                                 <div class="collapse" id="collapseOne">
-                                    <div class="card card-body" id="form-check">
+                                    <div class="card card-body" id="form-check" style="height:100px; overflow-y: scroll;">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="low" id="low-payrate" name="payrate">
                                             <label class="form-check-label" for="low-payrate">
@@ -58,7 +58,7 @@
                                     </button>
                                 </p>
                                 <div class="collapse" id="collapseTwo">
-                                    <div class="card card-body" id="form-check">
+                                    <div class="card card-body" id="form-check" style="height:100px; overflow-y: scroll;">
                                         {% for genre in genres %}
                                         <div class="form-check">
                                             <input class="form-check-input genre-select" type="checkbox" value="{{ genre.genre_id }}" id="{{ genre.genre_id }}" name="genre">
@@ -85,7 +85,7 @@
                 <form>
                     <div class="card shadow mt">
                         <div class="card-header">
-                            <h5>Venues:</h5>
+                            <h5>Venue Results:</h5>
                         </div>
                         <div class="card-body">
                             <div class="row">

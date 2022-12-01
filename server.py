@@ -5,6 +5,7 @@ import crud
 import urllib.parse
 import requests
 import os
+from datetime import datetime
 
 app = Flask(__name__)
 app.config.update(TESTING=True, SECRET_KEY='DEV')
@@ -307,6 +308,7 @@ def venue_homepage(venue_id):
         bands_dict["gig_date"] = gig.gig_date
         bands_dict["gig_id"] = gig.gig_id
         bands_dict["band_id"] = band_info.band_id
+        bands_dict["band_logo"] = band_info.band_logo
         bands.append(bands_dict)
 
     # Google Map function
@@ -821,7 +823,7 @@ def show_all_gigs(user_id):
             booked_band_info = crud.all_band_info(gig.band_id)
             band_list.append(booked_band_info)
 
-    return render_template("gigs.html", user_info = user_info, band_list = band_list, venue_list = venue_list)
+    return render_template("gigs.html", user_info = user_info, band_list = band_list, venue_list = venue_list, band_gigs = band_gigs, venue_gigs = venue_gigs)
 
 if __name__ == "__main__":
 

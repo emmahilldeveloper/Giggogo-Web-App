@@ -7,26 +7,70 @@
 
 <main class="content">
     <div class="container p-0">
-        <div class="card">
+        <div class="card shadow mt">
             <div class="row g-0">
                 <div class="col-12 col-lg-5 col-xl-3 border-right" id="all-gigs">
+                    <div class="card-header">
+                        <h1>Upcoming Gigs:</h1>
+                    </div>
+
                     {% if user_info.band_id %}
                     {% for venue in venue_list %}
-                    {{ venue.venue_name }}
+                    <!-- Band User View -->
+
+                    <div class="card shadow mt">
+                        <div><b>Venue Name:</b> {{ venue.venue_name }}</div>
+
+                        {% for gig in band_gigs %}
+                        {% if gig.band_id == user_info.band_id and gig.venue_id == venue.venue_id%}
+
+                        <div><b>Gig Date:</b> {{ gig.gig_date.strftime('%m/%d/%Y') }} @ {{ gig.gig_date.strftime('%I:%M %p') }}</div>
+
+                        <div><b>Gig Payrate:</b> ${{ gig.final_payrate}}/hour</div>
+                        
+                        <div><b>Gig Complete:</b> {% if gig.gig_complete == False %} No {% else %} Yes
+                            {% endif %}
+                        </div>
+                        
+                        <div><b>Gig Paid:</b> {% if gig.gig_paid == False %} No {% else %} Yes
+                            {% endif %}
+                        </div>
+
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+
                     {% endfor %}
                     {% endif %}
 
+                    <!-- Venue User View -->
                     {% if user_info.venue_id %}
                     {% for band in band_list %}
-                    {{ band.band_name }}
+                    <div class="card shadow mt">
+                        <div><b>Band Name:</b> {{ band.band_name }}</div>
+
+                        {% for gig in venue_gigs %}
+                        {% if gig.venue_id == user_info.venue_id and gig.band_id == band.band_id%}
+
+                        <div><b>Gig Date:</b> {{ gig.gig_date.strftime('%m/%d/%Y') }} @ {{ gig.gig_date.strftime('%I:%M %p') }}</div>
+
+                        <div><b>Gig Payrate:</b> ${{ gig.final_payrate}}/hour</div>
+                        
+                        <div><b>Gig Complete:</b> {% if gig.gig_complete == False %} No {% else %} Yes
+                            {% endif %}
+                        </div>
+                        
+                        <div><b>Gig Paid:</b> {% if gig.gig_paid == False %} No {% else %} Yes
+                            {% endif %}
+                        </div>
+
+                        {% endif %}
+                        {% endfor %}
+                    </div>
                     {% endfor %}
                     {% endif %}
-
                 </div>
 
-                <div class="col-12 col-lg-7 col-xl-9" id="message-details">
-                <!-- JS DOM here -->
-                </div>
 
 			</div>
 		</div>

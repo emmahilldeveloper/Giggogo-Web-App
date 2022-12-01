@@ -32,7 +32,7 @@ function initMap() {
     const venue = { lat: lat, lng: lng };
     // The map, centered at venue
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 15,
+      zoom: 18,
       center: venue,
     });
     // The marker, positioned at Uluru

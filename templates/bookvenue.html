@@ -16,6 +16,8 @@
 {% block body %}
 {% include 'navbar.html' %}
     {% block content %}
+    <img src="/static/media/audience.jpg" id="background-photo">
+
    
     <div class="center">
         <form action="/bookvenue/{{ venue_info.venue_id }}" method="POST" class="book-venue-form" name="book-venue-form">
@@ -35,7 +37,7 @@
                 <div class="col-5 col-md-3 order-md-1">
                     <div class="form-floating mb-3" style="width: 250px;">
                         <input class="form-control" required = "true" id="floatingInput" type="currency" name="request-payrate" placeholder="Request Payrate"/>
-                        <label for="floatingInput">Request Payrate ($/hr)</label>
+                        <label for="floatingInput">Request Hourly Payrate</label>
                     </div>
                 </div>
             </div>

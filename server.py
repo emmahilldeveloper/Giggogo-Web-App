@@ -251,7 +251,7 @@ def edit_user_data():
     else:
         return redirect("/")
 
-    #Get data from siginup form
+    #Get data from edit form
     if request.method == "POST":
         first_name = request.form.get("first-name")
         last_name = request.form.get("last-name")
@@ -824,6 +824,44 @@ def show_all_gigs(user_id):
             band_list.append(booked_band_info)
 
     return render_template("gigs.html", user_info = user_info, band_list = band_list, venue_list = venue_list, band_gigs = band_gigs, venue_gigs = venue_gigs)
+
+@app.route("/editgig", methods = ["GET", "POST"])
+def edit_gig_data():
+    """Allows user to edit their user data."""
+
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
+
+    #Get data from edit form
+    if request.method == "POST":
+        gig_date = request.form.get("update-request-date")
+        gig_time = request.form.get("update-request-time")
+        gig_payrate = request.form.get("update-request-payrate")
+
+        if user_info.band_id:
+            gig = crud.all_gigs_by_band(user_info.band_id)
+
+            if gig_date:
+                user.first_name = first_name
+            if gig_time:
+                user.last_name = last_name
+            if gig_payrate:
+                user.email = email
+
+        db.session.commit()
+        flash("User Information Successfully Updated.", category='success')
+        return redirect("/user/<user_id>")
+
+    #Load the page
+    else:
+        return render_template("editgig.html", user_info = user_info)
+
 
 if __name__ == "__main__":
 

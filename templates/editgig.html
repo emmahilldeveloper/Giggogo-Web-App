@@ -1,40 +1,54 @@
 {% extends 'base.html' %}
 {% block title %} Edit User {% endblock %}
 {% block body %}
+{% include 'navbar.html' %}
+
 <img src="/static/media/audience.jpg" id="background-photo">
 <div class="center">
-    <form action="/edituser" method="POST" class="edit-user-data-form" name="edit-user-data-form">
+    <form action="/editgig" method="POST" class="edit-gig-data-form" name="edit-gig-data-form">
         <div class="mx-auto" style="width: 200px;">
+            
             <div class="col-5 col-md-3 order-md-1">
                 <div class="form-floating mb-3" style="width: 250px;">
-                    <input class="form-control" id="floatingInput" type="text" name="profile-photo" placeholder="Photo URL"/>
-                    <label for="floatingInput">Update Profile Photo URL</label>
+                    <input class="form-control" id="floatingInput" type="date" name="update-request-date" placeholder="Request Date"/>
+                    <label for="floatingInput">Date</label>
                 </div>
             </div>
+
             <div class="col-5 col-md-3 order-md-1">
                 <div class="form-floating mb-3" style="width: 250px;">
-                    <input class="form-control" id="floatingInput" type="text" name="first-name" placeholder="First Name"/>
-                    <label for="floatingInput">Update First Name</label>
+                    <input class="form-control" id="floatingInput" type="time" name="update-request-time" placeholder="Request Time"/>
+                    <label for="floatingInput">Time</label>
                 </div>
             </div>
+
             <div class="col-5 col-md-3 order-md-1">
                 <div class="form-floating mb-3" style="width: 250px;">
-                    <input class="form-control" id="floatingInput" type="text" name="last-name" placeholder="Last Name"/>
-                    <label for="floatingInput">Update Last Name</label>
+                    <input class="form-control" id="floatingInput" type="currency" name="update-request-payrate" placeholder="Request Payrate"/>
+                    <label for="floatingInput">Hourly Payrate</label>
                 </div>
             </div>
-                <div class="ccol-5 col-md-3 order-md-1">
-                <div class="form-floating mb-3" style="width: 250px;">
-                    <input class="form-control" id="floatingInput" type="email" name="email" placeholder="Email"/>
-                    <label for="floatingInput">Update Email</label>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input type="checkbox" id="gig-completed">
+                  </div>
                 </div>
+                <label for="gig-completed" class="form-control"> Gig completed? </label>
+              </div>
             </div>
-            <div class="col-5 col-md-3 order-md-1">
-                <div class="form-floating mb-3" style="width: 250px;">
-                    <input class="form-control" id="floatingInput" type="password" name="password" placeholder="Password"/>
-                    <label for="floatingInput">Update Password</label>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <input type="checkbox" id="gig-completed">
+                  </div>
                 </div>
+                <label for="gig-paid" class="form-control"> Gig Paid? </label>
+              </div>
             </div>
+
         </div>
 
         <div class="mx-auto" style="width: 200px;">

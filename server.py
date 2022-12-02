@@ -858,16 +858,16 @@ def edit_gig_data(gig_id):
             gig_info[0].gig_payrate = gig_payrate
         if gig_complete:
             print("idk")
-            if "yes":
+            if gig_complete == "yes":
                 gig_info[0].gig_complete = True
                 print("idk yes")
-            elif "no":
+            elif gig_complete == "no":
                 gig_info[0].gig_complete = False
                 print("idk no")
         if gig_paid:
-            if "yes":
+            if gig_paid == "yes":
                 gig_info[0].gig_paid = True
-            elif "no":
+            elif gig_paid == "no":
                 gig_info[0].gig_paid = False
 
         db.session.commit()

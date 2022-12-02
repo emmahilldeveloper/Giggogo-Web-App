@@ -790,6 +790,8 @@ def bandmessages_data():
 
         return jsonify({'messages': messages, 'message_recipient_details': band_recipient})
 
+####### Gig Page #############################################################################################################
+
 @app.route("/gigs/<user_id>", methods = ["GET", "POST"])
 def show_all_gigs(user_id):
     """Shows band's/venue's gig page."""
@@ -825,8 +827,8 @@ def show_all_gigs(user_id):
 
     return render_template("gigs.html", user_info = user_info, band_list = band_list, venue_list = venue_list, band_gigs = band_gigs, venue_gigs = venue_gigs)
 
-@app.route("/editgig", methods = ["GET", "POST"])
-def edit_gig_data():
+@app.route("/editgig/<gig_id>", methods = ["GET", "POST"])
+def edit_gig_data(gig_id):
     """Allows user to edit their user data."""
 
     #If the user has logged in and their cookies are saved, get all their data
@@ -843,25 +845,38 @@ def edit_gig_data():
         gig_date = request.form.get("update-request-date")
         gig_time = request.form.get("update-request-time")
         gig_payrate = request.form.get("update-request-payrate")
+        gig_complete = request.form.get("gig-completed")
+        gig_paid = request.form.get("gig-paid")
 
-        if user_info.band_id:
-            gig = crud.all_gigs_by_band(user_info.band_id)
+        gig_info = crud.all_gig_info(gig_id)
 
-            if gig_date:
-                user.first_name = first_name
-            if gig_time:
-                user.last_name = last_name
-            if gig_payrate:
-                user.email = email
+        if gig_date:
+            gig_info[0].gig_date = gig_date
+        if gig_time:
+            gig_info[0].gig_time = gig_time
+        if gig_payrate:
+            gig_info[0].gig_payrate = gig_payrate
+        if gig_complete:
+            print("idk")
+            if "yes":
+                gig_info[0].gig_complete = True
+                print("idk yes")
+            elif "no":
+                gig_info[0].gig_complete = False
+                print("idk no")
+        if gig_paid:
+            if "yes":
+                gig_info[0].gig_paid = True
+            elif "no":
+                gig_info[0].gig_paid = False
 
         db.session.commit()
-        flash("User Information Successfully Updated.", category='success')
-        return redirect("/user/<user_id>")
+        flash("Gig Information Successfully Updated.", category='success')
+        return redirect("/gigs/<user_id>")
 
     #Load the page
     else:
-        return render_template("editgig.html", user_info = user_info)
-
+        return render_template("editgig.html", user_info = user_info, gig_id = gig_id)
 
 if __name__ == "__main__":
 

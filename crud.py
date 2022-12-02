@@ -184,6 +184,11 @@ def all_gigs_by_venue(venue_id):
 
     return Gig.query.filter(Gig.venue_id == venue_id).all()
 
+def all_gig_info(gig_id):
+    """Returns all gig info for specific gig by gig id."""
+
+    return Gig.query.filter(Gig.gig_id == gig_id).all()
+
 ####### Functions for Messaging Page #################################################################################################
 
 def create_message(venue_id, band_id, message_text, sender_type):

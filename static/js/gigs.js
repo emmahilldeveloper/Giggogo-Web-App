@@ -2,9 +2,15 @@
 
 /////// Edit Gig Button Functionality ///////
 
-let editGigButton = document.getElementById("edit-gig");
+let allGigEditButtons = document.querySelectorAll(".edit-gig");
 
-editGigButton.addEventListener("click", () => {
-    window.location.href = "/editgig";
-})
+console.log(allGigEditButtons)
 
+allGigEditButtons.forEach((element) => {
+    element.addEventListener("click", () => {
+
+        const gigID = element.getAttribute('value');
+
+        window.location.href = `/editgig/${gigID}`;
+    });
+});

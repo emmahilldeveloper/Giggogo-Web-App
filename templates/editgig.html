@@ -5,9 +5,9 @@
 
 <img src="/static/media/audience.jpg" id="background-photo">
 <div class="center">
-    <form action="/editgig" method="POST" class="edit-gig-data-form" name="edit-gig-data-form">
+    <form action="/editgig/{{gig_id}}" method="POST" class="edit-gig-data-form" name="edit-gig-data-form">
         <div class="mx-auto" style="width: 200px;">
-            
+
             <div class="col-5 col-md-3 order-md-1">
                 <div class="form-floating mb-3" style="width: 250px;">
                     <input class="form-control" id="floatingInput" type="date" name="update-request-date" placeholder="Request Date"/>
@@ -24,34 +24,44 @@
 
             <div class="col-5 col-md-3 order-md-1">
                 <div class="form-floating mb-3" style="width: 250px;">
-                    <input class="form-control" id="floatingInput" type="currency" name="update-request-payrate" placeholder="Request Payrate"/>
-                    <label for="floatingInput">Hourly Payrate</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                    <input class="form-control" id="floatingInput" type="currency" name="update-request-payrate" placeholder="Hourly Payrate"/>
+                    <!-- <label for="floatingInput">Hourly Payrate</label> -->
+                      <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                      </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <input type="checkbox" id="gig-completed">
-                  </div>
+            <div class="col-5 col-md-3 order-md-1">
+                <div class="form-floating mb-3" style="width: 250px;">
+                    <select class="form-select" aria-label="gig-completed" id="gig-completed" name="gig-completed" >
+                        <option disabled selected></option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <label for="gig-completed">Gig Completed?</label>
                 </div>
-                <label for="gig-completed" class="form-control"> Gig completed? </label>
-              </div>
             </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <input type="checkbox" id="gig-completed">
-                  </div>
+            <div class="col-5 col-md-3 order-md-1">
+                <div class="form-floating mb-3" style="width: 250px;">
+                    <select class="form-select" aria-label="gig-paid" id="gig-paid" name="gig-paid">
+                        <option disabled selected></option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <label for="gig-paid">Gig Paid?</label>
                 </div>
-                <label for="gig-paid" class="form-control"> Gig Paid? </label>
-              </div>
             </div>
 
         </div>
 
-        <div class="mx-auto" style="width: 200px;">
+        <div class="mx-auto" style="width: 227px;">
             <button type="submit" class="btn btn-dark" style="width: 250px;">Save</button>
         </div>
     </form>

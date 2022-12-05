@@ -1,17 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 
-/* Giggogo app theme. */
+/*                                                         Giggogo app theme.                                                         */
 
 .theme-style {
     background-color:grey;
 }
 
 .btn.btn-dark {
-  background-color: orange;
+  background-color: rgb(232,163,109);
+  border-radius: 20px;
+  border-color: black;
   color: black;
 }
 
-/* Navbar styling */
+.btn.btn-primary {
+  margin: 30px;
+  border-radius: 20px;
+  border-color: black;
+  background-color: rgb(232,163,109);
+  color: black;
+}
+
+/*                                                         Navbar styling                                                         */
 
 .nav-item.nav-link.active:hover {
   color: black;
@@ -26,6 +36,7 @@
 
 .nav-link.dropdown-toggle:hover {
   color: black;
+  border-radius: 20px;
   background-color: white;
   border-color: black;
 }
@@ -34,7 +45,7 @@
   color:white;
 } */
 
-/* Homepage Styling */
+/*                                                         Homepage Styling                                                         */
 
 #homepage-logo {
   max-width: 1000px;
@@ -71,35 +82,64 @@
   border-width: 1px;
   border-style: solid;
   border-color: black;
-  border-radius: 0px;
+  border-radius: 20px;
 }
 
-.btn.btn-primary {
-  margin: 30px;
-  border-color: black;
-  background-color: orange;
-  color: black;
+#homepage-signup-button {
+  position: absolute;
+  margin: 18%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
-/* Login Styling */
+#homepage-login-button {
+  position: absolute;
+  margin: 18%;
+  top: 15%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 
-.center {
-  width: 250px;
-  height: 250px;
+/*                                                         Login Styling                                                         */
+
+#login-div {
+  width: 400px;
+  height: 400px;
+  background-color: white;
   position: absolute;
   top:0;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
 }
 
-/* Band Styling */
+#email-login {
+  border-radius: 0px;
+  border-color: black;
 
-.btn.btn-dark {
-  margin: 15px;
 }
-/* User Profile Styling */
+
+#password-login {
+  border-radius: 0px;
+  border-color: black;
+}
+
+#login {
+  border-radius: 20px;
+  border-color: black;
+  margin: 0%;
+  top: 60%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/*                                                         User Profile Styling                                                         */
 
 .profile-photo {
   max-width: 100%;
@@ -135,46 +175,83 @@
   padding-top: 30px;
 }
 
-/* Band Home Styling */
+/*                                                        Band Home Styling                                                    */
 
+/* Band Logo Section */
 .band-logo {
-  max-width: 100%;
   border: solid;
   border-width: 1px;
   border-color: black;
-  border-radius: 0px;
+  border-radius: 20px;
 }
-
 #band-logo-div {
   display: flex;
-  padding-left: 20px;
+  padding-left: 50px;
 }
-
 #band-logo-row {
-  padding-right: 20px;
   display: flex;
 }
 
-#upcoming-gigs-div {
-  display: flex;
-  padding-left: 0px;
+
+/* Band Name Section */
+#band-name {
+  font-size: 90px;
+  padding: 10px;
+  text-align: center;
+}
+#band-name-div {
+  background-color: white;
   border: solid;
   border-width: 1px;
   border-color: black;
-  border-radius: 0px;
-  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  margin-top: 25px;
 }
 
+/* Band Members Section */
+#band-member-card {
+  background-color: white;
+  border: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 20px;
+  margin: 20px;
+  text-align: center;
+}
+#member-name {
+  font-size: 20px;
+}
 #band-member-img {
   max-width: 100px;
+  max-height: 100px;
+  border: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 20px;
+  text-align: center;
 }
 
-#band-profile-info-div {
-  background-color: white;
-  color:black;
+/* Spotify Section */
+#band-spotify {
+  background-color: transparent;
+}
+#band-profile-music-sample {
+  background-color: transparent
+}
+#spotify-preview {
+  margin-top: 20px;
+  background-color: transparent;
+  border: 0px;
 }
 
-/* Venue Home Styling */
+/* Upcoming Gigs Section */
+#upcoming-gigs-div {
+  display: flex;
+  padding-left: 50px;
+}
+
+/*                                                         Venue Home Styling                                                         */
 
 .venue-logo {
   max-width: 100%;

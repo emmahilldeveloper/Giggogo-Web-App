@@ -321,7 +321,7 @@ def venue_homepage(venue_id):
         url = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(name) +'?format=json'
         response = requests.get(url).json()
 
-    return render_template("venuehome.html", venue_info = venue_info, user_info = user_info, gig_info = gig_info, bands = bands, response = response, apikey = apikey)
+    return render_template("/Venue/venuehome.html", venue_info = venue_info, user_info = user_info, gig_info = gig_info, bands = bands, response = response, apikey = apikey)
 
 @app.route("/bandhome/<band_id>")
 def band_homepage(band_id):
@@ -366,7 +366,7 @@ def band_homepage(band_id):
         venues_dict["gig_id"] = gig.gig_id
         venues.append(venues_dict)
 
-    return render_template("bandhome.html", band_info = band_info, user_info = user_info, gig_info = gig_info, venues = venues, members = members, band_spotify_ID = band_spotify_ID)
+    return render_template("/Band/bandhome.html", band_info = band_info, user_info = user_info, gig_info = gig_info, venues = venues, members = members, band_spotify_ID = band_spotify_ID)
 
 ####### Search Page #############################################################################################################
 

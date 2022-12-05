@@ -9,7 +9,7 @@
     <div class="container p-0">
         <div class="card shadow mt">
             <div class="row g-0">
-                <div class="col-12 col-lg-5 col-xl-3 border-right" id="all-gigs">
+                <div class="col-6" id="all-gigs">
                     <div class="card-header">
                         <h1>Upcoming Gigs:</h1>
                     </div>
@@ -24,15 +24,15 @@
                         {% for gig in band_gigs %}
                         {% if gig.band_id == user_info.band_id and gig.venue_id == venue.venue_id%}
 
-                        <div><b>Gig Date:</b> {{ gig.gig_date.strftime('%m/%d/%Y') }} @ {{ gig.gig_date.strftime('%I:%M %p') }}</div>
+                        <div><b>Date:</b> {{ gig.gig_date.strftime('%m/%d/%Y') }} @ {{ gig.gig_date.strftime('%I:%M %p') }}</div>
 
-                        <div><b>Gig Payrate:</b> ${{ gig.final_payrate}}/hour</div>
+                        <div><b>Payrate:</b> ${{ gig.final_payrate}}/hour</div>
                         
-                        <div><b>Gig Complete:</b> {% if gig.gig_complete == False %} No {% else %} Yes
+                        <div><b>Complete:</b> {% if gig.gig_complete == False %} No {% else %} Yes
                             {% endif %}
                         </div>
                         
-                        <div><b>Gig Paid:</b> {% if gig.gig_paid == False %} No {% else %} Yes
+                        <div><b>Paid:</b> {% if gig.gig_paid == False %} No {% else %} Yes
                             {% endif %}
                         </div>
 
@@ -54,15 +54,15 @@
                         {% for gig in venue_gigs %}
                         {% if gig.venue_id == user_info.venue_id and gig.band_id == band.band_id%}
 
-                        <div><b>Gig Date:</b> {{ gig.gig_date.strftime('%m/%d/%Y') }} @ {{ gig.gig_date.strftime('%I:%M %p') }}</div>
+                        <div><b>Date:</b> {{ gig.gig_date.strftime('%m/%d/%Y') }} @ {{ gig.gig_date.strftime('%I:%M %p') }}</div>
 
-                        <div><b>Gig Payrate:</b> ${{ gig.final_payrate}}/hour</div>
+                        <div><b>Payrate:</b> ${{ gig.final_payrate}}/hour</div>
                         
-                        <div><b>Gig Complete:</b> {% if gig.gig_complete == False %} No {% else %} Yes
+                        <div><b>Complete:</b> {% if gig.gig_complete == False %} No {% else %} Yes
                             {% endif %}
                         </div>
                         
-                        <div><b>Gig Paid:</b> {% if gig.gig_paid == False %} No {% else %} Yes
+                        <div><b>Paid:</b> {% if gig.gig_paid == False %} No {% else %} Yes
                             {% endif %}
                         </div>
 
@@ -73,6 +73,14 @@
                     </div>
                     {% endfor %}
                     {% endif %}
+
+                </div>
+
+                <div class="col-6" id="gig-data">
+                    <div class="card-header">
+                        <h1>Data:</h1>
+                    </div>
+                    <canvas id="test-chart"></canvas>
                 </div>
 			</div>
 		</div>

@@ -8,7 +8,7 @@ let allMessageButtons = document.querySelectorAll("#message");
 
 allMessageButtons.forEach((element) => {
     element.addEventListener("click", (evt) => {
-        evt.preventDefault();
+        // evt.preventDefault(); // Add this back in if you want to click "Send and not have refresh."
     
         document.getElementById("message-details").innerHTML = "";
         const messageRecipient = element.getAttribute('value');
@@ -26,8 +26,6 @@ allMessageButtons.forEach((element) => {
         })
         .then((response) => response.json())
         .then(responseData => {
-            console.log(responseData.message_recipient_details);
-
             responseData.message_recipient_details.forEach((element) => {
                 //Create parent div to house messages
                 const parentDiv = document.getElementById("message-details");
@@ -45,6 +43,7 @@ allMessageButtons.forEach((element) => {
                 messageAlignDiv.appendChild(messageRecipient);
     
                 if (element.current_user == "Band") {
+                    // When user clicks on message venue button, shows venue image
                     const messageRecipientImage = document.createElement("img");
                     messageRecipientImage.src = element.venue_logo;
                     messageRecipientImage.className = "square mr-1";
@@ -52,78 +51,39 @@ allMessageButtons.forEach((element) => {
                     messageRecipientImage.style = "width: 40px; height:40px;";
                     messageAlignDiv.appendChild(messageRecipientImage);
         
+                    // When user clicks on message venue button, shows venue name
                     const messageRecipientName = document.createElement("div");
                     document.getElementById("hidden-message-recipient").value = element.venue_id;
                     messageRecipientName.className = "flex-grow-1 pl-3";
                     messageRecipientName.innerText = element.venue_name;
                     messageAlignDiv.appendChild(messageRecipientName);
-        
+
+                    // All chat bubbles
                     const chatBubbleRecipient = document.createElement("div");
                     chatBubbleRecipient.className = "position-relative";
                     parentDiv.appendChild(chatBubbleRecipient);
         
+                    // div for all chat bubbles
                     const recipientBubbleDiv = document.createElement("div");
-                    recipientBubbleDiv.className = "chat-messages p-4";
+                    recipientBubbleDiv.className = "chat-messages";
                     chatBubbleRecipient.appendChild(recipientBubbleDiv);
     
                     responseData.messages.forEach((element) => {
-    
+                        // Styles the venue messages differently
                         if (element.sender_type == "Venue") {
-                            responseData.message_recipient_details.forEach((element) => {
-                                const recipientBubble = document.createElement("div");
-                                recipientBubble.className = "chat-message-right pb-4";
-                                recipientBubbleDiv.appendChild(recipientBubble);
-                    
-                                const recipientBubbleDetails = document.createElement("div");
-                                recipientBubble.appendChild(recipientBubbleDetails);
-                    
-                                // const recipientBubbleImage = document.createElement("img");
-                                // recipientBubbleImage.src = element.venue_logo;
-                                // recipientBubbleImage.className = "square mr-1";
-                                // recipientBubbleImage.alt = "Venue";
-                                // recipientBubbleImage.style = "width: 40px; height:40px;";
-                                // recipientBubbleDetails.appendChild(recipientBubbleImage);
-                    
-                                // const recipientBubbleName = document.createElement("div");
-                                // recipientBubbleName.className = "font-weight-bold mb-1";
-                                // recipientBubbleName.innerText = element.venue_name;
-                                // recipientBubbleDetails.appendChild(recipientBubbleName);
-                                });
-    
                             const recipientMessageContent = document.createElement("div");
-                            recipientMessageContent.className = "flex-shrink py-2 px-3";
-                            recipientMessageContent.style = "background-color: #d3d3d3; border-radius: 20px; float: left; display: inline-block; margin: 20px;"
+                            recipientMessageContent.className = "py-2 px-3 venue";
+                            recipientMessageContent.style = "background-color: #d3d3d3; border-radius: 20px; margin: 20px; text-align: left;"
                             recipientMessageContent.innerText = element.message;
                             recipientMessageContent.id = element.message_id;
                             recipientBubbleDiv.appendChild(recipientMessageContent);
                         }
-    
+                        // Styles the band messages differently
                         if (element.sender_type == "Band") {
-                            responseData.message_recipient_details.forEach((element) => {
-                                const senderBubble = document.createElement("div");
-                                senderBubble.className = "chat-message-left pb-4";
-                                recipientBubbleDiv.appendChild(senderBubble);
-                    
-                                const senderBubbleDetails = document.createElement("div");
-                                senderBubble.appendChild(senderBubbleDetails);
-                    
-                                // const senderBubbleImage = document.createElement("img");
-                                // senderBubbleImage.src = element.band_logo;
-                                // senderBubbleImage.className = "square mr-1";
-                                // senderBubbleImage.alt = "Band";
-                                // senderBubbleImage.style = "width: 40px; height:40px;";
-                                // senderBubbleDetails.appendChild(senderBubbleImage);
-                    
-                                // const senderBubbleName = document.createElement("div");
-                                // senderBubbleName.className = "font-weight-bold mb-1";
-                                // senderBubbleName.innerText = element.band_name
-                                // senderBubbleDetails.appendChild(senderBubbleName);
-                                });
-    
                             const senderMessageContent = document.createElement("div");
-                            senderMessageContent.className = "flex-shrink py-2 px-3";
+                            senderMessageContent.className = "py-2 px-3 band";
                             senderMessageContent.id = element.message_id;
-                            senderMessageContent.style = "background-color: #248bf5; border-radius: 20px; float: right; display: inline-block; margin: 20px;"
+                            senderMessageContent.style = "background-color: #248bf5; border-radius: 20px; margin: 20px; text-align: right;"
                             senderMessageContent.innerText = element.message;
                             recipientBubbleDiv.appendChild(senderMessageContent);
                             }
@@ -131,6 +91,7 @@ allMessageButtons.forEach((element) => {
                     }
 
                 if (element.current_user == "Venue") {
+                    // When the user is a venue, will show band images
                     const messageRecipientImage = document.createElement("img");
                     messageRecipientImage.src = element.band_logo;
                     messageRecipientImage.className = "square mr-1";
@@ -138,16 +99,19 @@ allMessageButtons.forEach((element) => {
                     messageRecipientImage.style = "width: 40px; height:40px;";
                     messageAlignDiv.appendChild(messageRecipientImage);
         
+                    // Will also show band names
                     const messageRecipientName = document.createElement("div");
                     document.getElementById("hidden-message-recipient").value = element.band_id;
                     messageRecipientName.className = "flex-grow-1 pl-3";
                     messageRecipientName.innerText = element.band_name;
                     messageAlignDiv.appendChild(messageRecipientName);
         
+                    //  All chat bubbles
                     const chatBubbleRecipient = document.createElement("div");
                     chatBubbleRecipient.className = "position-relative";
                     parentDiv.appendChild(chatBubbleRecipient);
         
+                    // Contains all chat bubbles between two parties
                     const recipientBubbleDiv = document.createElement("div");
                     recipientBubbleDiv.className = "chat-messages p-4";
                     chatBubbleRecipient.appendChild(recipientBubbleDiv);
@@ -155,58 +119,18 @@ allMessageButtons.forEach((element) => {
                     responseData.messages.forEach((element) => {
 
                         if (element.sender_type == "Venue") {
-                            responseData.message_recipient_details.forEach((element) => {
-                                const recipientBubble = document.createElement("div");
-                                recipientBubble.className = "chat-message-right pb-4";
-                                recipientBubbleDiv.appendChild(recipientBubble);
-                    
-                                const recipientBubbleDetails = document.createElement("div");
-                                recipientBubble.appendChild(recipientBubbleDetails);
-                    
-                                const recipientBubbleImage = document.createElement("img");
-                                recipientBubbleImage.src = element.venue_logo;
-                                recipientBubbleImage.className = "square mr-1";
-                                recipientBubbleImage.alt = "Venue";
-                                recipientBubbleImage.style = "width: 40px; height:40px;";
-                                recipientBubbleDetails.appendChild(recipientBubbleImage);
-                    
-                                const recipientBubbleName = document.createElement("div");
-                                recipientBubbleName.className = "font-weight-bold mb-1";
-                                recipientBubbleName.innerText = element.venue_name;
-                                recipientBubbleDetails.appendChild(recipientBubbleName);
-                                });
-
                             const recipientMessageContent = document.createElement("div");
-                            recipientMessageContent.className = "flex-shrink-1 bg-primary rounded py-2 px-3 ml-3";
+                            recipientMessageContent.className = "py-2 px-3 venue";
                             recipientMessageContent.innerText = element.message;
+                            recipientMessageContent.style = "background-color: #248bf5; border-radius: 20px; margin: 20px; text-align: right;"
                             recipientMessageContent.id = element.message_id;
                             recipientBubbleDiv.appendChild(recipientMessageContent);
                         }
 
                         if (element.sender_type == "Band") {
-                            responseData.message_recipient_details.forEach((element) => {
-                                const senderBubble = document.createElement("div");
-                                senderBubble.className = "chat-message-left pb-4";
-                                recipientBubbleDiv.appendChild(senderBubble);
-                    
-                                const senderBubbleDetails = document.createElement("div");
-                                senderBubble.appendChild(senderBubbleDetails);
-                    
-                                const senderBubbleImage = document.createElement("img");
-                                senderBubbleImage.src = element.band_logo;
-                                senderBubbleImage.className = "square mr-1";
-                                senderBubbleImage.alt = "Band";
-                                senderBubbleImage.style = "width: 40px; height:40px;";
-                                senderBubbleDetails.appendChild(senderBubbleImage);
-                    
-                                const senderBubbleName = document.createElement("div");
-                                senderBubbleName.className = "font-weight-bold mb-1";
-                                senderBubbleName.innerText = element.band_name
-                                senderBubbleDetails.appendChild(senderBubbleName);
-                                });
-
                             const senderMessageContent = document.createElement("div");
-                            senderMessageContent.className = "flex-shrink-1 bg-secondary rounded py-2 px-3 mr-3";
+                            senderMessageContent.className = "py-2 px-3 band";
+                            senderMessageContent.style = "background-color: #d3d3d3; border-radius: 20px; margin: 20px; text-align: left;"
                             senderMessageContent.id = element.message_id;
                             senderMessageContent.innerText = element.message;
                             recipientBubbleDiv.appendChild(senderMessageContent);

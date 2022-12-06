@@ -305,4 +305,23 @@
 }
 
 /*                                                         Messaging Styling                                                         */
+.square-circle.mr-1 {
+  border-radius: 20px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  float: left;
+}
 
+#message-option {
+  display: inline-block;
+  text-align: center;
+}
+
+#message {
+  background-color: white;
+  color: black;
+  margin: 10px;
+  width: 250px;
+  border-radius: 20px;
+}

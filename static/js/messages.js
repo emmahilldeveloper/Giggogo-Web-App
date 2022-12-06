@@ -51,13 +51,14 @@ allMessageButtons.forEach((element) => {
                     messageRecipientImage.src = element.venue_logo;
                     messageRecipientImage.className = "square mr-1";
                     messageRecipientImage.alt = "Venue";
-                    messageRecipientImage.style = "width: 40px; height:40px;";
+                    messageRecipientImage.style = "width: 40px; height:40px; border-size: 1px; border-color: black; border-radius: 20px;";
                     messageAlignDiv.appendChild(messageRecipientImage);
         
                     // When user clicks on message venue button, shows venue name
                     const messageRecipientName = document.createElement("div");
                     // document.getElementById("hidden-message-recipient").value = element.venue_id;
                     messageRecipientName.className = "flex-grow-1 pl-3";
+                    messageRecipientName.style = "margin: 20px;"
                     messageRecipientName.innerText = element.venue_name;
                     messageAlignDiv.appendChild(messageRecipientName);
 
@@ -149,7 +150,7 @@ allMessageButtons.forEach((element) => {
         
                     // Will also show band names
                     const messageRecipientName = document.createElement("div");
-                    document.getElementById("hidden-message-recipient").value = element.band_id;
+                    // document.getElementById("hidden-message-recipient").value = element.band_id;
                     messageRecipientName.className = "flex-grow-1 pl-3";
                     messageRecipientName.innerText = element.band_name;
                     messageAlignDiv.appendChild(messageRecipientName);
@@ -164,6 +165,52 @@ allMessageButtons.forEach((element) => {
                     recipientBubbleDiv.className = "chat-messages p-4";
                     chatBubbleRecipient.appendChild(recipientBubbleDiv);
 
+
+
+
+                    // Shows the text input form to send a message
+                    const form = document.createElement("form");
+                    form.action = `/messages/${ element.current_user_id }`;
+                    form.method = "POST";
+                    form.className = "signup-form";
+                    form.name = "sign-up-form";
+                    parentDiv.appendChild(form);
+
+                    const formDivBorder = document.createElement("div");
+                    formDivBorder.className = "flex-grow-0 py-3 px-4 border-top";
+                    form.appendChild(formDivBorder);
+
+                    const formDivInput = document.createElement("div");
+                    formDivInput.className = "input-group";
+                    formDivInput.name = "";
+                    formDivBorder.appendChild(formDivInput);
+
+                    const input = document.createElement("input");
+                    input.type = "text";
+                    input.name = "message-text";
+                    input.style = "border-radius: 20px; border-color: black;";
+                    input.className = "form-control";
+                    input.placeholder ="Type your message...";
+                    formDivInput.appendChild(input);
+
+                    const button = document.createElement("button");
+                    button.className = "btn btn-primary";
+                    button.style = "border-radius: 20px; margin: 30px;";
+                    button.type = "submit";
+                    button.innerText = "Send";
+                    formDivInput.appendChild(button);
+
+                    const inputHidden = document.createElement("input");
+                    inputHidden.style = "display: None;";
+                    inputHidden.name = "hidden-message-recipient";
+                    inputHidden.id = "hidden-message-recipient";
+                    inputHidden.value = recipientID;
+                    formDivInput.appendChild(inputHidden);
+
+
+
+
+                    
                     responseData.messages.forEach((element) => {
 
                         if (element.sender_type == "Venue") {

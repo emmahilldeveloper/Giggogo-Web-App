@@ -4,6 +4,10 @@
 let searchButton = document.getElementById("search");
 let clearButton = document.getElementById("clear");
 
+if (document.getElementById("venue-search-result-div").innerText == "") {
+    document.getElementById("venue-search-result-div").innerText = "No results."
+}
+
 clearButton.addEventListener("click", () => {});
 
 searchButton.addEventListener("click", (evt) => {

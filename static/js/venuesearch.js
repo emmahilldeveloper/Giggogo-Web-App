@@ -6,6 +6,10 @@ let clearButton = document.getElementById("clear");
 
 clearButton.addEventListener("click", () => {});
 
+if (document.getElementById("band-search-result-div").innerText == "") {
+    document.getElementById("band-search-result-div").innerText = "No results."
+}
+
 searchButton.addEventListener("click", (evt) => {
     evt.preventDefault();
 

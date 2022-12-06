@@ -23,12 +23,6 @@
 
 /*                                                         Navbar styling                                                         */
 
-/* .nav-item.nav-link.active:hover {
-  color: black;
-  background-color: white;
-  border-color: black;
-} */
-
 #navbar-logo {
   padding-left: 50px;
   max-width: 200px;
@@ -130,21 +124,18 @@
 #email-login {
   border-radius: 0px;
   border-color: black;
-
+  margin-top: 100px;
 }
 
 #password-login {
   border-radius: 0px;
   border-color: black;
+  margin-left: 100px;
 }
 
 #login {
   border-radius: 20px;
   border-color: black;
-  margin: 0%;
-  top: 60%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 
 /*                                                         User Profile Styling                                                         */
@@ -316,12 +307,19 @@
 #message-option {
   display: inline-block;
   padding-top: 20px;
+  padding-left: 10px;
 }
 
 #message {
   background-color: white;
   color: black;
   margin: 10px;
-  width: 250px;
+  width: 300px;
   border-radius: 20px;
+  text-align: left;
+}
+
+.chat-messages {
+  height: 500px;
+  overflow-y: scroll;
 }

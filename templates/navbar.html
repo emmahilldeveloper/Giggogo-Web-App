@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-grey">
-  <a class="navbar-brand" href="/">
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand">
     <img class="navbar-brand" id="navbar-logo" src="/static/media/finallogo.png">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,28 +7,28 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="nav-link dropdown-toggle text-light" style="font-size: 20px;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Profile
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="nav-item nav-link active" href="/user/{{ user_info.user_id }}">My Profile</a>
-        <a class="nav-item nav-link active" href="/">Log Out</a>
+        <a class="nav-item nav-link active text-dark" href="/user/{{ user_info.user_id }}">My Profile</a>
+        <a class="nav-item nav-link active text-dark" href="/">Log Out</a>
       </div>
       <div class="btn-group">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-light" style="font-size: 20px;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Home
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           {% if user_info.venue_id %}
-          <a class="nav-item nav-link active" href="/venuehome/{{ user_info.venue_id }}">My Home</a>
+          <a class="nav-item nav-link active text-dark" href="/venuehome/{{ user_info.venue_id }}">My Home</a>
           {% else %}
-          <a class="nav-item nav-link active" href="/bandhome/{{ user_info.band_id }}">My Home</a>
+          <a class="nav-item nav-link active text-dark" href="/bandhome/{{ user_info.band_id }}">My Home</a>
           {% endif %}
-          <a class="nav-item nav-link active" href="/messages/ {{ user_info.user_id }}">My Messages</a>
-          <a class="nav-item nav-link active" href="/gigs/ {{ user_info.user_id }}">My Gigs</a>
+          <a class="nav-item nav-link active text-dark" href="/messages/ {{ user_info.user_id }}">My Messages</a>
+          <a class="nav-item nav-link active text-dark" href="/gigs/ {{ user_info.user_id }}">My Gigs</a>
         </div>
       </div>
-      <a class="nav-item nav-link active" href="/search">Search</a>
+      <a class="nav-item nav-link active text-light" style="font-size: 20px;" href="/search">Search</a>
     </div>
   </div>
 </nav>

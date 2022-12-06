@@ -23,11 +23,11 @@
 
 /*                                                         Navbar styling                                                         */
 
-.nav-item.nav-link.active:hover {
+/* .nav-item.nav-link.active:hover {
   color: black;
   background-color: white;
   border-color: black;
-}
+} */
 
 #navbar-logo {
   padding-left: 50px;
@@ -37,13 +37,21 @@
 .nav-link.dropdown-toggle:hover {
   color: black;
   border-radius: 20px;
-  background-color: white;
+  background-color: rgb(124, 101, 84);
   border-color: black;
+  border-width: 1px;
 }
 
-/* .navbar-light .navbar-nav .nav-link.active {
-  color:white;
-} */
+.nav-item.nav-link.active.text-light:hover {
+  background-color: rgb(124, 101, 84);
+  border-radius: 20px;
+  border-color: black;
+  border-width: 1px;
+}
+
+.dropdown-menu {
+  color: black;
+}
 
 /*                                                         Homepage Styling                                                         */
 
@@ -179,6 +187,9 @@
 
 /* Band Logo Section */
 .band-logo {
+  height: auto;
+  width: auto;
+  max-width: 50vw;
   border: solid;
   border-width: 1px;
   border-color: black;
@@ -192,10 +203,9 @@
   display: flex;
 }
 
-
 /* Band Name Section */
 #band-name {
-  font-size: 90px;
+  font-size: 4vw;
   padding: 10px;
   text-align: center;
 }
@@ -229,7 +239,7 @@
   border-width: 1px;
   border-color: black;
   border-radius: 20px;
-  text-align: center;
+  padding: 0px;
 }
 
 /* Spotify Section */
@@ -293,3 +303,6 @@
   border-color: black;
   border-radius: 0px;
 }
+
+/*                                                         Messaging Styling                                                         */
+

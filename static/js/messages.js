@@ -77,21 +77,22 @@ allMessageButtons.forEach((element) => {
                                 const recipientBubbleDetails = document.createElement("div");
                                 recipientBubble.appendChild(recipientBubbleDetails);
                     
-                                const recipientBubbleImage = document.createElement("img");
-                                recipientBubbleImage.src = element.venue_logo;
-                                recipientBubbleImage.className = "square mr-1";
-                                recipientBubbleImage.alt = "Venue";
-                                recipientBubbleImage.style = "width: 40px; height:40px;";
-                                recipientBubbleDetails.appendChild(recipientBubbleImage);
+                                // const recipientBubbleImage = document.createElement("img");
+                                // recipientBubbleImage.src = element.venue_logo;
+                                // recipientBubbleImage.className = "square mr-1";
+                                // recipientBubbleImage.alt = "Venue";
+                                // recipientBubbleImage.style = "width: 40px; height:40px;";
+                                // recipientBubbleDetails.appendChild(recipientBubbleImage);
                     
-                                const recipientBubbleName = document.createElement("div");
-                                recipientBubbleName.className = "font-weight-bold mb-1";
-                                recipientBubbleName.innerText = element.venue_name;
-                                recipientBubbleDetails.appendChild(recipientBubbleName);
+                                // const recipientBubbleName = document.createElement("div");
+                                // recipientBubbleName.className = "font-weight-bold mb-1";
+                                // recipientBubbleName.innerText = element.venue_name;
+                                // recipientBubbleDetails.appendChild(recipientBubbleName);
                                 });
     
                             const recipientMessageContent = document.createElement("div");
-                            recipientMessageContent.className = "flex-shrink-1 bg-secondary rounded py-2 px-3 mr-3";
+                            recipientMessageContent.className = "flex-shrink py-2 px-3";
+                            recipientMessageContent.style = "background-color: #d3d3d3; border-radius: 20px; float: left; display: inline-block; margin: 20px;"
                             recipientMessageContent.innerText = element.message;
                             recipientMessageContent.id = element.message_id;
                             recipientBubbleDiv.appendChild(recipientMessageContent);
@@ -106,22 +107,23 @@ allMessageButtons.forEach((element) => {
                                 const senderBubbleDetails = document.createElement("div");
                                 senderBubble.appendChild(senderBubbleDetails);
                     
-                                const senderBubbleImage = document.createElement("img");
-                                senderBubbleImage.src = element.band_logo;
-                                senderBubbleImage.className = "square mr-1";
-                                senderBubbleImage.alt = "Band";
-                                senderBubbleImage.style = "width: 40px; height:40px;";
-                                senderBubbleDetails.appendChild(senderBubbleImage);
+                                // const senderBubbleImage = document.createElement("img");
+                                // senderBubbleImage.src = element.band_logo;
+                                // senderBubbleImage.className = "square mr-1";
+                                // senderBubbleImage.alt = "Band";
+                                // senderBubbleImage.style = "width: 40px; height:40px;";
+                                // senderBubbleDetails.appendChild(senderBubbleImage);
                     
-                                const senderBubbleName = document.createElement("div");
-                                senderBubbleName.className = "font-weight-bold mb-1";
-                                senderBubbleName.innerText = element.band_name
-                                senderBubbleDetails.appendChild(senderBubbleName);
+                                // const senderBubbleName = document.createElement("div");
+                                // senderBubbleName.className = "font-weight-bold mb-1";
+                                // senderBubbleName.innerText = element.band_name
+                                // senderBubbleDetails.appendChild(senderBubbleName);
                                 });
     
                             const senderMessageContent = document.createElement("div");
-                            senderMessageContent.className = "flex-shrink-1 bg-primary rounded py-2 px-3 ml-3";
+                            senderMessageContent.className = "flex-shrink py-2 px-3";
                             senderMessageContent.id = element.message_id;
+                            senderMessageContent.style = "background-color: #248bf5; border-radius: 20px; float: right; display: inline-block; margin: 20px;"
                             senderMessageContent.innerText = element.message;
                             recipientBubbleDiv.appendChild(senderMessageContent);
                             }

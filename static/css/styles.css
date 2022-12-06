@@ -315,7 +315,7 @@
 
 #message-option {
   display: inline-block;
-  text-align: center;
+  padding-top: 20px;
 }
 
 #message {

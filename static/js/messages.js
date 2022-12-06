@@ -13,6 +13,9 @@ allMessageButtons.forEach((element) => {
         document.getElementById("message-details").innerHTML = "";
         const messageRecipient = element.getAttribute('value');
     
+        let recipientID = element.getAttribute('value');
+        console.log(recipientID);
+
         const data = {
             messageValue: messageRecipient,
         }
@@ -53,7 +56,7 @@ allMessageButtons.forEach((element) => {
         
                     // When user clicks on message venue button, shows venue name
                     const messageRecipientName = document.createElement("div");
-                    document.getElementById("hidden-message-recipient").value = element.venue_id;
+                    // document.getElementById("hidden-message-recipient").value = element.venue_id;
                     messageRecipientName.className = "flex-grow-1 pl-3";
                     messageRecipientName.innerText = element.venue_name;
                     messageAlignDiv.appendChild(messageRecipientName);
@@ -67,7 +70,52 @@ allMessageButtons.forEach((element) => {
                     const recipientBubbleDiv = document.createElement("div");
                     recipientBubbleDiv.className = "chat-messages";
                     chatBubbleRecipient.appendChild(recipientBubbleDiv);
-    
+
+
+
+
+                    // Shows the text input form to send a message
+                    const form = document.createElement("form");
+                    form.action = `/messages/${ element.current_user_id }`;
+                    form.method = "POST";
+                    form.className = "signup-form";
+                    form.name = "sign-up-form";
+                    parentDiv.appendChild(form);
+
+                    const formDivBorder = document.createElement("div");
+                    formDivBorder.className = "flex-grow-0 py-3 px-4 border-top";
+                    form.appendChild(formDivBorder);
+
+                    const formDivInput = document.createElement("div");
+                    formDivInput.className = "input-group";
+                    formDivInput.name = "";
+                    formDivBorder.appendChild(formDivInput);
+
+                    const input = document.createElement("input");
+                    input.type = "text";
+                    input.name = "message-text";
+                    input.style = "border-radius: 20px; border-color: black;";
+                    input.className = "form-control";
+                    input.placeholder ="Type your message...";
+                    formDivInput.appendChild(input);
+
+                    const button = document.createElement("button");
+                    button.className = "btn btn-primary";
+                    button.style = "border-radius: 20px; margin: 30px;";
+                    button.type = "submit";
+                    button.innerText = "Send";
+                    formDivInput.appendChild(button);
+
+                    const inputHidden = document.createElement("input");
+                    inputHidden.style = "display: None;";
+                    inputHidden.name = "hidden-message-recipient";
+                    inputHidden.id = "hidden-message-recipient";
+                    inputHidden.value = recipientID;
+                    formDivInput.appendChild(inputHidden);
+
+
+
+
                     responseData.messages.forEach((element) => {
                         // Styles the venue messages differently
                         if (element.sender_type == "Venue") {

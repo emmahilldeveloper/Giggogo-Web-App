@@ -737,6 +737,7 @@ def bandmessages_data():
         venue_dict["band_name"] = band_info.band_name
         venue_dict["band_logo"] = band_info.band_logo
         venue_dict["current_user"] = "Band"
+        venue_dict["current_user_id"] = user_info.user_id
         venue_recipient.append(venue_dict)
 
         message_history = crud.all_messages_between_gig_parties(user_info.band_id, venue_id)

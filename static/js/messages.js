@@ -51,7 +51,7 @@ allMessageButtons.forEach((element) => {
                     messageRecipientImage.src = element.venue_logo;
                     messageRecipientImage.className = "square mr-1";
                     messageRecipientImage.alt = "Venue";
-                    messageRecipientImage.style = "width: 40px; height:40px; border-size: 1px; border-color: black; border-radius: 20px;";
+                    messageRecipientImage.style = "width: 40px; height:40px; border-size: 1px; border-color: black; border-radius: 20px; block-size: fit-content;";
                     messageAlignDiv.appendChild(messageRecipientImage);
         
                     // When user clicks on message venue button, shows venue name

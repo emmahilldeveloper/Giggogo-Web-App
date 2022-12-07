@@ -46,11 +46,12 @@ searchButton.addEventListener("click", (evt) => {
 
             //Create parent div to house all venue search results
             const parentDiv = document.getElementById("venue-search-result-div");
+            parentDiv.style = "text-align: center;";
 
             //Venue div for each individual venue in the loop
             const venueDivCard = document.createElement("div");
             venueDivCard.className = "card";
-            venueDivCard.style = "width:18rem;";
+            venueDivCard.style = "background-color: #d3d3d3; width:18rem; border-color: black; border-radius: 20px; display: inline-block; margin: 20px;";
             venueDivCard.id = "band-search-result";
             parentDiv.appendChild(venueDivCard);
 
@@ -59,6 +60,7 @@ searchButton.addEventListener("click", (evt) => {
             venueLogo.className = "card-img-top";
             venueLogo.alt = "Card image cap";
             venueLogo.id = "band-search-result-img";
+            venueLogo.style = "border-color: black; border-radius: 20px 20px 0px 0px; object-fit: cover; width: 286px; height: 286px;";
             venueLogo.src = element.venue_logo;
             venueDivCard.appendChild(venueLogo);
 
@@ -78,6 +80,7 @@ searchButton.addEventListener("click", (evt) => {
             venueLink.className = "btn btn-primary";
             venueLink.innerHTML= "Venue Details";
             venueLink.type = "click";
+            venueLink.style = "text-align: left;";
             venueLink.setAttribute("href",`/venuehome/${element.venue_id}`);
             venueDivCardBody.appendChild(venueLink);
         })

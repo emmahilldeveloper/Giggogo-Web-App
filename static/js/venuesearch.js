@@ -58,11 +58,12 @@ searchButton.addEventListener("click", (evt) => {
 
             //Create parent div to house all band search results
             const parentDiv = document.getElementById("band-search-result-div");
+            parentDiv.style = "text-align: center;";
 
             //Band div for each individual band in the loop
             const bandDivCard = document.createElement("div");
             bandDivCard.className = "card";
-            bandDivCard.style = "width:18rem;";
+            bandDivCard.style = "width:18rem; background-color: #d3d3d3; border-color: black; border-radius: 20px; display: inline-block; margin: 20px;";
             bandDivCard.id = "band-search-result";
             parentDiv.appendChild(bandDivCard);
 
@@ -72,6 +73,7 @@ searchButton.addEventListener("click", (evt) => {
             bandLogo.alt = "Card image cap";
             bandLogo.id = "band-search-result-img";
             bandLogo.src = element.band_logo;
+            bandLogo.style = "border-color: black; border-radius: 20px 20px 0px 0px; object-fit: cover; width: 286px; height: 286px;";
             bandDivCard.appendChild(bandLogo);
 
             //Another band div inside initial band div
@@ -90,6 +92,7 @@ searchButton.addEventListener("click", (evt) => {
             bandLink.className = "btn btn-primary";
             bandLink.innerHTML= "Band Details";
             bandLink.type = "click";
+            bandLink.style = "text-align: left;";
             bandLink.setAttribute("href",`/bandhome/${element.band_id}`);
             bandDivCardBody.appendChild(bandLink);
         })

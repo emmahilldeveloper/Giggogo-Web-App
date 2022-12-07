@@ -21,8 +21,9 @@
                     <div class="row" id="band-profile-info-div">
                         {% for member in members %}
                         <div class="card" style="width:10rem" id="band-member-card">
-                            <img class="card" id="band-member-img" src="{{ member['member_photo'] }}">
-                            <h4 id="member-name">{{ member["member_name"] }}</h4>
+                            <img class="card-img-top" id="band-member-img" src="{{ member['member_photo'] }}">
+                            <h4 class="card-title" id="member-name">{{ member["member_name"] }}</h4>
+                            <span class="card-body"></span>
                         </div>
                         {% endfor %}
                     </div>

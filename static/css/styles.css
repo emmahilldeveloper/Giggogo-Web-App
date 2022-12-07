@@ -262,6 +262,22 @@
   padding-top: 30px;
 }
 
+/*                                                         Edit User Profile Styling                                                         */
+#edit-user {
+  width: 450px;
+  height: 450px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+}
 /*                                                        Band Home Styling                                                    */
 
 /* Band Logo Section */
@@ -420,6 +436,29 @@
 #band-venue-choice {
   width: 250px;
   height: 250px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+}
+
+/*                                                         Gigs Styling                                                         */
+
+#venue-gig-card {
+  border-radius: 20px;
+  border-color: black;
+}
+
+#edit-gig {
+  width: 450px;
+  height: 450px;
   background-color: white;
   position: absolute;
   top:0;

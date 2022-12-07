@@ -813,13 +813,13 @@ def show_all_gigs(user_id):
     band_gigs = crud.all_gigs_by_band(band_id)
     venue_gigs = crud.all_gigs_by_venue(venue_id)
 
-    venue_list = []
+    venue_list = set()
     band_list = []
 
     if band_id:
         for gig in band_gigs:
             booked_venue_info = crud.all_venue_info(gig.venue_id)
-            venue_list.append(booked_venue_info)
+            venue_list.add(booked_venue_info)
 
     if venue_id:
         for gig in venue_gigs:
@@ -878,6 +878,59 @@ def edit_gig_data(gig_id):
     #Load the page
     else:
         return render_template("editgig.html", user_info = user_info, gig_id = gig_id)
+
+@app.route('/api/sales', methods=['POST'])
+def sales_data():
+    """Returns sales data."""
+
+    #If the user has logged in and their cookies are saved, get all their data
+    if "user_id" in session:
+        user_id = session["user_id"]
+        user_info = crud.all_user_info_specific(user_id)
+        
+    #Kick them back to the homepage
+    else:
+        return redirect("/")
+
+    #JSON data from fetch
+    band_id = request.json['bandID']
+    print(band_id)
+
+    total_sales = crud.all_gigs_by_band(band_id)
+
+    sales = []
+
+    for sale in total_sales:
+        sales_dict = {}
+
+        if sale.gig_date.month == 1:
+            sales_dict["jan"] = [sale.final_payrate]
+        elif sale.gig_date.month == 2:
+            sales_dict["feb"] = [sale.final_payrate]
+        elif sale.gig_date.month == 3:
+            sales_dict["mar"] = [sale.final_payrate]
+        elif sale.gig_date.month == 4:
+            sales_dict["apr"] = [sale.final_payrate]
+        elif sale.gig_date.month == 5:
+            sales_dict["may"] = [sale.final_payrate]
+        elif sale.gig_date.month == 6:
+            sales_dict["jun"] = [sale.final_payrate]
+        elif sale.gig_date.month == 7:
+            sales_dict["jul"] = [sale.final_payrate]
+        elif sale.gig_date.month == 8:
+            sales_dict["aug"] = [sale.final_payrate]
+        elif sale.gig_date.month == 9:
+            sales_dict["sept"] = [sale.final_payrate]
+        elif sale.gig_date.month == 10:
+            sales_dict["oct"] = [sale.final_payrate]
+        elif sale.gig_date.month == 11:
+            sales_dict["nov"] = [sale.final_payrate]
+        elif sale.gig_date.month == 12:
+            sales_dict["dec"] = [sale.final_payrate]
+        
+        sales.append(sales_dict)
+
+    return jsonify({'sales': sales})
 
 if __name__ == "__main__":
 

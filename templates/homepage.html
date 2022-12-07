@@ -2,13 +2,12 @@
 {% block title %} Home {% endblock %}
 {% block body %}
     <img src="/static/media/audience.jpg" id="background-photo">
-    <img src="/static/media/finallogo.png" id="homepage-logo">
-        <!-- Overlayed on video. -->
-    <div id="homepage-options">
-        <button type="button" class="btn btn-primary" id="homepage-signup-button" style="width: 150px;">Sign Up</button>
-        <br>
-        <button type="button" class="btn btn-primary" id="homepage-login-button" style="width: 150px;">Log In</button>
-        </div>
+    <div class="container-fluid">
+        <img src="/static/media/finallogo.png" id="homepage-logo">
+    </div>
+    <div class="container-fluid" id="homepage-options">
+        <button type="button" class="btn btn-primary" id="homepage-signup-button" style="width: 150px; margin-top: 70px; margin-left: 37px; margin-bottom: 0px;">Sign Up</button>
+        <button type="button" class="btn btn-primary" id="homepage-login-button" style="width: 150px; margin-left: 37px;">Log In</button>
     </div>
     <!-- Javascript files imported here. -->
     <script src="/static/js/homepage.js"></script>

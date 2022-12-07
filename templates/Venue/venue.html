@@ -2,15 +2,13 @@
 {% block title %} Venue {% endblock %}
 {% block body %}
 <img src="/static/media/audience.jpg" id="background-photo">
-<div class="center">
-    <div class="mx-auto" style="width: 200px;">
-        <button type="button" class="btn btn-dark" id="findvenue" name="findvenue" style="width: 250px;">Find a Venue</button>
-    </div>
-    <div class="mx-auto" style="width: 200px;">
-        <button type="button" class="btn btn-dark" id="addvenue" name="addvenue" style="width: 250px;">+ Add Venue</button>
-    </div>
+<div class="container-fluid" id="venue-choice">
+    <button type="button" class="btn btn-dark" id="findvenue" name="findvenue" style="width: 150px; margin-top: 70px; margin-left: 37px;">Find a Venue</button>
+    <br>
+    <br>
+    <button type="button" class="btn btn-dark" id="addvenue" name="addvenue" style="width: 150px; margin-left: 37px;">+ Add Venue</button>
+</div>
 
     <!-- Javascript files imported here. -->
     <script src="/static/js/venue.js"></script>
-</div>
 {% endblock %}

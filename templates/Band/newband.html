@@ -2,51 +2,48 @@
 {% block title %} Create a Band {% endblock %}
 {% block body %}
 <img src="/static/media/audience.jpg" id="background-photo">
-<div class="center">
-    <div id="create-band-div">
-        <form method="POST">
-            <div class="mx-auto" style="width: 200px;">
-                <div class="form-floating mb-3" style="width: 250px;">
-                    <input class="form-control" required = "true" id="floatingInput" type="text" name="create-band-logo" placeholder="Photo URL"/>
-                    <label for="floatingInput">Logo URL</label>
-                </div>
+<div class="container-fluid" id="new-band">
+    <form method="POST">
+
+            <div class="form-floating mb-3" style="width: 250px; margin-top: 13%; margin-left: 110px;">
+                <input class="form-control" required = "true" id="floatingInput" type="text" name="create-band-logo" placeholder="Photo URL"/>
+                <label for="floatingInput">Logo URL</label>
             </div>
-            <div class="mx-auto" style="width: 200px;">
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" required = "true" type="text" id="create-band-name" name="create-band-name" placeholder="Band Name"/>
-                        <label for="floatingInput">Name</label>
+
+                <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+                    <input class="form-control" required = "true" type="text" id="create-band-name" name="create-band-name" placeholder="Band Name"/>
+                    <label for="floatingInput">Name</label>
+                </div>
+
+                <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+                    <input class="form-control" required = "true" type="text" id="create-band-phone" name="create-band-phone" placeholder="Band Phone"/>
+                    <label for="floatingInput">Phone</label>
+                </div>
+
+                <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input class="form-control" required = "true" type="currency" id="create-band-payrate" name="create-band-payrate" placeholder="Hourly Payrate"/>
+                        <!-- <label for="floatingInput">Hourly Payrate</label> -->
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" required = "true" type="text" id="create-band-phone" name="create-band-phone" placeholder="Band Phone"/>
-                        <label for="floatingInput">Phone</label>
-                    </div>
+
+                <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+                    <input class="form-control" type="text" id="create-band-spotify" name="create-band-spotify" placeholder="Band Spotify URL"/>
+                    <label for="floatingInput">Spotify Profile URL</label>
                 </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" required = "true" type="text" id="create-band-payrate" name="create-band-payrate" placeholder="Band Payrate"/>
-                        <label for="floatingInput">$ Rate per Hour</label>
-                    </div>
+
+                <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+                    <input class="form-control" type="text" id="create-band-website" name="create-band-website" placeholder="Band Website"/>
+                    <label for="floatingInput">Website</label>
                 </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" type="text" id="create-band-spotify" name="create-band-spotify" placeholder="Band Spotify URL"/>
-                        <label for="floatingInput">Spotify Profile URL</label>
-                    </div>
-                </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" type="text" id="create-band-website" name="create-band-website" placeholder="Band Website"/>
-                        <label for="floatingInput">Website</label>
-                    </div>
-                </div>
-            
-            <div class="mx-auto" style="width: 200px;">
-                <button type="submit" class="btn btn-dark" style="width: 250px;">Create Band</button>
-            </div>
-        </form>
-    </div>
+
+            <button type="submit" class="btn btn-dark" style="width: 250px; margin-left: 110px;">Create Band</button>
+    </form>
 </div>
 {% endblock %}

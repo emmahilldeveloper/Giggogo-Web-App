@@ -87,22 +87,6 @@
   border-radius: 20px;
 }
 
-#homepage-signup-button {
-  position: absolute;
-  margin: 18%;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-#homepage-login-button {
-  position: absolute;
-  margin: 18%;
-  top: 15%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
 /*                                                         Login Styling                                                         */
 
 #login-div {
@@ -121,21 +105,125 @@
   border-radius: 20px;
 }
 
-#email-login {
-  border-radius: 0px;
-  border-color: black;
-  margin-top: 100px;
-}
+/*                                                         Signup + New Band Venue Styling                                                         */
 
-#password-login {
-  border-radius: 0px;
+#sign-up {
+  margin-top: 15%;
+  width: 400px;
+  height: 500px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
   border-color: black;
-  margin-left: 100px;
-}
-
-#login {
   border-radius: 20px;
+}
+
+#new-band {
+  width: 500px;
+  height: 600px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
   border-color: black;
+  border-radius: 20px;
+}
+
+#new-venue {
+  width: 500px;
+  height: 540px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+}
+
+/*                                                         Band Venue Choice Styling                                                         */
+
+
+#band-choice {
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+}
+
+#venue-choice {
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+}
+
+/*                                                         Find A Band Venue Styling                                                         */
+
+
+#find-band {
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+}
+
+#search-div-venue {
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
 }
 
 /*                                                         User Profile Styling                                                         */
@@ -178,13 +266,14 @@
 
 /* Band Logo Section */
 .band-logo {
-  height: auto;
-  width: auto;
+  height: 700px;
+  width: 700px;
   max-width: 50vw;
   border: solid;
   border-width: 1px;
   border-color: black;
   border-radius: 20px;
+  object-fit: cover;
 }
 #band-logo-div {
   display: flex;
@@ -218,19 +307,21 @@
   border-color: black;
   border-radius: 20px;
   margin: 20px;
-  text-align: center;
 }
+
 #member-name {
   font-size: 20px;
+  text-align: center;
 }
+
 #band-member-img {
-  max-width: 100px;
-  max-height: 100px;
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
   border: solid;
   border-width: 1px;
   border-color: black;
-  border-radius: 20px;
-  padding: 0px;
+  border-radius: 20px 20px 0px 0px;
 }
 
 /* Spotify Section */
@@ -324,4 +415,20 @@
   overflow-y: scroll;
 }
 
-/*                                                         Band Search Styling                                                         */
+/*                                                         Who are you Styling                                                         */
+
+#band-venue-choice {
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+}

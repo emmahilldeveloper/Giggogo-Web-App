@@ -2,45 +2,43 @@
 {% block title %} Create a Venue {% endblock %}
 {% block body %}
 <img src="/static/media/audience.jpg" id="background-photo">
-<div class="center">
-    <div id="create-venue-div">
+<div class="container-fluid" id="new-venue">
         <form method="POST">
-            <div class="mx-auto" style="width: 200px;">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" id="floatingInput" type="text" name="create-venue-logo" placeholder="Photo URL"/>
-                        <label for="floatingInput">Venue Logo URL</label>
-                    </div>
 
+            <div class="form-floating mb-3" style="width: 250px; margin-top: 13%; margin-left: 110px;">
+                <input class="form-control" id="floatingInput" type="text" name="create-venue-logo" placeholder="Photo URL"/>
+                <label for="floatingInput">Venue Logo URL</label>
+            </div>
+
+            <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+                <input class="form-control"type="text" required = "true" id="create-venue-name" name="create-venue-name" placeholder="Venue Name"/>
+                <label for="floatingInput">Venue Name</label>
+            </div>
+
+            <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+                <input class="form-control" type="text" id="create-venue-phone" required = "true" name="create-venue-phone" placeholder="Main Phone Number"/>
+                <label for="floatingInput">Venue Phone</label>
+            </div>
+
+            <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+                    <input class="form-control" type="text" id="create-venue-payrate" name="create-venue-payrate" placeholder="Hourly Payrate"/>
+                    <!-- <label for="floatingInput">Hourly Payrate</label> -->
+                    <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                    </div>
                 </div>
             </div>
-            <div class="mx-auto" style="width: 200px;">
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control"type="text" id="create-venue-name" name="create-venue-name" placeholder="Venue Name"/>
-                        <label for="floatingInput">Venue Name</label>
-                    </div>
-                </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" type="text" id="create-venue-phone" name="create-venue-phone" placeholder="Main Phone Number"/>
-                        <label for="floatingInput">Venue Phone</label>
-                    </div>
-                </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" type="text" id="create-venue-payrate" name="create-venue-payrate" placeholder="$ Pay per Hour"/>
-                        <label for="floatingInput">$ Rate per Hour</label>
-                    </div>
-                </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" type="text" id="create-venue-address" name="create-venue-address" placeholder="Venue Address"/>
-                        <label for="floatingInput">Venue Address</label>
-                    </div>
-                </div>
-            <div class="mx-auto" style="width: 200px;">
-                <button type="submit" class="btn btn-dark" style="width: 250px;">Create Venue</button>
+
+            <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+                <input class="form-control" type="text" required = "true" id="create-venue-address" name="create-venue-address" placeholder="Venue Address"/>
+                <label for="floatingInput">Venue Address</label>
             </div>
+
+            <button type="submit" class="btn btn-dark" style="width: 250px; margin-left: 110px;">Create Venue</button>
         </form>
     </div>
 </div>

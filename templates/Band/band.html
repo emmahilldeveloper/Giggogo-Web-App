@@ -2,15 +2,14 @@
 {% block title %} Band {% endblock %}
 {% block body %}
 <img src="/static/media/audience.jpg" id="background-photo">
-<div class="center">
-    <div class="mx-auto" style="width: 200px;">
-        <button type="button" class="btn btn-dark" id="findband" name="findband" style="width: 250px;">Find a Band</button>
-    </div>
-    <div class="mx-auto" style="width: 200px;">
-        <button type="button" class="btn btn-dark" id="addband" name="addband" style="width: 250px;">+ Add Band</button>
-    </div>
+<div class="container-fluid" id="band-choice">
+        <button type="button" class="btn btn-dark" id="findband" name="findband" style="width: 150px; margin-top: 70px; margin-left: 37px;">Find a Band</button>
+        <br>
+        <br>
+        <button type="button" class="btn btn-dark" id="addband" name="addband" style="width: 150px; margin-left: 37px;">+ Add Band</button>
+</div>
 
     <!-- Javascript files imported here. -->
     <script src="/static/js/band.js"></script>
-</div>
+
 {% endblock %}

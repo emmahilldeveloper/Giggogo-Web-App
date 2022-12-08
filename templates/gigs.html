@@ -88,6 +88,7 @@
 <br>
 <br>
 
+{% if user_info.band_id %}
 <main class="content">
     <div class="container-fluid" style="margin-left: 100px; margin-right: 100px;">
         <div class="card shadow mt">
@@ -104,6 +105,7 @@
 		</div>
 	</div>
 </main>
+{% endif %}
 
 <script src="/static/js/gigs.js"> </script>
 {% endblock %}

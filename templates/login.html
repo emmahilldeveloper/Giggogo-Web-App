@@ -3,19 +3,27 @@
 {% block body %}
 <img src="/static/media/audience.jpg" id="background-photo">
 <div class="container-fluid" id="login-div">
-    <form action="/login" method="POST" class="login-form" name="login-form">
+    <form class="col-12" action="/login" method="POST" class="login-form" name="login-form">
 
-            <div class="form-floating mb-3" style="width: 250px; margin-top: 30%; margin-left: 17%;" id="email-login">
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-top: 140px;margin-left: 9%;" id="email-login">
                 <input class="form-control" id="floatingInput" type="text" name="email" placeholder="Email"/>
                 <label for="floatingInput">Email</label>
             </div>
+        </div>
+            
 
-            <div class="form-floating mb-3" style="width: 250px; margin-left: 17%;" id="password-login">
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;" id="password-login">
                 <input class="form-control" id="floatingInput" type="password" name="password" placeholder="Password"/>
                 <label for="floatingInput">Password</label>
             </div>
+        </div>
+        
 
-            <button type="submit" id="login" class="btn btn-dark" style="width: 250px; margin-left: 17%;">Log In</button>
+        <div class="row">
+            <button type="submit" id="login" class="btn btn-dark" style="width: 80%;margin-left: 9%;">Log In</button>
+        </div>
     </form>
 </div>
 {% endblock %}

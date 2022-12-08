@@ -6,40 +6,47 @@
 {% include 'navbar.html' %}
     {% block content %}
     <img src="/static/media/audience.jpg" id="background-photo">
+    <meta name="viewport" content="width=device-width, initial-scale=.5" />
 
     <div class="container-fluid">
-        <div class="row-6" id="venue-logo-row">
+        <div class="row-1" id="venue-logo-row">
 
-            <div class="col" id="venue-logo-div">
+            <div class="col-lg-4" id="venue-logo-div">
                 <img class="venue-logo" src="{{ venue_info.venue_logo }}">
             </div>
 
-            <div class="row-6" id="venue-logo-div">
-                <div class="col" id="venue-name-div">
-                    <h1>{{ venue_info.venue_name }}</h1>
+            <div class="container-fluid">
+                <div class="row-1" id="venue-logo-div">
+
+                    <div class="col" id="venue-name-div">
+                        <h1 id="venue-name">{{ venue_info.venue_name }}</h1>
+                    </div>
                 </div>
 
-                    <div class="row-6" id="map-row">
+                <br>
+                <div class="container-fluid">
+                    <div class="row-1" id="map-row">
                         <div class="col" id="map-div">
-                            <div id="map" style="width: 900px; height: 300px;"></div>
+                            <div id="map" style="width: 100%; height: 500px; border-color: black; border-radius: 20px;"></div>
                             <div id='lat' value='{{ response[0]["lat"] }}'></div>
                             <div id='lon' value='{{ response[0]["lon"] }}'></div>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
+    </div>
 
-        <br>
-        <br>
+    <br>
 
-        <div class="container-fluid">
+    <div class="container-fluid">
+        <div class="row-2" id="upcoming-gigs-div">
 
-            <div class="card col-6 shadow mt" id="upcoming-gigs-row">
-                <div class="card-header" id="upcoming-gigs">
-                    <h1>Upcoming Gigs:
-                        <div value="{{ user_info.band_id }}" id="book-venue-button-div">
+        <div class="col-12">
+            <div class="card col-12 shadow mt" id="upcoming-gigs-row" style="border-radius: 20px; border-color: black;">
+                    <h1 style="margin-left: 10px; margin-top: 10px;">Upcoming Gigs
+                        <div value="{{ user_info.band_id }}" id="book-venue-button-div" style="display:inline-block;">
                             <a class="btn btn-primary" id="book-venue-button" type="click" href="/bookvenue/{{ venue_info.venue_id }}">Book Venue</a>
                             {% if user_info.venue_id %}
                             <span id="venue"></span>
@@ -49,27 +56,26 @@
                         </div>
                     </h1>
                 </div>
-                    {% for band in bands %}
-                    <div class="card-body" style="width:30rem" id="{{ band.gig_id }}" style="background-image: url('{{ band.band_logo }}');">
-                        <ul class="list-group-item">
-                            <img style="height: 50px;" src="{{ band.band_logo }}">
-                            <li class="list-group-item"><b>Band: </b>{{ band.band_name }}</li>
-                            <li class="list-group-item"><b>Date: </b>{{ band.gig_date.strftime('%m/%d/%Y') }}</li>
-                            <li class="list-group-item"><b>Time: </b>{{ band.gig_date.strftime('%I:%M %p') }}</li>
-                        </ul>
-                    </div>
-                    {% endfor %}
-                </div>
             </div>
-
-        </div>
-
-
-            
-
-
         </div>
     </div>
+
+    <br>
+
+    <div class="container-fluid">
+        <div class="col-12" style=" background-color: white;border-radius: 20px; border-color: black; text-align: center;" >
+            {% for band in bands %}
+            <div class="card shadow" style="background-image:url('{{ band.band_logo }}');width:300px; display: inline-block; margin: 10px; text-align: center; border-radius: 20px; border-color: black;" id="{{ band.gig_id }}" name="gig-card">
+                <div class="card-group" style="border-radius: 20px; display: inline-block; margin: 5px;" id="{{ band.gig_id }}">
+                    <div class="list-group-item" style="border-radius:0px; border-radius: 20px 20px 0px 0px; border-color: black;"><b>Band: </b>{{ band.band_name }}</div>
+                    <div class="list-group-item" style="border-radius: 0px;border-color: black;"><b>Date: </b>{{ band.gig_date.strftime('%m/%d/%Y') }}</div>
+                    <div class="list-group-item" style="border-radius: 0px 0px 20px 20px;border-color: black;"><b>Time: </b>{{ band.gig_date.strftime('%I:%M %p') }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
     {% endblock %}
     <!-- Javascript files imported here. -->
     <script src="/static/js/venuehome.js"></script>

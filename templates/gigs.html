@@ -6,10 +6,10 @@
 <img src="/static/media/audience.jpg" id="background-photo">
 
 <main class="content">
-    <div class="container-fluid" style="margin-left: 100px; margin-right: 100px;">
-        <div class="card shadow mt">
+    <div class="container-fluid">
+        <div class="card shadow mt"  style="border-radius: 20px; border-color: black;">
             <div class="row g-0">
-                <div class="col" id="all-gigs" style="margin-left: 10px;">
+                <div class="col" id="all-gigs">
                     <div class="card-header">
                         <h1 style="font-size: 30px;">Upcoming Gigs</h1>
                     </div>
@@ -18,8 +18,8 @@
                     {% for venue in venue_list %}
                     <!-- Band User View -->
 
-                    <div value=" {{ user_info.band_id }}" class="card shadow mt" id="venue-gig-card" style="margin-bottom: 20px; display: inline-block;">
-                        <div class="card title" style="display: inline-block; margin-left: 10px; border-radius: 20px; border-color: transparent; margin-top: 10px;" ><b>Venue Name:</b> {{ venue.venue_name }}</div>
+                    <div value=" {{ user_info.band_id }}" class="card shadow mt" id="venue-gig-card" style="margin: 10px; display: inline-block;">
+                        <div class="card title" style="display: inline-block; margin-left: 10px; border-radius: 20px; border-color: transparent; margin-top: 10px;" ><b>Venue:</b> {{ venue.venue_name }}</div>
                         <hr />
                         {% for gig in band_gigs %}
                         {% if gig.band_id == user_info.band_id and gig.venue_id == venue.venue_id%}
@@ -38,10 +38,7 @@
                             </div>
     
                             <button type="click" class="btn btn-dark edit-gig" style="width: 50px; font-size: 12px; display: inline-block;" value="{{ gig.gig_id }}">Edit</button>
-
-
                         </div>
-
 
                         {% endif %}
                         {% endfor %}
@@ -53,29 +50,32 @@
                     <!-- Venue User View -->
                     {% if user_info.venue_id %}
                     {% for band in band_list %}
-                    <div class="card shadow mt">
-                        <div><b>Band Name:</b> {{ band.band_name }}</div>
+                    <div class="card shadow mt" style="margin: 10px; display: inline-block;">
+                        <div class="card title" style="display: inline-block; margin-left: 10px; border-radius: 20px; border-color: transparent; margin-top: 10px;"><b>Band:</b> {{ band.band_name }}</div>
 
                         {% for gig in venue_gigs %}
                         {% if gig.venue_id == user_info.venue_id and gig.band_id == band.band_id%}
+                        <div class="card-body" style="display: inline-block; margin-top: -20px;">
 
-                        <div><b>Date:</b> {{ gig.gig_date.strftime('%m/%d/%Y') }} @ {{ gig.gig_date.strftime('%I:%M %p') }}</div>
 
-                        <div><b>Payrate:</b> ${{ gig.final_payrate}}/hour</div>
-                        
-                        <div><b>Complete:</b> {% if gig.gig_complete == False %} No {% else %} Yes
-                            {% endif %}
+                            <div><b>Date:</b> {{ gig.gig_date.strftime('%m/%d/%Y') }} @ {{ gig.gig_date.strftime('%I:%M %p') }}</div>
+
+                            <div><b>Payrate:</b> ${{ gig.final_payrate}}/hour</div>
+                            
+                            <div><b>Complete:</b> {% if gig.gig_complete == False %} No {% else %} Yes
+                                {% endif %}
+                            </div>
+                            
+                            <div><b>Paid:</b> {% if gig.gig_paid == False %} No {% else %} Yes
+                                {% endif %}
+                            </div>
+
+                            <button type="click" class="btn btn-dark edit-gig" style="width: 250px;" value="{{ gig.gig_id }}">Edit</button>
                         </div>
-                        
-                        <div><b>Paid:</b> {% if gig.gig_paid == False %} No {% else %} Yes
-                            {% endif %}
-                        </div>
-
-                        <button type="click" class="btn btn-dark edit-gig" style="width: 250px;" value="{{ gig.gig_id }}">Edit</button>
-
                         {% endif %}
                         {% endfor %}
                     </div>
+
                     {% endfor %}
                     {% endif %}
 
@@ -90,14 +90,14 @@
 
 {% if user_info.band_id %}
 <main class="content">
-    <div class="container-fluid" style="margin-left: 100px; margin-right: 100px;">
-        <div class="card shadow mt">
+    <div class="container-fluid">
+        <div class="card shadow mt"  style="border-radius: 20px; border-color: black;">
             <div class="row g-0">
-                <div class="col" id="all-gigs" style="margin-left: 10px;">
+                <div class="col" id="all-gigs">
                     <div class="card-header">
                         <h1 style="font-size: 30px;">Sales Data</h1>
                     </div>
-                    <div class="col-6" id="gig-data">
+                    <div class="col-12" id="gig-data">
                         <canvas id="test-chart"></canvas>
                     </div>
                 </div>

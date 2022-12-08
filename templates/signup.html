@@ -3,34 +3,50 @@
 {% block body %}
 <img src="/static/media/audience.jpg" id="background-photo">
 <div class="container-fluid" id="sign-up">
-    <form action="/signup" method="POST" class="signup-form" name="signup-form">
+    <form class="col-12" action="/signup" method="POST" class="signup-form" name="signup-form">
 
-        <div class="form-floating mb-3" style="width: 250px; margin-top: 13%; margin-left: 63px;">
-            <input class="form-control" id="floatingInput" type="text" name="profile-photo" placeholder="Photo URL"/>
-            <label for="floatingInput">Profile Photo URL</label>
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-top: 80px;margin-left: 9%;">
+                <input class="form-control" id="floatingInput" type="text" name="profile-photo" placeholder="Photo URL"/>
+                <label for="floatingInput">Profile Photo URL</label>
+            </div>
         </div>
+        
 
-        <div class="form-floating mb-3" style="width: 250px; margin-left: 63px;">
-            <input class="form-control" required = "true" id="floatingInput" type="text" name="signup-first-name" placeholder="First Name"/>
-            <label for="floatingInput">First Name</label>
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
+                <input class="form-control" required = "true" id="floatingInput" type="text" name="signup-first-name" placeholder="First Name"/>
+                <label for="floatingInput">First Name</label>
+            </div>
         </div>
+        
 
-        <div class="form-floating mb-3" style="width: 250px; margin-left: 63px;">
-            <input class="form-control" required = "true" id="floatingInput" type="text" name="signup-last-name" placeholder="Last Name"/>
-            <label for="floatingInput">Last Name</label>
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
+                <input class="form-control" required = "true" id="floatingInput" type="text" name="signup-last-name" placeholder="Last Name"/>
+                <label for="floatingInput">Last Name</label>
+            </div>
         </div>
+        
 
-        <div class="form-floating mb-3" style="width: 250px; margin-left: 63px;">
-            <input class="form-control" required = "true" id="floatingInput" type="email" name="signup-email" placeholder="Email"/>
-            <label for="floatingInput">Email</label>
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
+                <input class="form-control" required = "true" id="floatingInput" type="email" name="signup-email" placeholder="Email"/>
+                <label for="floatingInput">Email</label>
+            </div>
         </div>
+        
 
-        <div class="form-floating mb-3" style="width: 250px; margin-left: 63px;">
-            <input class="form-control" required = "true" id="floatingInput" type="password" name="signup-password" placeholder="Password"/>
-            <label for="floatingInput">Password</label>
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
+                <input class="form-control" required = "true" id="floatingInput" type="password" name="signup-password" placeholder="Password"/>
+                <label for="floatingInput">Password</label>
+            </div>
         </div>
-
-        <button type="submit" class="btn btn-dark" style="width: 250px; margin-left: 63px;">Create Account</button>
+        
+        <div class="row">
+            <button type="submit" class="btn btn-dark" style="width: 80%;margin-left: 9%;">Create Account</button>
+        </div>
 
     </form>
 </div>

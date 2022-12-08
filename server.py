@@ -362,6 +362,7 @@ def band_homepage(band_id):
         venues_dict = {}
         venues_dict["venue_name"] = venue_info.venue_name
         venues_dict["venue_id"] = venue_info.venue_id
+        venues_dict["venue_logo"] = venue_info.venue_logo
         venues_dict["gig_date"] = gig.gig_date
         venues_dict["gig_id"] = gig.gig_id
         venues.append(venues_dict)
@@ -814,7 +815,7 @@ def show_all_gigs(user_id):
     venue_gigs = crud.all_gigs_by_venue(venue_id)
 
     venue_list = set()
-    band_list = []
+    band_list = set()
 
     if band_id:
         for gig in band_gigs:
@@ -824,7 +825,7 @@ def show_all_gigs(user_id):
     if venue_id:
         for gig in venue_gigs:
             booked_band_info = crud.all_band_info(gig.band_id)
-            band_list.append(booked_band_info)
+            band_list.add(booked_band_info)
 
     return render_template("gigs.html", user_info = user_info, band_list = band_list, venue_list = venue_list, band_gigs = band_gigs, venue_gigs = venue_gigs)
 

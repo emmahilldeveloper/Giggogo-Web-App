@@ -3,24 +3,31 @@
 {% block body %}
 <img src="/static/media/audience.jpg" id="background-photo">
 <div class="container-fluid" id="new-venue">
-        <form method="POST">
+    <form class="col-12" method="POST">
 
-            <div class="form-floating mb-3" style="width: 250px; margin-top: 13%; margin-left: 110px;">
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-top: 48px;margin-left: 9%;">
                 <input class="form-control" id="floatingInput" type="text" name="create-venue-logo" placeholder="Photo URL"/>
                 <label for="floatingInput">Venue Logo URL</label>
             </div>
+        </div>
 
-            <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
                 <input class="form-control"type="text" required = "true" id="create-venue-name" name="create-venue-name" placeholder="Venue Name"/>
                 <label for="floatingInput">Venue Name</label>
             </div>
+        </div>
 
-            <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
                 <input class="form-control" type="text" id="create-venue-phone" required = "true" name="create-venue-phone" placeholder="Main Phone Number"/>
                 <label for="floatingInput">Venue Phone</label>
             </div>
+        </div>
 
-            <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">$</span>
@@ -32,14 +39,18 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="form-floating mb-3" style="width: 250px; margin-left: 110px;">
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
                 <input class="form-control" type="text" required = "true" id="create-venue-address" name="create-venue-address" placeholder="Venue Address"/>
                 <label for="floatingInput">Venue Address</label>
             </div>
+        </div>
 
-            <button type="submit" class="btn btn-dark" style="width: 250px; margin-left: 110px;">Create Venue</button>
-        </form>
-    </div>
+        <div class="row">
+            <button type="submit" class="btn btn-dark" style="width: 80%;margin-left: 9%;">Create Venue</button>
+        </div>
+    </form>
 </div>
 {% endblock %}

@@ -18,32 +18,40 @@
     {% block content %}
     <img src="/static/media/audience.jpg" id="background-photo">
 
-   
-    <div class="center">
-        <form action="/bookband/{{ band_info.band_id }}" method="POST" class="book-band-form" name="book-band-form">
-            <div class="mx-auto" style="width: 200px;">
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" id="floatingInput" type="date" name="request-date" placeholder="Request Date"/>
-                        <label for="floatingInput">Request Date</label>
-                    </div>
+    <div class="container-fluid" id="book-band">
+        <form class="col-12" action="/bookband/{{ band_info.band_id }}" method="POST" class="book-band-form" name="book-band-form">
+
+            <div class="row">
+                <div class="form-floating mb-3" style="width: 80%;margin-top: 100px;margin-left: 9%;">
+                    <input class="form-control" required = "true"id="floatingInput" type="date" name="request-date" placeholder="Request Date"/>
+                    <label for="floatingInput">Request Date</label>
                 </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" id="floatingInput" type="time" name="request-time" placeholder="Request Time"/>
-                        <label for="floatingInput">Request Time</label>
-                    </div>
+            </div>
+
+            <div class="row">
+                <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
+                    <input class="form-control" required = "true"id="floatingInput" type="time" name="request-time" placeholder="Request Time"/>
+                    <label for="floatingInput">Request Time</label>
                 </div>
-                <div class="col-5 col-md-3 order-md-1">
-                    <div class="form-floating mb-3" style="width: 250px;">
-                        <input class="form-control" id="floatingInput" type="currency" name="request-payrate" placeholder="Request Payrate"/>
-                        <label for="floatingInput">Request Hourly Payrate</label>
+            </div>
+
+            <div class="row">
+                <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                    <input class="form-control" required = "true" id="floatingInput" type="currency" name="request-payrate" placeholder="Request Hourly Payrate"/>
+                    <!-- <label for="floatingInput">Request Hourly Payrate</label> -->
+                    <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="mx-auto" style="width: 200px;">
-                <button type="submit" class="btn btn-dark" style="width: 250px;">Request Gig</button>
+            <div class="row">
+                <button type="submit" class="btn btn-dark" style="width: 80%;margin-left: 9%;">Request Gig</button>
             </div>
         </form>
     </div>

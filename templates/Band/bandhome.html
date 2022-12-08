@@ -60,7 +60,7 @@
         <div class="row-2" id="upcoming-gigs-div">
 
             <div class="col-12" id="upcoming-gigs" style="border-radius: 20px; border-color: black;">
-                <h1>Upcoming Gigs
+                <h1 style="margin-left: 10px; margin-top: 10px;">Upcoming Gigs
                     <div value="{{ user_info.venue_id }}" id="book-band-button-div" style="display:inline-block;">
                         <a class="btn btn-primary" id="book-band-button" type="click" href="/bookband/{{ band_info.band_id }}">Book Band</a>
                         {% if user_info.band_id %}
@@ -77,12 +77,14 @@
     <br>
 
     <div class="container-fluid">
-        <div class="col-12" style=" background-color: white;border-radius: 20px; border-color: black;">
+        <div class="col-12" style=" background-color: white;border-radius: 20px; border-color: black; text-align: center;" >
             {% for venue in venues %}
-            <div class="card" style="width:400px; display: inline-block; margin: 10px; background-color: black;" id="{{ venue.gig_id }}" name="gig-card">
+            <div class="card shadow" style="background-image:url('{{ venue.venue_logo }}');width:300px; display: inline-block; margin: 10px; text-align: center; border-radius: 20px; border-color: black;" id="{{ venue.gig_id }}" name="gig-card">
                 <div class="card-group" style="border-radius: 20px; display: inline-block; margin: 5px;">
-                    <div class="list-group-item"><b>Venue: </b>{{ venue.venue_name }}</div>
-                    <div class="list-group-item"><b>Date: </b>{{ venue.gig_date.strftime('%m/%d/%Y') }} @ {{ venue.gig_date.strftime('%I:%M %p') }}</div>
+                    <!-- <img style="height: 50px; margin-top: 5px;margin-bottom: 5px;" src="{{ venue.venue_logo }}"> -->
+                    <div class="list-group-item" style="border-radius:0px; border-radius: 20px 20px 0px 0px; border-color: black;"><b>Venue: </b>{{ venue.venue_name }}</div>
+                    <div class="list-group-item" style="border-radius: 0px;border-color: black;"><b>Date: </b>{{ venue.gig_date.strftime('%m/%d/%Y') }}</div>
+                    <div class="list-group-item" style="border-radius: 0px 0px 20px 20px;border-color: black;"><b>Time: </b>{{ venue.gig_date.strftime('%I:%M %p') }}</div>
                 </div>
             </div>
             {% endfor %}

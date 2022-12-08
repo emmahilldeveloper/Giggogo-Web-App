@@ -13,6 +13,7 @@ allGigEditButtons.forEach((element) => {
     });
 });
 
+
 window.addEventListener("load", (evt) => {
 
   evt.preventDefault();

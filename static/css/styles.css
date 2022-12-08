@@ -90,8 +90,8 @@
 /*                                                         Login Styling                                                         */
 
 #login-div {
-  width: 400px;
-  height: 400px;
+  width: 50%;
+  height: 50%;
   background-color: white;
   position: absolute;
   top:0;
@@ -108,9 +108,8 @@
 /*                                                         Signup + New Band Venue Styling                                                         */
 
 #sign-up {
-  margin-top: 15%;
-  width: 400px;
-  height: 500px;
+  width: 50%;
+  height: 60%;
   background-color: white;
   position: absolute;
   top:0;
@@ -125,8 +124,8 @@
 }
 
 #new-band {
-  width: 500px;
-  height: 600px;
+  width: 50%;
+  height: 60%;
   background-color: white;
   position: absolute;
   top:0;
@@ -141,8 +140,8 @@
 }
 
 #new-venue {
-  width: 500px;
-  height: 540px;
+  width: 50%;
+  height: 54%;
   background-color: white;
   position: absolute;
   top:0;
@@ -257,8 +256,8 @@
 
 /*                                                         Edit User Profile Styling                                                         */
 #edit-user {
-  width: 450px;
-  height: 450px;
+  width: 50%;
+  height: 60%;
   background-color: white;
   position: absolute;
   top:0;
@@ -271,6 +270,41 @@
   border-color: black;
   border-radius: 20px;
 }
+
+/*                                                        Book Venue Band Styling                                                    */
+
+#book-venue {
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+}
+
+#book-band {
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+}
+
 /*                                                        Band Home Styling                                                    */
 
 /* Band Logo Section */
@@ -367,29 +401,112 @@
   background-color: black;
 }
 
+#book-band-button {
+  /* padding: 0.9em 1.6em; */
+  border-color: black;
+  outline: none;
+  color: black;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+#book-band-button::after {
+  content: "";
+ z-index: -1;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ background-color: rgb(232,163,109);
+ left: 0;
+ top: 0;
+ border-radius: 20px;
+}
+
+#book-band-button::before {
+  content: "";
+  background: linear-gradient(
+     35deg,
+     #FF0000, orange, #FF00C8, #002BFF,
+       #FF0000, yellow, #FF00C8, #002BFF
+ );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 20px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {
+   background-position: 0 0;
+  }
+ 
+  50% {
+   background-position: 400% 0;
+  }
+ 
+  100% {
+   background-position: 0 0;
+  }
+ }
+
+#book-band-button:hover::before {
+  opacity: 1;
+}
+
+#book-band-button:active {
+  color: #000;
+  font-weight: bold;
+}
+
+#book-band-button:active:after {
+  background: transparent;
+}
+
 /*                                                         Venue Home Styling                                                         */
 
 .venue-logo {
-  max-width: 100%;
+  height: 100%;
+  width: 100%;
   border: solid;
   border-width: 1px;
   border-color: black;
-  border-radius: 0px;
+  border-radius: 20px;
+  object-fit: cover;
+  position: relative;
 }
 
 #venue-logo-div {
   display: flex;
-  padding-left: 20px;
 }
 
 #venue-logo-row {
-  padding-top: 20px;
   display: flex;
 }
 
-#profile-info-row {
-  display: flex;
-  padding-left: 20px;
+#venue-name {
+  font-size: 4vw;
+  padding: 10px;
+  text-align: center;
+}
+#venue-name-div {
+  background-color: white;
+  border: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 20px;
 }
 
 #upcoming-gigs {
@@ -408,6 +525,86 @@
   border: 1px;
   border-color: black;
   border-radius: 0px;
+}
+
+#venue-page-band-gigs {
+  border-radius: 20px;
+  border-color: black;
+  background-color: black;
+}
+
+#book-venue-button {
+  /* padding: 0.9em 1.6em; */
+  border-color: black;
+  outline: none;
+  color: black;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+#book-venue-button::after {
+  content: "";
+ z-index: -1;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ background-color: rgb(232,163,109);
+ left: 0;
+ top: 0;
+ border-radius: 20px;
+}
+
+#book-venue-button::before {
+  content: "";
+  background: linear-gradient(
+     35deg,
+     #FF0000, orange, #FF00C8, #002BFF,
+       #FF0000, yellow, #FF00C8, #002BFF
+ );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 20px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {
+   background-position: 0 0;
+  }
+ 
+  50% {
+   background-position: 400% 0;
+  }
+ 
+  100% {
+   background-position: 0 0;
+  }
+ }
+
+#book-venue-button:hover::before {
+  opacity: 1;
+}
+
+#book-venue-button:active {
+  color: #000;
+  font-weight: bold;
+}
+
+#book-venue-button:active:after {
+  background: transparent;
 }
 
 /*                                                         Messaging Styling                                                         */
@@ -465,8 +662,8 @@
 }
 
 #edit-gig {
-  width: 450px;
-  height: 450px;
+  width: 45%;
+  height: 60%;
   background-color: white;
   position: absolute;
   top:0;
@@ -479,3 +676,4 @@
   border-color: black;
   border-radius: 20px;
 }
+

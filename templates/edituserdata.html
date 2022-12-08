@@ -3,35 +3,46 @@
 {% block body %}
 <img src="/static/media/audience.jpg" id="background-photo">
 <div class="container-fluid" id="edit-user">
-    <form action="/edituser" method="POST" class="edit-user-data-form" name="edit-user-data-form">
+    <form class="col-12" action="/edituser" method="POST" class="edit-user-data-form" name="edit-user-data-form">
 
-        <div class="form-floating mb-3" style="width: 250px; margin-top: 7%; margin-left: 80px;">
-            <input class="form-control" id="floatingInput" type="text" name="profile-photo" placeholder="Photo URL"/>
-            <label for="floatingInput">Update Profile Photo URL</label>
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-top: 60px;margin-left: 9%;">
+                <input class="form-control" id="floatingInput" type="text" name="profile-photo" placeholder="Photo URL"/>
+                <label for="floatingInput">Update Profile Photo URL</label>
+            </div>
         </div>
 
-        <div class="form-floating mb-3" style="width: 250px;margin-left: 80px;">
-            <input class="form-control" id="floatingInput" type="text" name="first-name" placeholder="First Name"/>
-            <label for="floatingInput">Update First Name</label>
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
+                <input class="form-control" id="floatingInput" type="text" name="first-name" placeholder="First Name"/>
+                <label for="floatingInput">Update First Name</label>
+            </div>
         </div>
 
-        <div class="form-floating mb-3" style="width: 250px;margin-left: 80px;">
-            <input class="form-control" id="floatingInput" type="text" name="last-name" placeholder="Last Name"/>
-            <label for="floatingInput">Update Last Name</label>
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
+                <input class="form-control" id="floatingInput" type="text" name="last-name" placeholder="Last Name"/>
+                <label for="floatingInput">Update Last Name</label>
+            </div>
         </div>
 
-        <div class="form-floating mb-3" style="width: 250px;margin-left: 80px;">
-            <input class="form-control" id="floatingInput" type="email" name="email" placeholder="Email"/>
-            <label for="floatingInput">Update Email</label>
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
+                <input class="form-control" id="floatingInput" type="email" name="email" placeholder="Email"/>
+                <label for="floatingInput">Update Email</label>
+            </div>
         </div>
 
-        <div class="form-floating mb-3" style="width: 250px;margin-left: 80px;">
-            <input class="form-control" id="floatingInput" type="password" name="password" placeholder="Password"/>
-            <label for="floatingInput">Update Password</label>
+        <div class="row">
+            <div class="form-floating mb-3" style="width: 80%;margin-left: 9%;">
+                <input class="form-control" id="floatingInput" type="password" name="password" placeholder="Password"/>
+                <label for="floatingInput">Update Password</label>
+            </div>
         </div>
 
-
-    <button type="submit" class="btn btn-dark" style="width: 250px;margin-left: 80px;">Save</button>
+        <div class="row">
+            <button type="submit" class="btn btn-dark" style="width: 80%;margin-left: 9%;">Save</button>
+        </div>
     </form>
 </div>
 {% endblock %}

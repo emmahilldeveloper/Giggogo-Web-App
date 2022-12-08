@@ -6,6 +6,10 @@ let message = document.getElementById("message");
 
 let allMessageButtons = document.querySelectorAll("#message");
 
+if (document.getElementById("all-messages").innerText == "") {
+    document.getElementById("all-messages").innerText = "No current messages."
+}
+
 allMessageButtons.forEach((element) => {
     element.addEventListener("click", (evt) => {
         // evt.preventDefault(); // Add this back in if you want to click "Send and not have refresh."

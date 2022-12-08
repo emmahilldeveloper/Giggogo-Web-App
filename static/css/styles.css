@@ -50,7 +50,7 @@
 /*                                                         Homepage Styling                                                         */
 
 #homepage-logo {
-  max-width: 1000px;
+  max-width: 100%;
   position: absolute;
   top:0;
   bottom: 500px;
